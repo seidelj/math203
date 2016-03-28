@@ -1,0 +1,128 @@
+% Preamble
+\documentclass[12pt]{article}%
+\usepackage[a4paper, top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{bm} % let's you bold with \begin{align} environment, etc.
+\usepackage{comment}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{changepage}
+\usepackage{fullpage}
+\usepackage{times} % sets font family to Times (a standard serif font)
+\usepackage{epsfig, subfig, subfloat, graphicx}%
+\usepackage{enumerate} %counting environment
+\usepackage{enumitem} %makes enumerate MORE POWERFUL
+\usepackage{microtype} % improves character spacing
+\usepackage[hang,flushmargin]{footmisc} % remove indents from the footnotes
+\usepackage{datetime}
+\usepackage{grffile}
+\usepackage{siunitx}
+\usepackage{tabu}
+\usepackage{mathrsfs}
+\usepackage{centernot}
+\usepackage{titling}
+\usepackage{pdfpages}
+\usepackage{color,soul}
+\usepackage{booktabs} % publication-quality tables.
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage[american]{babel}
+\pagenumbering{gobble} % eats the page numbers on the bottom of the page right up.
+
+% Personal time-saving operators. Time is the most important constraint we face. No matter how much income you have, you only have 168 hours in a week at your disposal.
+\DeclareMathOperator*{\argmin}{arg\,min\;}
+\DeclareMathOperator*{\argmax}{arg\,max\;}
+\DeclareMathOperator*{\dconverge}{\overset{\emph{d}}{\longrightarrow}}
+\DeclareMathOperator*{\pconverge}{\overset{\emph{P}}{\longrightarrow}}
+\DeclareMathOperator*{\dorpconverge}{\overset{d/\emph{P}}{\longrightarrow}}
+\DeclareMathOperator*{\dequal}{\overset{\emph{d}}{=}}
+\DeclareMathOperator*{\Var}{\text{Var}}
+\DeclareMathOperator*{\Cov}{\text{Cov}} 
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}} % Getting the double perpendicular to represent statistical independence
+
+\makeatletter
+\newsavebox{\myboxa}\newsavebox{\mysima}
+\newcommand{\distas}[1]{%
+  \savebox{\myboxa}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}%
+  \savebox{\mysima}{\hbox{$\sim$}}%
+  \mathbin{\overset{#1}{\kern\z@\resizebox{\wd\myboxa}{\ht\mysima}{$\sim$}}}%
+}
+
+\setcounter{MaxMatrixCols}{20} % Otherwise, \LaTeX complains that I have too many alignments "&"
+\setlength{\parindent}{0cm} % Remove all paragraph indents.
+
+% TikZ objects
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\newcommand{\button}[1]%
+{   \begin{tikzpicture}[baseline=(tempname.base)]
+        \node[draw=blue, fill=blue, rounded corners=0.5pt, inner sep=1pt, minimum width=1.5em, minimum height=1.5em,] (tempname) {#1};
+    \end{tikzpicture}
+}
+
+% Setting reference directories
+\newcommand{\tabledir}{/Users/BD/Box Sync/Projects/Active/SAWS/analysis/mailout1/tables}
+\newcommand{\figuredir}{/Users/BD/Box Sync/Projects/Active/SAWS/analysis/mailout1/figures}
+\newcommand{\letterdir}{/Users/BD/Box Sync/Projects/Active/SAWS/backup/treatment_letters}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commands not to forget
+
+% \xrightarrow{n \to \infty} -- automatically draws the arrow as far as you need to the text above it 
+% \xlefttarrow{n \to \infty} -- same as \xrightarrow, but in the reverse direction 
+% \rule{\textwidth}{1pt} -- get a horizontal line across the span of \textwidth (basically \hline for non-tabular)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{\textbf{Pretty slim \LaTeX}}
+\author{BD\thanks{With help from Sublime Text}}
+\date{\today}
+
+\maketitle
+
+\newpage
+
+\section{Introduction}
+
+To complement our suggestive evidence on the basis of unadjusted mean coupon redemption, we estimate the following two regression models\footnote{Results on the probability of coupon redemption are qualitatively similar when estimated instead as logit or probit models via maximum likelihood. The interested reader can find these alternative specifications in the appendix.}:
+
+\begin{align}
+1\{Coupon_{i}\} &= \alpha + \displaystyle\sum_{f \in \{\text{L, SC, C}\}} \beta_f T^f_i + u_i \label{eq:uptake_nocovars}  \\
+1\{Coupon_{i}\} &= \tilde{\alpha} + \displaystyle\sum_{f \in \{\text{L, SC, C}\}} \beta_f T^f_i + X_i'\gamma + \tilde{u}_i \label{eq:uptake_covars}
+\end{align}
+
+In both equations, $1\{Coupon_{i}\}$ is an indicator for whether household $i$ redeemed a coupon through the water utility's program. Each $T_i^f$ is a dummy variable for being sent a letter with content $f$, whether loss framed (L), including a social comparison (SC), or both (C). Thus, each $\beta_f$ is the marginal change in propensity to redeem a landscape coupon due to content $f$ for household $i$. By estimating these two equations, we recover an estimate of $\alpha$ (the average propensity to redeem coupons among individuals in the Gain Framing treatment) as well as each $\beta_f$, the average treatment effect of receiving a letter with content $f$ instead of the Gain Framing letter.
+
+\subsection{Change in Water Use}
+
+As a complementary policy margin, we analyze the impact of our randomized content treatments on subsequent monthly water use of households in our experimental sample. To do so, we employ a difference-in-differences approach; in particular, we estimate the following four models:
+
+\begin{align}
+\ln\{\text{Use}_{it}\} &= \alpha + \pi \text{Post}_{it} + \displaystyle\sum_{f \in \{\text{L, SC, C}\}} \beta_f T^f_{i} \times \text{Post}_it +  u_{it}  \\
+\ln\{\text{Use}_{it}\} &= \tilde{\alpha}_i + \tilde{\pi} \text{Post}_{it} + \displaystyle\sum_{f \in \{\text{L, SC, C}\}} \beta_f T^f_{i} \times \text{Post}_{it} + \tilde{u}_{it} \\
+\ln\{\text{Use}_{it}\} &= \alpha^* + \eta_t^* + \pi^{*} \text{Post}_{it} + \displaystyle\sum_{f \in \{\text{L, SC, C}\}} \beta_f T^f_{i} \times \text{Post}_{it} + u^*_{it} \\
+\ln\{\text{Use}_{it}\} &= \alpha_i^{**} + \eta_t^{**} + \pi^{**} \text{Post}_{it} + \displaystyle\sum_{f \in \{\text{L, SC, C}\}} \beta_f T^f_{i} \times \text{Post}_{it} + u^{**}_{it}
+\end{align}
+
+Throughout, our dependent variable is the log of water use of household $i$ in month $t$\footnote{As a robustness check, we explored using levels of water use normalized by the average post-treatment use in the Gain Framing treatment as the dependent variable. The results were partly inconsistent with those when estimating in logs, which led us to explore why. A first concern is that the log specifications exclude 1,633 monthly bills with zero water use. When the normalized levels specification is estimated without these zero use months, the results are still not entirely in line with the log specification. The next candidate explanation is that outliers in use data were leading to the discrepancy. When we estimate the normalized levels specification excluding the top and bottom 1\% of use, the results are nearly identical to the log specifications.}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
