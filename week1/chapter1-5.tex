@@ -1,0 +1,115 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis}
+\author{Joe Seidel}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\section{Section 1.5 Construction of the Real Numbers}
+
+\subsection{Exercise 1.5.1} 
+
+Show that for any $a, b \in \mathbb{Q}$, we have $||a|-|b|| \leq |a-b|$.
+
+\begin{proof} Since $a,b \in \mathbb{Q}$, \marginnote{Absolute values on $\mathbb{Q}$ satisfy the Triangle Inequality}
+\[|a+b| \leq |a|+|b|\]
+So
+\[|a|=|a-b+b| \leq |a-b| + |b|\]
+\[|b|=|a+b-a| \leq |b-a| + |a|\]
+These can be rewritten as 
+\[|a|-|b| \leq |a-b|\]
+\[|b|-|a| \leq |b-a|\]
+Since $|a-b|=|b-a|$ and if $t \geq x$ and $t \geq -x$ then $t \geq |x|$, therefore 
+\[||a|-|b|| \leq |a-b| \]\end{proof}
+
+\subsection{Exercise 1.5.5}
+If a sequence $(a_k)_{k \in \mathbb{N}}$ converges in $\mathbb{Q}$ show that 
+$(a_k)_{k \in \mathbb{N}}$ is a Cauchy sequence in $\mathbb{Q}$.
+
+\begin{proof}By definition if $(a_k)_{k \in \mathbb{N}}$ converges in $\mathbb{Q}$ given any rational number $r > 0$ there exists an integer $N$ such that if $n \geq N$ then $|a_n-a|<r$. 
+
+Suppose $(a_k)_{k \in \mathbb{N}}$ converges to $a, a \in \mathbb{Q}$. Let $r>0$, since $(a_k)_{k \in \mathbb{N}}$ converges to $a$,  $\exists N$ such that $\forall n \geq N$, $|a_n-a| < \frac{r}{2}$.
+
+Then $\forall n,m > N$
+\[|a_n-a_m| = |a_n-a+a-a_m| \leq |a_n-a| + |a-a_m|\]
+
+Since $n > N$ and $m > N$
+\[|a_n-a| < \frac{r}{2}\]
+
+and
+\[|a-a_m| = |a_m-a| < \frac{r}{2}\]
+
+therefore
+\[|a_n-a_m|< \frac{r}{2} + \frac{r}{2} = r\]
+\end{proof}
+
+\end{document}
+\grid
