@@ -17,6 +17,7 @@
 \usepackage{lipsum}
 \usepackage{pdfpages}
 \usepackage{tikz}
+\usepackage{ skull }
 
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -101,7 +102,7 @@ Suppose $(a_k)_{k \in \mathbb{N}}$ converges to $a, a \in \mathbb{Q}$. Let $r>0$
 Then $\forall n,m > N$
 \[|a_n-a_m| = |a_n-a+a-a_m| \leq |a_n-a| + |a-a_m|\]
 
-Since $n > N$ and $m > N$
+Let $n,m > N$ 
 \[|a_n-a| < \frac{r}{2}\]
 
 and
@@ -114,31 +115,51 @@ therefore
 \subsection{Exercise 1.5.6}
 Show that the limit of a convergent sequence is unique.
 
-\begin{proof}Suppose $(a_k)_{k \in mathbb{Q}}$ converges in $\mathbb{Q}$ to $L$ and $M$. Choose $L$ and $M , L \neq M$ and let $r=\frac{|L-M|}{2}$. Then $\exists N_1 \in \mathbb{Z}$ such that if $n>N_1$ 
+\begin{proof}Suppose $(a_k)_{k \in \mathbb{Q}}$ converges in $\mathbb{Q}$ to $L$ and $M$. Choose $L$ and $M , L \neq M$ and let $r=\frac{|L-M|}{2}$. Then $\exists N_1 \in \mathbb{Z}$ such that if $n \geq N_1$ 
 then
 \[|a_n-L|<r\]
-and $\exists N_2 \in \mathbb{Z}$ such that if $n>N_2$ then
+and $\exists N_2 \in \mathbb{Z}$ such that if $n \geq N_2$ then
 \[|a_n-M|<r\]
-Let $N=max(N_1,N_2)$. If $n>N$ then 
-\[|L-M| = |l-a_n + a_n - M| \leq |L-a_n| + |a_n-M| < 2(\frac{L-M}{2}) = L-M\]
+Let $N=max(N_1,N_2)$. If $n \geq N$ then 
+\[|L-M| = |l-a_n + a_n - M| \leq |L-a_n| + |a_n-M| < 2(\frac{|L-M}{2}|) = |L-M|\]
 
-Reducing the above, we have $|L-M| < L-M$, a contradiction.  Therefore, $L=M$.
+Reducing the above, we have $|L-M| < |L-M|$ $ \skull$, a contradiction.  Therefore, $L=M$.
 
 \end{proof}
 
 \subsection{Exercise 1.5.9}
 Show that the sum of two Cauchy sequences in $\mathbb{Q}$ is a Cauchy sequence in $\mathbb{Q}$.
 
-\begin{proof}Let $(a_k)_{k \in \mathbb{N}}$ and $(b_k)_{k \in \mathbb{N}}$ be Cauchy sequences $\mathbb{Q}$ and $r>0$. Let $r>0$, $\exists N_1$ such that if $n,m \geq N_1$ then 
+\begin{proof}Let $(a_k)_{k \in \mathbb{N}}$ and $(b_k)_{k \in \mathbb{N}}$ be Cauchy sequences $\mathbb{Q}$. Let $r>0$, $\exists N_1$ such that if $n,m \geq N_1$ then 
 \[|a_n - a_m| < \frac{r}{2}\]
 and $\exists N_2$ such that if $n,m \geq N_2$ then 
 \[|b_n - b_m| < \frac{r}{2}\]
-Let $N=max(N_1,N_2)$ such that if $n,m>N$ then
+Let $N=max(N_1,N_2)$. If $n,m \geq N$ then
 \[|a_n - a_m| + |b_n - b_m| < \frac{r}{2} + \frac{r}{2} = r\]
 \[|a_n - a_m + b_n - b_m| \leq |a_n - a_m| + |b_n - b_m|\]
 Therefore
 \[|(a_n + b_n) - (a_m + b_m)| < r\]
 
 \end{proof}
+
+\subsection{Exercise 1.5.13}
+Show that if a Cauchy sequence $(a_k)_{k  \in \mathbb{N}}$ does not converge to $0$, all the terms of the sequence eventually have the same sign.
+
+
+\begin{lem}{1.5.12} Suppose $(a_k)_{k  \in \mathbb{N}} \in \mathcal{C} \setminus \mathcal{I}$  \marginnote{Where $\mathcal{C}$ denotes the set of all Cauchy sequences of rational numbers and $\mathcal{I}$ denotes the set of all Cauchy sequences that converge to $0$.  }, then there exists a positive rational number $r$ and an integer $N$ such that $|a_n| \geq r$ for all $n \geq N$.
+\end{lem}
+\begin{proof} Suppose $(a_k)_{k \in \mathbb{N}}$ is a Cauchy sequence that does not converge to $0$. Therefore given any $r>0$ there exists an integer $N$ such that if $n,m \geq N$, then $|a_n - a_m| < r$.   From Lemma 1.5.2, we can choose $r >0$ and $N$ such that $|a_n| \geq r$ for all $n \geq N$. 
+
+Let $r > 0$ and $n,m \geq N$. Therefore
+\[|a_n - a_m| < r \leq |a_n|\] 
+Suppose  $a_n > 0$ and $a_m < 0$\marginnote{In other words, they don't have the same sign.}
+\[|a_n-(-a_m)| = |a_n + a_m| < |a_n| \skull  \] 
+Likewise, suppose $a_n < 0$ and $a_m > 0$
+\[|a_n-a_m| = |a_m-a_n|\]
+\[|a_m - (-a_n)| = |a_m+a_n| < |a_n| \skull \]
+Therefore, all terms must eventually be the same sign.
+
+\end{proof}
+
 \end{document}
 \grid
