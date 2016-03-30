@@ -111,5 +111,34 @@ therefore
 \[|a_n-a_m|< \frac{r}{2} + \frac{r}{2} = r\]
 \end{proof}
 
+\subsection{Exercise 1.5.6}
+Show that the limit of a convergent sequence is unique.
+
+\begin{proof}Suppose $(a_k)_{k \in mathbb{Q}}$ converges in $\mathbb{Q}$ to $L$ and $M$. Choose $L$ and $M , L \neq M$ and let $r=\frac{|L-M|}{2}$. Then $\exists N_1 \in \mathbb{Z}$ such that if $n>N_1$ 
+then
+\[|a_n-L|<r\]
+and $\exists N_2 \in \mathbb{Z}$ such that if $n>N_2$ then
+\[|a_n-M|<r\]
+Let $N=max(N_1,N_2)$. If $n>N$ then 
+\[|L-M| = |l-a_n + a_n - M| \leq |L-a_n| + |a_n-M| < 2(\frac{L-M}{2}) = L-M\]
+
+Reducing the above, we have $|L-M| < L-M$, a contradiction.  Therefore, $L=M$.
+
+\end{proof}
+
+\subsection{Exercise 1.5.9}
+Show that the sum of two Cauchy sequences in $\mathbb{Q}$ is a Cauchy sequence in $\mathbb{Q}$.
+
+\begin{proof}Let $(a_k)_{k \in \mathbb{N}}$ and $(b_k)_{k \in \mathbb{N}}$ be Cauchy sequences $\mathbb{Q}$ and $r>0$. Let $r>0$, $\exists N_1$ such that if $n,m \geq N_1$ then 
+\[|a_n - a_m| < \frac{r}{2}\]
+and $\exists N_2$ such that if $n,m \geq N_2$ then 
+\[|b_n - b_m| < \frac{r}{2}\]
+Let $N=max(N_1,N_2)$ such that if $n,m>N$ then
+\[|a_n - a_m| + |b_n - b_m| < \frac{r}{2} + \frac{r}{2} = r\]
+\[|a_n - a_m + b_n - b_m| \leq |a_n - a_m| + |b_n - b_m|\]
+Therefore
+\[|(a_n + b_n) - (a_m + b_m)| < r\]
+
+\end{proof}
 \end{document}
 \grid
