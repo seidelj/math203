@@ -17,7 +17,7 @@
 \usepackage{lipsum}
 \usepackage{pdfpages}
 \usepackage{tikz}
-\usepackage{ skull }
+\usepackage{wasysym}
 
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
 \newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
@@ -123,7 +123,7 @@ and $\exists N_2 \in \mathbb{Z}$ such that if $n \geq N_2$ then
 Let $N=max(N_1,N_2)$. If $n \geq N$ then 
 \[|L-M| = |l-a_n + a_n - M| \leq |L-a_n| + |a_n-M| < 2(\frac{|L-M}{2}|) = |L-M|\]
 
-Reducing the above, we have $|L-M| < |L-M|$ $ \skull$, a contradiction.  Therefore, $L=M$.
+Reducing the above, we have $|L-M| < |L-M|$  a contradiction, $\Rightarrow \Leftarrow$.  Therefore, $L=M$.
 
 \end{proof}
 
@@ -153,10 +153,10 @@ Show that if a Cauchy sequence $(a_k)_{k  \in \mathbb{N}}$ does not converge to 
 Let $r > 0$ and $n,m \geq N$. Therefore
 \[|a_n - a_m| < r \leq |a_n|\] 
 Suppose  $a_n > 0$ and $a_m < 0$\marginnote{In other words, they don't have the same sign.}
-\[|a_n-(-a_m)| = |a_n + a_m| < |a_n| \skull  \] 
+\[|a_n-(-a_m)| = |a_n + a_m| < |a_n|  \Rightarrow \Leftarrow \]  
 Likewise, suppose $a_n < 0$ and $a_m > 0$
 \[|a_n-a_m| = |a_m-a_n|\]
-\[|a_m - (-a_n)| = |a_m+a_n| < |a_n| \skull \]
+\[|a_m - (-a_n)| = |a_m+a_n| < |a_n|  \Rightarrow \Leftarrow \]
 Therefore, all terms must eventually be the same sign.
 
 \end{proof}
