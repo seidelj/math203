@@ -161,5 +161,66 @@ Therefore, all terms must eventually be the same sign.
 
 \end{proof}
 
+
+\subsection{Exercise 1.5.15}
+Show that $\sim$ defines an equivalence relation on $\mathcal{C}$
+We need to show reflexivity, symmetry, and transitivity exist on Cauchy sequences that are equivalent.
+\[(a_k) \sim (a_k)\]
+For all $a_n \in (a_k), |a_n-a_n| = 0$ This we can say that $(a_k-a_k)_{k \in \mathbb{N}}$ is in $\mathcal{I}$
+\[(a_k) \sim (b_k)\]
+Suppose that $(a_k)$ and $(b_k)$ are equivalent and $r > 0$. For all $N \in \mathbb{N}$ There exists $|(a_n)-(b_n)|<r$ and $|(b_n)-(a_n)|<r$ for $n \geq N$ 
+\[(a_k) \sim (b_k) \text{,} (b_k) \sim (c_k) \Rightarrow (a_k) \sim (c_k)\]
+Let $r>0$, $\exists N_1 \in \mathbb{N}$ such that $|a_n - b_n| < \frac{r}{2}$ for all $n \geq N$ and $\exists N_2 \in \mathbb{N}$ such that $|b_n - c_n| < \frac{2}{2}$ for all $n \geq N_2$.  This implies 
+\[ |a_n - c_c| = |a_n - b_n + b_n-c_n| \leq |a_n - b_n| + |b_n - c_n| < \frac{r}{2} + \frac{r}{2} = r \]
+for all $n = max(N_1,N_2)$
+
+\subsection{Exercise 1.5.17}
+Show that \textbf{R} is a commutative ring with 1, with $\mathcal{I}$ as the additive identity and $[a_k]$ such that $a_k=1$ for all $k$ as the multiplicative identity.
+
+We know that if $(a_k),(b_k)$ are Cauchy sequences, $(a_n)_{n \in \mathbb{N}} +(a_n)_{n \in \mathbb{N}}=(a_n + b_n)_{n \in \mathbb{N}}$ and $(a_n)_{n \in \mathbb{N}}(b_n)_{n \in \mathbb{N}}=(a_nb_n)_{n \in \mathbb{N}}$ are well-defined.
+Let $[a_k]$ be an equivalence class, it easily follows that $[a_k]+[a_k] = [a_k+a_k]$ and $[a_k][a_k] = [a_k a_k]$
+
+As examples, consider $(a_k)_{k \in \mathbb{N}}$ and $(a'_k)_{k \in \mathbb{N}}$ denoted as $\{a_k\}$ and $\{a'_k\}$, respectively. Likewise, $(b_k)_{k \in \mathbb{N}}$ and $(b'_k)_{k \in \mathbb{N}}$ denoted as $\{b_k\}$ and $\{b'_k\}$  
+
+For addition, let $\{a_k\} \sim \{a'_k\}$ , $\{b_k\} \sim \{b'_k\}$ and $r>0$.  Then, $\exists N_1$ $\exists N_2$ in $\mathbb{N}$ such that
+\[|a_n-a'_n| < \frac{r}{2} \text{ for } n \geq N_1 \]
+and
+\[|b_n-b'_n| < \frac{r}{2} \text{ for } n \geq N_2 \]
+This implies
+\[|(a_n+b_n) - (a'_n + b'_n)| = |a_n - a'_n + b_n - b'_n| \geq |a_n-a'n| - |b_n - b'n| < \frac{r}{2} + \frac{r}{2} \] 
+for $n \geq max(N_1,N_2)$.
+
+If $[i_k]$ is in $\mathcal{I}$ then $\{i_k\}+\{i_k\}=0$ for all $k \in \mathbb{N}$ Then it easily follows $[a_k] + [i_k] = [a_k]$
+
+\marginnote{\begin{lem}{1.5.8. Let $(a_k)_{k \in \mathbb{N}}$ be a Cauchy sequence of rational numbers. Then $(a_k)_{k \in \mathbb{N}}$ is a bounded sequence } \end{lem}}
+For multiplication, recall that $\{a_k\}$, $\{a'_k\}$, $\{b_k\}$ and $\{b'_k\}$ are bounded. $\exists M >0$ such that  $\{a_n\}$, $\{a'_n\}$, $\{b_n\}$ ,$\{b'_n\} \leq M$ for all $n \in \mathbb{N}$ $\exists N \in \mathbb{N}$ such that
+\[|a_n - a'_n| < \frac{r}{2M} \text{ for } n \geq N_1 \]
+and
+\[|b_n - b'_n| < \frac{r}{2M} \text{ for } n \geq N_2 \]
+This implies
+\begin{align*}
+2|a_nb_n - a'_nb'_n| & = |(a_n-a'_n)(b_n+b'_n) + (a_n+a'_n)(b_n-b'_n)|
+\\& \leq |(a_n-a'_n)(b_n+b'_n)| + |(a_n+a'n)(b_n-b'_n)|
+\\& = |a_n-a'n||b_n+b'_n| + |a_n+a'n||b_n-b'_n|
+\\& \leq |a_n-a'n|(|b_n|+|b'_n|) + (|a_n|+|a'n|)|b_n-b'_n|
+\\& < \frac{r}{2M}(2M) + \frac{r}{2M}(2M)
+\\& = 2r
+\end{align*}
+Therefore $|a_nb_n - a'nb'_n| < r$ for all $n = max(N_1,N_2)$.  If $[i_k]$  with $i_k=1$ for all $k$ is the multiplicative identity it follows that $[a_k][i_k] = [a_k]$
+
+
+\subsection{Exercise 1.5.20}
+Show that order relation, defined below is well-defined and makes \textbf{R} and ordered field. 
+
+\begin{mydef}Let $a = [a_k]$ and $b=[b_k]$ be distinct elements of \textbf{R}. We define $a<b$ if $[a_k] < [b_k]$ eventually and $b>a$ if $[b_k] > [a_k]$ eventually.
+\end{mydef}
+
+Consider $a$ and $b$ as denoted above.  Let them be distinct elements of \textbf{B}. They are not equivalent and therefore $a-b$ is not in $\mathcal{I}$  We need to satisfy
+
+$(O1)$ \textbf{Trichotomy:}  Since $[a] - [b]$ is not in $\mathcal{I}$, by definition either $a < b$ or $b > a$.
+
+$(O2)$ \textbf{Transitivity:} For sake of argument, let $a < b$ and choose an additional arbitrary element of \textbf{R} $[c_k] = c$. Let $b < c$. Then $a < c$
+
+
 \end{document}
 \grid
