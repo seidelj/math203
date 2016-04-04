@@ -215,35 +215,25 @@ Show that order relation, defined below is well-defined and makes \textbf{R} and
 \begin{mydef}Let $a = [a_k]$ and $b=[b_k]$ be distinct elements of \textbf{R}. We define $a<b$ if $a_k < b_k$ eventually and $b>a$ if $b_k > a_k$ eventually.
 \end{mydef}
 
-Let $r > 0$
+Let $r > 0$, then there exists $n,m \geq N_1 \in \mathbb{N}$ such that
 
+\[|c_n - c_m| = |(a_n-b_n) - (a_m-b_m)| < r\]
 
-Consider $a$ and $b$ as denoted above. From what is already know about about $a$ and $b$ we say
+Since $[c_k]$ is not in $\mathcal{I}$ We can eventually find an $n > N_2 \in \mathbb{N}$ such that $|c_n| > r$ Therefore
+\[|a_n-b_n| > r > 0\]  We also know, from exercise 1.5.13 that all terms at this point in the sequence need to have the same sign and it's easy to see that $a_n \neq b_n$.  So it follows that either $a_k > b_k$ or $a_k < b_k$, eventually.
 
-\[|a_n - b_n| < r \text{ for some } n \geq N \in \mathbb{N}\] 
-
-Let them be distinct elements of \textbf{R}. Since $a$ and $b$ are not equivalent, $a-b$ is not in $\mathcal{I}$. Therefore either
-\[|a_n - b_n| < r < |a_n| \text{ or } |a_n - b_n| < r < |b_n| \]
-
-Consider
-\[|a_n-b_n| < |a_n|\]
-in which case
-\[0 < |a_n| - r < |a_n-b_n| < |a_n| .\]
-Likewise,
-\[|a_n-b_n| < |b_n|\]
-in which case
-\[0 < |b_n| - r < |a_n-b_n| < |b_n| .\]
-We've shown in Exercise 1.5.13 that $a_n$ and $b_n$ must have the same sign. If $a_n=b_n$ in either case, then we'll arrive at a contradiction.  Therefore, either $a_k > b_k$ or $a_k<b_k$ eventually.
+We can apply the above to the Order Axioms.
 \begin{enumerate}
-\item $(O1)$ \textbf{Trichotomy:}  Since $[a] - [b]$ is not in $\mathcal{I}$, by definition either $a < b$ or $b > a$.
+\item $(O1)$ \textbf{Trichotomy:}  Since $[a] - [b]$ is not in $\mathcal{I}$, by definition either $a_k < b_k$ or $b_k > a_k$.
 
-\item $(O2)$ \textbf{Transitivity:} For sake of argument, let $a < b$ and choose an additional arbitrary element of \textbf{R} $[c_k] = c$. Let $b < c$. Then $a < c$
+\item $(O2)$ \textbf{Transitivity:} For sake of argument, let $a_k < b_k$, eventually, and choose an additional arbitrary element of \textbf{R} $[c_k]$. Let $b_k < c_k$. Then $a_k < c_k$
 
-\item $(03)$ \textbf{Addition:} Let $a < b$ and choose $c$ to be $\mathcal{I}$ it easily follows that $a + c < a + b$
+\item $(03)$ \textbf{Addition:} Let $a_k < b_k$ and choose $[c]$ to be in $\mathcal{I}$ it easily follows that $a_k + c_k < b_k + c_k$
 
-\item $(04)$ \textbf{Multiplication:} $a < b$ and let $c$ be the multiplicative\\ identity $c_k=1$ for all $k \in \mathbb{N}$
+\item $(04)$ \textbf{Multiplication:} $a_k < b_k$ and let $[c_k]$ be the multiplicative\\ identity $c_k=1$ for all $k \in \mathbb{N}$, then $a_kc_k<b_kc_k$
 \end{enumerate}
 
+Therefore order relation is well-defined and makes \textbf{R} and ordered field.
 
 \subsection{Exercise 1.6.11}
 Find a bounded sequence of real numbers that is not convergent.
@@ -269,7 +259,7 @@ Alternatively, if $(a_k)_{k \in \mathbb{N}}$ does not have a strictly monotonic 
 
 By definition 1.6.9 a subsequence $(a_{k_{n}}$ is bounded because $(a_{k})$, Is bounded.
 
-Finally, $(a_{k_{n}}$ is monotonic and bounded and therefore converges to an element in ${R}$.
+Finally, we can apply Lemma 1.6.14 \marginnote{\begin{lem}Every bounded monotonic sequence in $\mathbb{R}$ converges to an element in $\mathbb{R}$\end{lem}} $(a_{k_{n}}$ is monotonic and bounded and therefore converges to an element in ${R}$.
 
 If increasing $\exists N$ such that $a \geq a_k \geq a_N > a - \epsilon$  If decreasing $\exists N$ such that $a \geq a_N \geq a_k > a - \epsilon$.
 
