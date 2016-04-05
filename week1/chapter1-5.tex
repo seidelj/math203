@@ -5,7 +5,7 @@
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \graphicspath{{graphics/}}
 
-\title{Real Analysis}
+\title{Real Analysis\\First Week }
 \author{Joe Seidel}
 \date{\today}
 
@@ -257,12 +257,28 @@ This process can be repeated over the set $(a_k)_{k \in \mathbb{N}}$ to create a
 
 Alternatively, if $(a_k)_{k \in \mathbb{N}}$ does not have a strictly monotonic decreasing subsequence.  We say $a_{n_{1}} < a_k$  for $k \geq n_1$ Repeating steps above to form a set $(a_{n_{1}}, a_{n_{2}}, ..., a_{n_{k}})$. Which is monotonic increasing.
 
-By definition 1.6.9 a subsequence $(a_{k_{n}}$ is bounded because $(a_{k})$, Is bounded.
+By definition 1.6.9 a subsequence $(a_{k_{j}})$ is bounded because $(a_{k})$, Is bounded.
 
-Finally, we can apply Lemma 1.6.14 \marginnote{\begin{lem}Every bounded monotonic sequence in $\mathbb{R}$ converges to an element in $\mathbb{R}$\end{lem}} $(a_{k_{n}}$ is monotonic and bounded and therefore converges to an element in ${R}$.
+Finally, we can apply Lemma 1.6.14 \marginnote{\begin{lem}Every bounded monotonic sequence in $\mathbb{R}$ converges to an element in $\mathbb{R}$\end{lem}} $(a_{k_{j}}$ is monotonic and bounded and therefore converges to an element in ${R}$.
 
-If increasing $\exists N$ such that $a \geq a_k \geq a_N > a - \epsilon$  If decreasing $\exists N$ such that $a \geq a_N \geq a_k > a - \epsilon$.
 
+\subsection{Exercise 1.6.20}
+Show that if  $\limsup_{k \to \infty}(a_k) = \liminf_{k \to \infty}(a_k)$, then $(a_k)_{k \in \mathbb{N}}$ is convergent, and $\lim_{k \to \infty}(a_k) = \limsup_{k \to \infty}(a_k) = \liminf_{k \to \infty}(a_k)$.
+
+It first helps to rewrite the definition of limit supremum and limit infimum.
+\begin{align*}
+	\limsup_{k \to \infty}(a_k) &= \lim_{n \to \infty}(b_n) \text{, where } b_n = sup\{a_k | k \geq n\} \\
+    \liminf_{k \to \infty}(a_k) &= \lim_{n \to \infty}(c_n) \text{, where } c_n = inf\{a_k| k \geq n\}
+\end{align*}
+
+The definitions combined with the information that the limit supremum of $(a_k)$ being equal the the limit infenum of $(a_k)$ imply that $c_n = b_n$ $\forall n \geq k$.  Meaning that supremum and infenum of the sequence $(a_k)$ are equal.  This allows us to write
+\[\lim_{k \to \infty}(b_k) = \lim_{k \to \infty}(c_k) \].  
+
+Which we can just refer to as
+\[\lim_{k \to \infty}(a_k)\] 
+
+  Which is where the sequence $(a_k)_{k \in \mathbb{N}}$ converges.    Moreover,
+\[\lim_{k \to \infty}(a_k) = \limsup_{k \to \infty}(a_k) = \liminf_{k \to \infty}(a_k) \]
 
 \end{document}
 \grid
