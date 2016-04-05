@@ -115,13 +115,13 @@ therefore
 \subsection{Exercise 1.5.6}
 Show that the limit of a convergent sequence is unique.
 
-\begin{proof}Suppose $(a_k)_{k \in \mathbb{Q}}$ converges in $\mathbb{Q}$ to $L$ and $M$. Choose $L$ and $M , L \neq M$ and let $r=\frac{|L-M|}{2}$. Then $\exists N_1 \in \mathbb{Z}$ such that if $n \geq N_1$ 
+\begin{proof}Suppose $(a_k)_{k \in \mathbb{Q}}$ converges in $\mathbb{Q}$ to $L$ and $M$. Choose $L$ and $M , L \neq M$ and let $r=\frac{|L-M|}{2}$. Then $\exists N_1 \in \mathbb{N}$ such that if $n \geq N_1$ 
 then
 \[|a_n-L|<r\]
-and $\exists N_2 \in \mathbb{Z}$ such that if $n \geq N_2$ then
+and $\exists N_2 \in \mathbb{N}$ such that if $n \geq N_2$ then
 \[|a_n-M|<r\]
 Let $N=max(N_1,N_2)$. If $n \geq N$ then 
-\[|L-M| = |l-a_n + a_n - M| \leq |L-a_n| + |a_n-M| < 2(\frac{|L-M}{2}|) = |L-M|\]
+\[|L-M| = |L-a_n + a_n - M| \leq |L-a_n| + |a_n-M| < 2(\frac{|L-M}{2}|) = |L-M|\]
 
 Reducing the above, we have $|L-M| < |L-M|$  a contradiction, $\Rightarrow \Leftarrow$.  Therefore, $L=M$.
 
@@ -130,11 +130,11 @@ Reducing the above, we have $|L-M| < |L-M|$  a contradiction, $\Rightarrow \Left
 \subsection{Exercise 1.5.9}
 Show that the sum of two Cauchy sequences in $\mathbb{Q}$ is a Cauchy sequence in $\mathbb{Q}$.
 
-\begin{proof}Let $(a_k)_{k \in \mathbb{N}}$ and $(b_k)_{k \in \mathbb{N}}$ be Cauchy sequences $\mathbb{Q}$. Let $r>0$, $\exists N_1$ such that if $n,m \geq N_1$ then 
+\begin{proof}Let $(a_k)_{k \in \mathbb{N}}$ and $(b_k)_{k \in \mathbb{N}}$ be Cauchy sequences $\mathbb{Q}$. Let $r>0$, $\exists N_1 \in \mathbb{N}$ such that if $n,m \geq N_1$ then 
 \[|a_n - a_m| < \frac{r}{2}\]
-and $\exists N_2$ such that if $n,m \geq N_2$ then 
+and $\exists N_2 \in \mathbb{N}$ such that if $n,m \geq N_2$ then 
 \[|b_n - b_m| < \frac{r}{2}\]
-Let $N=max(N_1,N_2)$. If $n,m \geq N$ then
+Let $N=max(N_1,N_2)$ and choose $n,m \geq N$. This implies
 \[|a_n - a_m| + |b_n - b_m| < \frac{r}{2} + \frac{r}{2} = r\]
 \[|a_n - a_m + b_n - b_m| \leq |a_n - a_m| + |b_n - b_m|\]
 Therefore
@@ -165,20 +165,24 @@ Therefore, all terms must eventually be the same sign.
 \subsection{Exercise 1.5.15}
 Show that $\sim$ defines an equivalence relation on $\mathcal{C}$
 We need to show reflexivity, symmetry, and transitivity exist on Cauchy sequences that are equivalent.
-\[(a_k) \sim (a_k)\]
-For all $a_n \in (a_k), |a_n-a_n| = 0$ This we can say that $(a_k-a_k)_{k \in \mathbb{N}}$ is in $\mathcal{I}$
-\[(a_k) \sim (b_k)\]
-Suppose that $(a_k)$ and $(b_k)$ are equivalent and $r > 0$. For all $N \in \mathbb{N}$ There exists $|(a_n)-(b_n)|<r$ and $|(b_n)-(a_n)|<r$ for $n \geq N$ 
-\[(a_k) \sim (b_k) \text{,} (b_k) \sim (c_k) \Rightarrow (a_k) \sim (c_k)\]
-Let $r>0$, $\exists N_1 \in \mathbb{N}$ such that $|a_n - b_n| < \frac{r}{2}$ for all $n \geq N$ and $\exists N_2 \in \mathbb{N}$ such that $|b_n - c_n| < \frac{2}{2}$ for all $n \geq N_2$.  This implies 
+\[(a_k)_{k \in \mathbb{N}} \sim (a_k)_{k \in \mathbb{N}}\]
+For all $a_n \in (a_k)_{k \in \mathbb{N}}, |a_n-a_n| = 0$ Thus we can say that $(a_k-a_k)_{k \in \mathbb{N}}$ is in $\mathcal{I}$
+
+\[(a_k)_{k \in \mathbb{N}} \sim (b_k)_{k \in \mathbb{N}}\]
+Suppose that $(a_k)_{k \in \mathbb{N}}$ and $(b_k)_{k \in \mathbb{N}}$ are equivalent and $r > 0$. Then, there exist $N \in \mathbb{N}$, such that exists $|a_n-b_n|<r$ and $|b_n-a_n|<r$ for $n \geq N$ and $(b_k - a_k)_{k \in \mathbb{N}}$ in $\mathcal{I}$
+
+\[(a_k)_{k \in \mathbb{N}} \sim (b_k)_{k \in \mathbb{N}} \text{,} (b_k)_{k \in \mathbb{N}} \sim (c_k)_{k \in \mathbb{N}} \Rightarrow (a_k)_{k \in \mathbb{N}} \sim (c_k)_{k \in \mathbb{N}}\]
+
+Let $r>0$, $\exists N_1 \in \mathbb{N}$ such that $|a_n - b_n| < \frac{r}{2}$ for all $n \geq N_1$ and $\exists N_2 \in \mathbb{N}$ such that $|b_n - c_n| < \frac{r}{2}$ for all $n \geq N_2$.  This implies 
 \[ |a_n - c_c| = |a_n - b_n + b_n-c_n| \leq |a_n - b_n| + |b_n - c_n| < \frac{r}{2} + \frac{r}{2} = r \]
-for all $n = max(N_1,N_2)$
+for all $n = max(N_1,N_2)$.  Therefore, $(a_k - c_k)_{k \in \mathbb{N}}$ is also in $\mathcal{I}$.
 
 \subsection{Exercise 1.5.17}
 Show that \textbf{R} is a commutative ring with 1, with $\mathcal{I}$ as the additive identity and $[a_k]$ such that $a_k=1$ for all $k$ as the multiplicative identity.
 
 We know that if $(a_k),(b_k)$ are Cauchy sequences, $(a_n)_{n \in \mathbb{N}} +(a_n)_{n \in \mathbb{N}}=(a_n + b_n)_{n \in \mathbb{N}}$ and $(a_n)_{n \in \mathbb{N}}(b_n)_{n \in \mathbb{N}}=(a_nb_n)_{n \in \mathbb{N}}$ are well-defined.
-Let $[a_k]$ be an equivalence class, it easily follows that $[a_k]+[a_k] = [a_k+a_k]$ and $[a_k][a_k] = [a_k a_k]$
+
+Let $[a_k]$ be an equivalence class, addition and multiplication are defined as follows $[a_k]+[a_k] = [a_k+a_k]$ and $[a_k][a_k] = [a_k a_k]$
 
 As examples, consider $(a_k)_{k \in \mathbb{N}}$ and $(a'_k)_{k \in \mathbb{N}}$ denoted as $\{a_k\}$ and $\{a'_k\}$, respectively. Likewise, $(b_k)_{k \in \mathbb{N}}$ and $(b'_k)_{k \in \mathbb{N}}$ denoted as $\{b_k\}$ and $\{b'_k\}$  
 
@@ -187,13 +191,13 @@ For addition, let $\{a_k\} \sim \{a'_k\}$ , $\{b_k\} \sim \{b'_k\}$ and $r>0$.  
 and
 \[|b_n-b'_n| < \frac{r}{2} \text{ for } n \geq N_2 \]
 This implies
-\[|(a_n+b_n) - (a'_n + b'_n)| = |a_n - a'_n + b_n - b'_n| \geq |a_n-a'n| - |b_n - b'n| < \frac{r}{2} + \frac{r}{2} \] 
-for $n \geq max(N_1,N_2)$.
+\[|(a_n+b_n) - (a'_n + b'_n)| = |a_n - a'_n + b_n - b'_n| \leq |a_n-a'n| - |b_n - b'n| < \frac{r}{2} + \frac{r}{2} \] 
+for $n \geq max(N_1,N_2)$.  Therefore $[a_k + b_k]$ is in $\mathcal{I}$ 
 
-If $[i_k]$ is in $\mathcal{I}$ then $\{i_k\}+\{i_k\}=0$ for all $k \in \mathbb{N}$ Then it easily follows $[a_k] + [i_k] = [a_k]$
+It follows, if $[i_k]$ is $\mathcal{I}$ then $[a_k] + [i_k] = [a_k]$
 
 \marginnote{\begin{lem}{1.5.8. Let $(a_k)_{k \in \mathbb{N}}$ be a Cauchy sequence of rational numbers. Then $(a_k)_{k \in \mathbb{N}}$ is a bounded sequence } \end{lem}}
-For multiplication, recall that $\{a_k\}$, $\{a'_k\}$, $\{b_k\}$ and $\{b'_k\}$ are bounded. $\exists M >0$ such that  $\{a_n\}$, $\{a'_n\}$, $\{b_n\}$ ,$\{b'_n\} \leq M$ for all $n \in \mathbb{N}$ $\exists N \in \mathbb{N}$ such that
+For multiplication, recall that $\{a_k\}$, $\{a'_k\}$, $\{b_k\}$ and $\{b'_k\}$ are bounded. $\exists M >0$ such that  $\{a_n\}$, $\{a'_n\}$, $\{b_n\}$ ,$\{b'_n\} \leq M$ for all $n \geq N \in \mathbb{N}$ such that
 \[|a_n - a'_n| < \frac{r}{2M} \text{ for } n \geq N_1 \]
 and
 \[|b_n - b'_n| < \frac{r}{2M} \text{ for } n \geq N_2 \]
@@ -206,13 +210,15 @@ and
 \\& < \frac{r}{2M}(2M) + \frac{r}{2M}(2M)
 \\& = 2r
 \end{align*}
-Therefore $|a_nb_n - a'nb'_n| < r$ for all $n = max(N_1,N_2)$.  If $[i_k]$  with $i_k=1$ for all $k$ is the multiplicative identity it follows that $[a_k][i_k] = [a_k]$
+Therefore $|a_nb_n - a'_nb'_n| < r$ for all $n \geq max(N_1,N_2)$.  
+
+If $[i_k]$  with $i_k=1$ for all $k$ is the multiplicative identity it follows that $[a_k][i_k] = [a_k]$
 
 
 \subsection{Exercise 1.5.20}
 Show that order relation, defined below is well-defined and makes \textbf{R} and ordered field. 
 
-\begin{mydef}Let $a = [a_k]$ and $b=[b_k]$ be distinct elements of \textbf{R}. We define $a<b$ if $a_k < b_k$ eventually and $b>a$ if $b_k > a_k$ eventually.
+\begin{mydef}Let $a = [a_k]$ and $b=[b_k]$ be distinct elements of \textbf{R}. We define $a<b$ if $a_k < b_k$ eventually and $b < a$ if $b_k < a_k$ eventually.
 \end{mydef}
 
 Let $r > 0$, then there exists $n,m \geq N_1 \in \mathbb{N}$ such that
@@ -224,13 +230,13 @@ Since $[c_k]$ is not in $\mathcal{I}$ We can eventually find an $n > N_2 \in \ma
 
 We can apply the above to the Order Axioms.
 \begin{enumerate}
-\item $(O1)$ \textbf{Trichotomy:}  Since $[a] - [b]$ is not in $\mathcal{I}$, by definition either $a_k < b_k$ or $b_k > a_k$.
+\item $(O1)$ \textbf{Trichotomy:}  Since $[a] - [b]$ is not in $\mathcal{I}$, by definition either $a_k < b_k$ or $b_k > a_k$, eventually.
 
-\item $(O2)$ \textbf{Transitivity:} For sake of argument, let $a_k < b_k$, eventually, and choose an additional arbitrary element of \textbf{R} $[c_k]$. Let $b_k < c_k$. Then $a_k < c_k$
+\item $(O2)$ \textbf{Transitivity:} For sake of argument, let $a_k < b_k$, eventually, and choose an additional arbitrary element of \textbf{R} $[c_k]$. Let $b_k < c_k$. Then $a_k < c_k$, eventually
 
-\item $(03)$ \textbf{Addition:} Let $a_k < b_k$ and choose $[c]$ to be in $\mathcal{I}$ it easily follows that $a_k + c_k < b_k + c_k$
+\item $(03)$ \textbf{Addition:} Let $a_k < b_k$ and choose $[c]$ to be in $\mathcal{I}$ it easily follows that $a_k + c_k < b_k + c_k$,  eventually
 
-\item $(04)$ \textbf{Multiplication:} $a_k < b_k$ and let $[c_k]$ be the multiplicative\\ identity $c_k=1$ for all $k \in \mathbb{N}$, then $a_kc_k<b_kc_k$
+\item $(04)$ \textbf{Multiplication:} $a_k < b_k$ and let $[c_k]$ be the multiplicative\\ identity $c_k=1$ for all $k \in \mathbb{N}$, then $a_kc_k<b_kc_k$, eventually
 \end{enumerate}
 
 Therefore order relation is well-defined and makes \textbf{R} and ordered field.
@@ -257,9 +263,7 @@ This process can be repeated over the set $(a_k)_{k \in \mathbb{N}}$ to create a
 
 Alternatively, if $(a_k)_{k \in \mathbb{N}}$ does not have a strictly monotonic decreasing subsequence.  We say $a_{n_{1}} < a_k$  for $k \geq n_1$ Repeating steps above to form a set $(a_{n_{1}}, a_{n_{2}}, ..., a_{n_{k}})$. Which is monotonic increasing.
 
-By definition 1.6.9 a subsequence $(a_{k_{j}})$ is bounded because $(a_{k})$, Is bounded.
-
-Finally, we can apply Lemma 1.6.14 \marginnote{\begin{lem}Every bounded monotonic sequence in $\mathbb{R}$ converges to an element in $\mathbb{R}$\end{lem}} $(a_{k_{j}}$ is monotonic and bounded and therefore converges to an element in ${R}$.
+Since \marginnote{\begin{lem}Every bounded monotonic sequence in $\mathbb{R}$ and conclude converges to an element in $\mathbb{R}$\end{lem}} $(a_k)$ is bounded, $(a_{k_{j}})$ is bounded and we can apply Lemma 1.6.14 $(a_{k_{j}})$ converges to an element in ${R}$.
 
 
 \subsection{Exercise 1.6.20}
