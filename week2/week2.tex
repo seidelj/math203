@@ -178,5 +178,21 @@ For all $n \in \mathbb{N}$ let $x_n \in (x, \frac{1}{n}) \cap S$
 
 Notice, ${x_n}$ is a sequence in $S$ that converges to $x \notin S$, meaning that $x$ is an accumulation point of $S$ that is not contained in the open $S$, so $S$ must be closed.
 \end{proof}
+
+\subsection{Exercise 1.6.42}
+Show that a compact subset of $\mathbb{R}$ is both closed and compact.
+
+\begin{proof}
+Suppose $A$ is a compact subset of $R$.  $A \subset \bigcup\limits_{k=1}^{\infty}U_k$, where $U_k$ are open sets.
+
+By compactness of $A$, $\exists n \in \mathbb{N}$ such that $A \subset \bigcup\limits_{k=1}^{n}U_k$ Thus we can say $A$ is bounded.
+
+Consider $A^c$ and define it as $X = \mathbb{R} \setminus A$ and take any $x \in X$. For every $a \in A$ there are open sets $U_a = (a-\epsilon,a+\epsilon)$ and $V_a = (x-\epsilon, x+\epsilon)$, for some $\epsilon > 0$ such that $U_a \cap V_a = \emptyset$.
+
+The sets $\{U_a | a \in A\}$ form an open cover over $A$ and since $A$ is compact, there are finitely many points, $m \in \mathbb{N}$ such that $A \subset \bigcup\limits_{j=1}^{m}U_{a_{j}}$, denote this as $U_A$ and $V_A=\bigcap\limits_{j=0}^{m}V_{a_{j}}$.  Then $U_A$ and $V_A$ are open and $U_A \cap V_A = \emptyset$.
+
+Notice that $V_A \subset X = A^c$ and since $x \in V_A$ and we chose $x$ to be arbitrary,  $A^c$ is open, making $A$ closed.
+
+\end{proof}
 \end{document}
 \grid
