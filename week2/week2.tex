@@ -306,13 +306,28 @@ A key idea hear is the contrapositive of the Theorem $\sum_{n=1}^{\infty}a_n$ co
 
 Then given any $\epsilon > 0$ there must be an item in the sequence that is makes the statement $|a_n| < \epsilon$ true.  
 
-If $0 < p < 1$, case we have $n^{-p} < \epsilon$. This not possible, because $n \in \mathbb{N}$.
+If \marginnote{Ask Jinxin about this problem, I am rusty on Calc.} $0 < p < 1$, case we have $n^{-p} < \epsilon$, which can be rewritten $p > -log_n(e)$ This not possible, because $n \in \mathbb{N}$ and $e$ is going to be some very small non-negative number.
 
-Similarly, if $p < 0$ then we have to satisfy $n^p < \epsilon$ which is also not possible.
+Similarly, if $p < 0$ then we have to satisfy $n^p < \epsilon$ which is also not possible because $n$ will always be a positive integer and we want $e$ to be some very small non-negative number.
 
 Therefore, the series much diverge $\sum_{n=1}^{\infty}\frac{1}{n^p}$.
 
 \item If $p \in \mathbb{R}$ and $p > 1$, show that $\sum_{n=1}^{\infty}\frac{1}{n^p}$ converges.
+We are given the hint...
+\[ \sum_{n=2}^{N}\frac{1}{n^p} \leq \int_{1}^{N} \frac{1}{x^p}dx = \frac{1}{p-1}(1-\frac{1}{N^{p-1}})\]
+
+
+Let $R_N = \int_{1}^{N} \frac{1}{x^p}dx = \frac{1}{p-1}(1-\frac{1}{N^{p-1}})$
+
+We \marginnote{I need help completing this thought} say that the series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ converges if the sequence of partial sums $(S_N)_{N \in \mathbb{N}}$  The series converges if and only if a sequence is a Cauchy sequence.  Which is to say, given $e > 0$, there is a $N_e \in \mathbb{N}$ such that for $N,M > N_e$, (assuming $N>M$), then $|\sum_{k=m+1}^{n}a_n| < e$
+
+\begin{align*}
+|S_N - S_M| &< e \\
+|S_N - S_M| \leq |(1 + \sum_{n=2}^{N}R_N) - (1 + \sum_{n=2}^{M}R_M)| &< e \\
+|\frac{1}{p-1}(1-\frac{1}{N^{p-1}}) - \frac{1}{p-1}(1-\frac{1}{M^{p-1}})| &< e \\
+|\frac{1}{p-1}(1-\frac{1}{N^{p-1}} - 1-\frac{1}{M^{p-1}} - 1)| &< e\\
+|\frac{1}{p-1}(-\frac{1}{N^{p-1}} - \frac{1}{M^{p-1}})| &< e\\
+\end{align*}
 
 \end{enumerate}
 
