@@ -98,11 +98,7 @@ Therefore $S = \mathbb{R}$.
 
 \begin{proof}
 
-Let $U \subset \mathbb{R}$.  Let $\mathcal{O}$ be the set of open intervals that are a subsection of $U$.  For $I,J \in \mathcal{O}$ define $I \sim J$ iff there are
-
-\[I_0 = I, I_1, I_2, ..., I_n = J  \in \mathcal{O}\]
-
-Such that $I_k \cap I_{k+1} \neq \emptyset$ for $k=0, ..., n-1$.  Then $\sim$ defines an equivalence relation on $\mathcal{O}$.  For $I \in \mathcal{O}$ let $[I]$ be the $\sim$ of $I$.  Then $\{\cup[I] \text{ for } I \in \mathcal{O}\}$ is decomposition of $U$ into pairwise disjoint intervals.  By construction, these intervals are countable.
+Let $S$ be an open interval in $\mathbb{R}$.  We can choose and arbitrary $x \in \mathbb{Q}$ inside $S$ and choose $r$ and $r'$ both greater than $0$, such that $(x-r, x+r')$ covers the $S$.  Since $\mathbb{Q}$ is countable, we can effectively cover any open interval in $R$ by a countable union of pairwise disjoint open intervals.
 
 \end{proof}
 
@@ -128,7 +124,7 @@ Let $\epsilon = min(\epsilon_1,..., \epsilon_n) > 0$.  This shows $(x - \epsilon
 \item Show, by example, that an infinite intersection of open sets is not necessarily open.
 The open interval $(- \frac{1}{n},\frac{1}{n})$ is open $\forall n \in \mathbb{N}$  However, it's intersection
 \[ \bigcap\limits_{n=1}^{\infty}(- \frac{1}{n},\frac{1}{n}) = {0} = [0..0] \]
-which is closed.  I
+which is closed. 
 
 \item Show that an arbitrary intersection of closed sets in $\mathbb{R}$ is a closed set in $\mathbb{R}$.
 \begin{proof}
@@ -161,7 +157,7 @@ Also, consider that $\mathbb{R}$ can be constructed of an infinite union of clos
 \end{enumerate}
 
 \subsection{Exercise 1.6.36}
-Show that a subset of $\mathbb{R}$ is closed iff it contains all its accumulation points.
+Show that a subset of $\mathbb{R}$ is closed if and only if it contains all its accumulation points.
 
 \begin{proof}"$\Rightarrow$" (Given in class)
 
@@ -171,12 +167,12 @@ That is to say $(x-\epsilon, x+\epsilon) \cap S = \emptyset$.  Which contradicts
 \end{proof}
 
 \begin{proof}"$\Leftarrow$"
-Suppose $S$ contains all it's limits points and let $S$ be open, prove by contradiction.  Therefore, $\exists x \in S^c$ such that $(x- \epsilon, x+\epsilon)$ contains atleast one element of $S$.  Symbolically written as
-\[(x- \epsilon, x+\epsilon) \cap S \neq \emptyset \text{,  } \forall \epsilon > 0\]
+Suppose $S$ contains all it's limits points and let $S$ be open, prove by contradiction.  Therefore, $\exists x \in S^c$ such that $(x- \epsilon, x+\epsilon)$ contains atleast one element of $S$, fix this value to $\bar{x} \in S^c$.  Symbolically written as
+\[(\bar{x}- \epsilon, \bar{x}+\epsilon) \cap S \neq \emptyset \text{,  } \forall \epsilon > 0\]
 
-For all $n \in \mathbb{N}$ let $x_n \in (x, \frac{1}{n}) \cap S$ 
+For all $n \in \mathbb{N}$ let $x_n \in (\bar{x}, \frac{1}{n}) \cap S$ 
 
-Notice, ${x_n}$ is a sequence in $S$ that converges to $x \notin S$, meaning that $x$ is an accumulation point of $S$ that is not contained in the open $S$, so $S$ must be closed.
+Notice, ${x_n}$ is a sequence in $S$ that converges to $\bar{x} \notin S$, meaning that $\bar{x}$ is an accumulation point of $S$ that is not contained in the open $S$, so $S$ must be closed.
 \end{proof}
 
 \subsection{Exercise 1.6.37}
@@ -194,15 +190,16 @@ In every stage of constructing the Cantor set, the middle third of the of the se
 For example in the first stage, all numbers with $1$ in the first decimal place are removed, in the second all numbers $1$ in the second decimal place and so on.
 
 \item The Cantor set is uncountable
+
 \begin{proof}
-Suppose $mathcal{C}$ is countable.
+Suppose $\mathcal{C}$ is countable.
 \[\mathcal{C} = \{x_1^1, x1^2, x1^2, x1^3, ..., x_1^n\}\]
 for each $x$ write
 \[x^i = 0.d_1^i,0.d_2^i,0.d_3^i,0.d_4^i,...,0.d_m^i \]
 
 Let $(d_1, d_2, d_3, d_4,...d_m)$ be the sequence that differs from the diagonal sequence of $d^i= d_1^i, d_2^i, d_3^i, d_4^i,...,d_m^i$ such that
 \[d_m = \{_{0 \text{ if } d^m_m = 2}^{2 \text{ if } d^m_m = 0} \}\]
-The ternary expansion $d_m$, does not appear in the list $x^i$ since $d_m \neq d_m^m$.  So, $x=0.d_1d_2d_3d_4...d_m$ is in $\mathcal{C}$ but no element in $mathcal{C}$ has two different ternary expansions using only $0$s and $2$s. So x doesn't appear in the list above, which is a contradiction, so $\mathcal{C}$ is uncountable.
+The ternary expansion $d_m$, does not appear in the list $x^i$ since $d_m \neq d_m^m$.  So, $x=0.d_1d_2d_3d_4...d_m$ is in $\mathcal{C}$ but no element in $\mathcal{C}$ has two different ternary expansions using only $0$s and $2$s. So x doesn't appear in the list above, which is a contradiction, so $\mathcal{C}$ is uncountable.
 
 \end{proof}
 
@@ -219,7 +216,7 @@ This implies that the sequence of $x_m$ converges to $x$ and such is an accumula
 
 \item The compliment of the Cantor Set in $[0,1]$ is a dense subset of $[0,1]$
 
-In layman's terms, we delete the all the middle intervals at every stage of constructing the Cantor set.  Which would mean the compliment is dense everyone.
+In layman's terms, we delete the all the middle intervals at every stage of constructing the Cantor set.  Which would mean the compliment is dense.
 
 \begin{proof} Let, $\mathcal{C} = \bigcap\limits_{n \in \mathbb{N}}C_n \text{ where }C_n = \bigcup S_n$
 
@@ -273,16 +270,16 @@ Since $S$ is not compact, there is an infinite subsequence that is not bounded i
 \item If $N \in \mathbb{N}$ and $z \neq 1$, show that $S_N = \sum_{n=0}^{N}z^n = \frac{1-z^{N+1}}{1-z}$
 
 \begin{proof}By induction.
-Base case. $n=0$.
+Base case. $N=0$.
 \[z^0 = \frac{1-z^{0+1}}{1-z}\]
 \[1 = 1\]
 Induction step.  
 \begin{align*}
-\sum_{n=0}^{n+1}z^n &= z^0+z^1+...+z^n + z^{n+1}\\
- &= \frac{1-z^{n+1}}{1-z} + z^{n+1}\\
- &= \frac{1-z^{n+1} + (1-z)z^{n+1}}{1-z}\\
- &= \frac{1-z^{n+1} + z^{n+1} + z^{n+2}}{1-z}\\
- &= \frac{1-z^{n+2}}{1-z}\\
+\sum_{n=0}^{N}z^n &= z^0+z^1+...+z^{N-1} + z^{N}\\
+ &= \frac{1-z^{(N-1)+1}}{1-z} + z^{N}\\
+ &= \frac{1-z^{N} + (1-z)z^{N}}{1-z}\\
+ &= \frac{1-z^{N} + z^{N} - z^{N+1}}{1-z}\\
+ &= \frac{1-z^{N+1}}{1-z}\\
 \end{align*}
 \end{proof}
 
@@ -306,7 +303,7 @@ A key idea hear is the contrapositive of the Theorem $\sum_{n=1}^{\infty}a_n$ co
 
 Then given any $\epsilon > 0$ there must be an item in the sequence that is makes the statement $|a_n| < \epsilon$ true.  
 
-If \marginnote{Ask Jinxin about this problem, I am rusty on Calc.} $0 < p < 1$, case we have $n^{-p} < \epsilon$, which can be rewritten $p > -log_n(e)$ This not possible, because $n \in \mathbb{N}$ and $e$ is going to be some very small non-negative number.
+If  $0 < p < 1$, we have a series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ where our denominator $n^p$ will be ever increasing.  This is very similiar to the harmonic series $\sum_{n=1}^{\infty}\frac{1}{n}$ which we know is divergent.
 
 Similarly, if $p < 0$ then we have to satisfy $n^p < \epsilon$ which is also not possible because $n$ will always be a positive integer and we want $e$ to be some very small non-negative number.
 
@@ -317,18 +314,22 @@ We are given the hint...
 \[ \sum_{n=2}^{N}\frac{1}{n^p} \leq \int_{1}^{N} \frac{1}{x^p}dx = \frac{1}{p-1}(1-\frac{1}{N^{p-1}})\]
 
 
+\begin{proof}
+
+
 Let $R_N = \int_{1}^{N} \frac{1}{x^p}dx = \frac{1}{p-1}(1-\frac{1}{N^{p-1}})$
 
-We \marginnote{I need help completing this thought} say that the series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ converges if the sequence of partial sums $(S_N)_{N \in \mathbb{N}}$  The series converges if and only if a sequence is a Cauchy sequence.  Which is to say, given $e > 0$, there is a $N_e \in \mathbb{N}$ such that for $N,M > N_e$, (assuming $N>M$), then $|\sum_{k=m+1}^{n}a_n| < e$
+We  say that the series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ converges if the sequence of partial sums $(S_N)_{N \in \mathbb{N}}$  The series converges if and only if a sequence is a Cauchy sequence.  Which is to say, given $\epsilon > 0$, there is a $N_\epsilon\in \mathbb{N}$ such that for $N,M > N_\epsilon$, (assuming $N>M$), then $|\sum_{k=m+1}^{n}a_n| < \epsilon$
 
 \begin{align*}
 |S_N - S_M| &< e \\
-|S_N - S_M| \leq |(1 + \sum_{n=2}^{N}R_N) - (1 + \sum_{n=2}^{M}R_M)| &< e \\
-|\frac{1}{p-1}(1-\frac{1}{N^{p-1}}) - \frac{1}{p-1}(1-\frac{1}{M^{p-1}})| &< e \\
-|\frac{1}{p-1}(1-\frac{1}{N^{p-1}} - 1-\frac{1}{M^{p-1}} - 1)| &< e\\
-|\frac{1}{p-1}(-\frac{1}{N^{p-1}} - \frac{1}{M^{p-1}})| &< e\\
+|S_N - S_M| \leq |(1 + R_N) - (1 + R_M)| &< \epsilon \\
+|\frac{1}{p-1}(1-\frac{1}{N^{p-1}}) - \frac{1}{p-1}(1-\frac{1}{M^{p-1}})| &< \epsilon \\
+|\frac{1}{p-1}(1-\frac{1}{N^{p-1}} - 1-\frac{1}{M^{p-1}})| &< \epsilon\\
+|\frac{1}{p-1}(-\frac{1}{N^{p-1}} - \frac{1}{M^{p-1}})| &< \epsilon\\
 \end{align*}
 
+\end{proof}
 \end{enumerate}
 
 \end{document}
