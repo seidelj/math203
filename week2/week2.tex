@@ -85,7 +85,7 @@ Let S be a non-empty open and closed set of $\mathbb{R}$.  Fix $x_0 \in S$ and $
 Therefore we can form a set
 \[I = \{ x \in \mathbb{R} | x > x_0, x \notin S\}\]
 
-By construction\marginnote{greatest lower bound} this set is bounded below by $x_0$ and not empty because $y > x_0$, therefore $y \in I$.  Therefore we can let $i = \inf I$
+By construction\marginnote{greatest lower bound} this set is bounded below by $x_0$ and not empty because $y > x_0$, $y \in I$.  Therefore we can let $i = \inf I$
 
 Suppose $i \in S$.  Since $S$ is open it contains the open interveral $(i-\epsilon, i+\epsilon)$ for $\epsilon > 0$.  However, this interval contradicts that $i = \inf I$ because it implies a sequence $i_n > i$, $|i - i_n| < \frac{1}{n}$, where $i_n \in I$, which means $i_n \notin S$.  Which is not possible because $[i, i+e) \subset S$
 
@@ -98,14 +98,14 @@ Therefore $S = \mathbb{R}$.
 
 \begin{proof}
 
-Let $S$ be an open interval in $\mathbb{R}$.  We can choose and arbitrary $x \in \mathbb{Q}$ inside $S$ and choose $r$ and $r'$ both greater than $0$, such that $(x-r, x+r')$ covers the $S$.  Since $\mathbb{Q}$ is countable, we can effectively cover any open interval in $R$ by a countable union of pairwise disjoint open intervals.
+Let $S$ be an open interval in $\mathbb{R}$.  We can choose and arbitrary $x \in \mathbb{Q}$ inside $S$ and choose $r$ and $r'$ both greater than $0$, such that $(x-r, x+r')$ covers the $S$.  Since $\mathbb{Q}$ is countable, we can effectively cover any open interval in $\mathbb{R}$ by a countable union of pairwise disjoint open intervals.
 
 \end{proof}
 
 \item Show that an arbitrary union of open sets in $\mathbb{R}$ is open in $\mathbb{R}$.
 
 \begin{proof}
-Suppose $\{Aß_i \subset \mathbb{R} | i \in I\}$ is an arbitrary collection of open sets.
+Suppose $\{A_i \subset \mathbb{R} | i \in I\}$ is an arbitrary collection of open sets.
 
 If $x \in \cup A_i$ then $x \in A_i$ for some $i \in I$.  Since $A_i$ is open,  there $(x - \epsilon, x+ \epsilon) \subset A_i$ for $\epsilon > 0$.  Therefore,
 \[ (x-\epsilon, x+\epsilon) \subset \bigcup\limits_{i \in I}A_i \]
@@ -133,7 +133,7 @@ Let $\{A_i \subset \mathbb{R}, i \in I\}$ be an arbitrary collection of closed s
 
 By\marginnote{DeMorgan's Law} definition $\mathbb{R} \setminus \bigcap\limits_{i \in I} A_i = \bigcup\limits_{i \in I} (\mathbb{R} \setminus A_i)$.
 
-Since $\{A_i\} \subset \mathbb{R}$ are closed, $(\mathbb{R} \setminus A_i) \subset \mathbb{R}$ is made up of open sets.  So we have an arbitrary union of open sets in $\mathbb{R}$ which we have already shown to be open.  This means  $\mathbb{R} \setminus \bigcap\limits_{i \in I} A_i$ is also open.  Therefore it's compliment $\bigcap\limits_{i \in I}A_i$ is closed.
+Since $\{A_i\} \subset \mathbb{R}$ are closed, $(\mathbb{R} \setminus A_i) \subset \mathbb{R}$ is made up of open sets.  So we have an arbitrary union of open sets in $\mathbb{R}$ \marginnote{In part 3 of this exercise}which we have already shown to be open.  This means  $\mathbb{R} \setminus \bigcap\limits_{i \in I} A_i$ is also open.  Therefore it's compliment $\bigcap\limits_{i \in I}A_i$ is closed.
 
 \end{proof}
 
@@ -151,9 +151,9 @@ Since $\{A_i\} \subset \mathbb{R}$ are closed, $(\mathbb{R} \setminus A_i) \subs
 
 \item Show, by example, that an infinite union of closed sets in $\mathbb{R}$ is not necessarily closed in $\mathbb{R}$
 
-One example is $\bigcup\limits_{n=1}^{\infty}[\frac{1}{n}, n]$  The union of this is open because you will never find a point of the union that lives at the boundary of the union.
+One example is $\bigcup\limits_{n=1}^{\infty}[\frac{1}{n}, n]$  The union of this is open because you will never find a point of the union that lives at the boundary of the union.  In more precise terms, there is always some $\epsilon > 0$ that you can add to some $x \in A_i$ where $A_i$ is some closed sequence in the union such that $(x - \epsilon, x+\epsilon) \in A_i$.
 
-Also, consider that $\mathbb{R}$ can be constructed of an infinite union of closed sets.   For example, each one point set of one point in $\mathbb{R}$, however we know that $\mathbb{R}$ is not closed.
+Also, consider that $\mathbb{R}$ can be constructed of an infinite union of closed sets.   For example, each one point set of one point in $\mathbb{R}$, however we know that $\mathbb{R}$ is open.
 \end{enumerate}
 
 \subsection{Exercise 1.6.36}
@@ -181,7 +181,7 @@ Notice, ${x_n}$ is a sequence in $S$ that converges to $\bar{x} \notin S$, meani
 
 \item The Cantor set is closed.
 
-Let $\mathcal{C} = \bigcap\limits_{n \in \mathbb{N}}C_n$ Where $C_n$ is finite union union of closed sets.  As, shown above the arbitrary intersection of closed sets, this is closed.
+Let $\mathcal{C} = \bigcap\limits_{n \in \mathbb{N}}C_n$ Where $C_n$ is a finite union union of closed sets.  As, \marginnote{exercise 1.6.35 no.6}shown above the arbitrary intersection of closed sets, this is closed.
 
 \item The Cantor set consist of all  numbers in the closed $[0,1]$ whose ternary expansion consists of only $0$s and $2$s and may end infinitely in $2$s.
 
@@ -193,13 +193,13 @@ For example in the first stage, all numbers with $1$ in the first decimal place 
 
 \begin{proof}
 Suppose $\mathcal{C}$ is countable.
-\[\mathcal{C} = \{x_1^1, x1^2, x1^2, x1^3, ..., x_1^n\}\]
+\[\mathcal{C} = \{x^1, x^2, x^3, x^4, ..., x^n\}\]
 for each $x$ write
 \[x^i = 0.d_1^i,0.d_2^i,0.d_3^i,0.d_4^i,...,0.d_m^i \]
 
 Let $(d_1, d_2, d_3, d_4,...d_m)$ be the sequence that differs from the diagonal sequence of $d^i= d_1^i, d_2^i, d_3^i, d_4^i,...,d_m^i$ such that
-\[d_m = \{_{0 \text{ if } d^m_m = 2}^{2 \text{ if } d^m_m = 0} \}\]
-The ternary expansion $d_m$, does not appear in the list $x^i$ since $d_m \neq d_m^m$.  So, $x=0.d_1d_2d_3d_4...d_m$ is in $\mathcal{C}$ but no element in $\mathcal{C}$ has two different ternary expansions using only $0$s and $2$s. So x doesn't appear in the list above, which is a contradiction, so $\mathcal{C}$ is uncountable.
+\[d_m = \{_{0 \text{ if } d^n_m = 2}^{2 \text{ if } d^n_m = 0} \}\]
+The ternary expansion $d_m$, does not appear in the list $x^n$ since $d_m \neq d_m^i$.  So, $x=0.d_1d_2d_3d_4...d_m$ is in $\mathcal{C}$ but no element in $\mathcal{C}$ has two different ternary expansions using only $0$s and $2$s. So x doesn't appear in the list above, which is a contradiction, so $\mathcal{C}$ is uncountable.
 
 \end{proof}
 
@@ -209,7 +209,7 @@ The ternary expansion $d_m$, does not appear in the list $x^i$ since $d_m \neq d
 Every point of the Cantor set can be captured in an arbitrary union of closed sets.  So for any $x \in \mathcal{C}$, you can write $x$ in ternary as a limit of other numbers that have $0$s or $2$s in there ternary expansion. 
 
 \begin{proof}
-Let $C_n = \bigcup S_m$ where $S_m$ is some number $m$ of closed sets. For any $x \in S_m$ let $\bar{x}$ be the right end point of $S_m$, unless $x = \bar{x}$ then let $\bar{x}$ be the left endpoint. By construction, each subinterval of $S_m$ has length $\frac{1}{3^n}$.  Which means $|x - x_m| < \frac{1}{3^n}$.
+Let $C_n = \bigcup S_m$ where $S_m$ is a finite number of closed sets. For any $x \in S_m$ let $\bar{x}$ be the right end point of $S_m$, unless $x = \bar{x}$ then let $\bar{x}$ be the left endpoint. By construction, each subinterval of $S_m$ has length $\frac{1}{3^n}$.  Which means $|x - x_m| < \frac{1}{3^n}$.
 
 This implies that the sequence of $x_m$ converges to $x$ and such is an accumulation point.  Since we chose $x$ to be arbitrary, this applies to all $x \in \mathcal{C}$.  
 \end{proof}
@@ -220,9 +220,9 @@ In layman's terms, we delete the all the middle intervals at every stage of cons
 
 \begin{proof} Let, $\mathcal{C} = \bigcap\limits_{n \in \mathbb{N}}C_n \text{ where }C_n = \bigcup S_n$
 
-The length of intervals in $S_n$ is $\frac{1}{3^n} = 3^{-n}$ Let $0 \leq a < b \leq 1$. Then interval $(a, b) \subset [0,1]$.  Fix $n \in \mathbb{N}$ such that $3^{-n} < b-a$ so that the length of every interval in $S_n$ is $3^{-n} < b-a$
+The length of intervals of $S_n$ is $\frac{1}{3^n} = 3^{-n}$ Let $0 \leq a < b \leq 1$. Then interval $(a, b) \subset [0,1]$.  Fix $n \in \mathbb{N}$ such that $3^{-n} < b-a$ so that the length of every interval in $S_n$ is $3^{-n} < b-a$
 
-Therefore the intervals of $S_n$ do note overlap any interval of length $(b-a)$.  Therefore no interval of length $b-a$ is contained in $C_n$.  Likewise, since $C_n \subset \mathcal{C}$, no interval of length $b-a$ is contained in $\mathcal{C}$.
+Therefore the intervals of $S_n$ do not overlap any interval of length $(b-a)$.  and no interval of length $b-a$ is contained in $C_n$.  Likewise, since $C_n \subset \mathcal{C}$, no interval of length $b-a$ is contained in $\mathcal{C}$.
 
 Since lengths of $a,b$ was arbitrary, there are no open intervals in $\mathcal{C}$, which means $\mathcal{C}$ is nowhere dense and $\mathcal{C}^c$ is dense.
 \end{proof}
@@ -230,18 +230,18 @@ Since lengths of $a,b$ was arbitrary, there are no open intervals in $\mathcal{C
 \end{enumerate}
 
 \subsection{Exercise 1.6.42}
-Show that a compact subset of $\mathbb{R}$ is both closed and compact.
+Show that a compact subset of $\mathbb{R}$ is both closed and bounded.
 
 \begin{proof}
 Suppose $A$ is a compact subset of $R$.  $A \subset \bigcup\limits_{k=1}^{\infty}U_k$, where $U_k$ are open sets.
 
 By compactness of $A$, $\exists n \in \mathbb{N}$ such that $A \subset \bigcup\limits_{k=1}^{n}U_k$ Thus we can say $A$ is bounded.
 
-Consider $A^c$ and define it as $X = \mathbb{R} \setminus A$ and take any $x \in X$. For every $a \in A$ there are open sets $U_a = (a-\epsilon,a+\epsilon)$ and $V_a = (x-\epsilon, x+\epsilon)$, for some $\epsilon > 0$ such that $U_a \cap V_a = \emptyset$.
+Suppose $A \neq \mathbb{R}$ and consider $A^c$ and define it as $X = \mathbb{R} \setminus A$ and take any $x \in X$. For every $a \in A$ there are open sets $U_a = (a-\epsilon,a+\epsilon)$ and $V_a = (x-\epsilon, x+\epsilon)$, for some $\epsilon > 0$ such that $U_a \cap V_a = \emptyset$.
 
-The sets $\{U_a | a \in A\}$ form an open cover over $A$ and since $A$ is compact, there are finitely many points, $m \in \mathbb{N}$ such that $A \subset \bigcup\limits_{j=1}^{m}U_{a_{j}}$, denote this as $U_A$ and $V_A=\bigcap\limits_{j=0}^{m}V_{a_{j}}$.  Then $U_A$ and $V_A$ are open and $U_A \cap V_A = \emptyset$.
+The sets $\{U_a | a \in A\}$ form an open cover over $A$ and since $A$ is compact, there are finitely many $m \in \mathbb{N}$ such that $A \subset \bigcup\limits_{j=1}^{m}U_{a_{j}}$, denoted $U_A$.  Denote $V_A=\bigcap\limits_{j=0}^{m}V_{a_{j}}$.  Then $U_A$ and $V_A$ are open and $U_A \cap V_A = \emptyset$.
 
-Notice that $V_A \subset X = A^c$ and since $x \in V_A$ and we chose $x$ to be arbitrary,  $A^c$ is open, making $A$ closed.
+Notice that $V_A \subset X = A^c$ and all $a \in A$ can be found between $V_A$. Since $x \in V_A$ and we chose $x$ to be arbitrary,  $A^c$ is open, making $A$ closed.
 
 \end{proof}
 
@@ -285,7 +285,7 @@ Induction step.
 
 \item If $|z| < 1$, show that $\lim_{n \rightarrow \infty}z^n =0$
 
-Let the sequence $(z_n)_{n \in \mathbb{N}}$ be defined as the sequence of numbers where $z_n = z^n$.  If $|z| < 0$ its easy to see that for any $\epsilon > 0$ there exists $N \in \mathbb{N}$ such that for any $n > N$ $|z_n| < \epsilon$ Which is to say the $\lim_{n \rightarrow \infty}z^n =0$
+Let the sequence $(z_n)_{n \in \mathbb{N}}$ be defined as the sequence of numbers where $z_n = z^n$.  If $|z| < 0$ its easy to see that for any $\epsilon > 0$ there exists $N \in \mathbb{N}$ such that for any $n > N$, $|z_n| < \epsilon$, which is to say the $\lim_{n \rightarrow \infty}z^n =0$
 
 \item If $|z| > 1$, show that $\lim_{n \rightarrow \infty}z^n$ does not exist.
 
@@ -299,12 +299,11 @@ Defining $(z_n)_{n \in \mathbb{N}}$ as above, with the caveat that $|z| > 1$, th
 
 \item If $p \in \mathbb{R}$ and $p < 1$, show that $\sum_{n=1}^{\infty}\frac{1}{n^p}$ diverges.
 
-A key idea hear is the contrapositive of the Theorem $\sum_{n=1}^{\infty}a_n$ converges then $\lim_{n \rightarrow \infty}a_n = 0$. The contrapositive can be worded to say, if the terms of the series $a_n$ do not go to zero, then the series must diverge.
+\marginnote{A key idea hear is the contrapositive of the Theorem $\sum_{n=1}^{\infty}a_n$ converges then $\lim_{n \rightarrow \infty}a_n = 0$. The contrapositive can be worded to say, if the terms of the series $a_n$ do not go to zero, then the series must diverge.  Likewise the comparison test is useful, consider a divergent series of $(b_n)$ If $0 \leq (b_n) \leq (a_n)$ the series of $(a_n)$ is divergent.}  
 
-Then given any $\epsilon > 0$ there must be an item in the sequence that is makes the statement $|a_n| < \epsilon$ true.  
 
 If  $p < 1$, we have a series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ where our denominator $n^p$ will be ever increasing.  This is very similar to the harmonic series $\sum_{n=1}^{\infty}\frac{1}{n}$ which we know is divergent.  If $h_n = \frac{1}{n}$ and $a_n = \frac{1}{n^p}$, when $p < 1$, it's easy to see that
-$\frac{1}{n} \leq \frac{1}{n^p}$, so the series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ diverges.
+$0 \leq \frac{1}{n} \leq \frac{1}{n^p}$, so the series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ diverges.
 
 
 \item If $p \in \mathbb{R}$ and $p > 1$, show that $\sum_{n=1}^{\infty}\frac{1}{n^p}$ converges.
