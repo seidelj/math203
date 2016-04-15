@@ -1,0 +1,290 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis\\Third Week }
+\author{Joe Seidel}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wasysym}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+
+\subsection{Exercise 1.9.8}
+Give examples to show that if $r=1$ in the statement of the Ratio Test, anything may happen.
+
+
+First consider the harmonic series, $\sum_{n=1}^{\infty}\frac{1}{n}$. The $\lim_{n \to \infty}|\frac{a_{n+1}}{a_n}| = 1$
+
+\[ \lim_{n \to \infty}|\frac{\frac{1}{n+1}}{\frac{1}{n}}| = \lim_{n \to \infty}|\frac{n}{n+1}| = 1 \]
+
+However, we know that the series $\sum_{n=1}^{\infty}\frac{1}{n}$ diverges.
+
+Next consider $\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}$.  Again $\lim_{n \to \infty}|\frac{a_{n+1}}{a_n}| = 1$
+
+\begin{align*}
+\lim_{n \to \infty}|\frac{\frac{(-1)^{n+2}}{n+1}}{\frac{(-1)^{n+1}}{n}}| &= \lim_{n \to \infty}|\frac{(-1)^{n+2}}{n+1} \frac{n}{(-1)^{n+1}}| \\
+&= \lim_{n \to \infty}|\frac{-n}{n+1}|\\
+&= 1
+\end{align*}
+
+This series, $\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}$ converges since $|\sum_{k=m+1}^{n}\frac{(-1)^{k+1}}{k}| < \frac{1}{m}$ but not absolutely because $\sum_{n=1}^{\infty}|\frac{(-1)^n}{n}|$ goes to infinity.
+
+Finally, consider the series $\sum_{n=1}^{\infty} \frac{1}{n^2}$  This too has $\lim_{n \to \infty} |\frac{a_{n+1}}{a_n}| = 1$.
+
+\begin{align*}
+\lim_{n \to \infty} |\frac{\frac{1}{n+1^2}}{\frac{1}{n^2}}| &= \lim_{n \to \infty} |\frac{1}{(n+1)^2} \frac{n^2}{1}| \\
+&= \lim_{n \to \infty}\frac{n^2}{(n+1)^2} \\
+&= 1
+\end{align*}
+
+The series $\sum_{n=1}^{\infty} \frac{1}{n^2}$ is absolutely convergent because $\sum_{n=1}^{\infty}|\frac{1}{n^2}|$ converges. 
+
+\subsection{Exercise 1.9.20}
+Give examples to show that if $r = 1$ in the statement of the Root Test, anything my happen.
+
+Borrowing from the ideas in the last exercise, consider the series $\sum_{n=1}^{\infty} \frac{1}{n^2}$ and $\sum_{n=1}^{\infty} \frac{1}{n}$.  Both have $r = 1$.
+
+\[\limsup_{n \to \infty}|\frac{1}{n}|^{\frac{1}{n}} = 1 \]
+\[\limsup_{n \to \infty}|\frac{1}{n^2}|^{\frac{1}{n}} =1 \] 
+
+Anything may happen when $r = 1$
+
+\subsection{Exercise 1.9.26}
+Determine the radius of convergence of the following power series:
+
+\[ r = \limsup_{n \to \infty}|a_n|^{\frac{1}{n}} \]
+
+Where the radius of convergence is $\frac{1}{r}$ if $r > 0$, $\infty$ if $r = 0$ and $0$ if lim sup does not exist, $(r = \infty)$.
+
+\begin{enumerate}
+
+\item $\sum_{n=1}^{\infty}\frac{z^n}{n!}$
+
+\[ \sum_{n=1}^{\infty}\frac{z^n}{n!} = \sum_{n=1}^{\infty}\frac{1}{n!}z^n \]
+\[ \lim_{n \to \infty}|\frac{1}{n!}|^{\frac{1}{n}} = 0 \]
+
+Radius of convergence is $\infty$
+
+\item $\sum_{n=2}^{\infty}\frac{z^n}{\ln(n)}$
+
+\[ \sum_{n=1}^{\infty}\frac{z^n}{\ln(n)} = \sum_{n=2}^{\infty}\frac{1}{\ln(n)}z^n \]
+\[ \lim_{n \to \infty}|\frac{1}{\ln(n)}|^{\frac{1}{n}} = 1 \]
+
+Radius of convergence is $1$.
+
+\item $\sum_{n=1}^{\infty}\frac{n^n}{n!}z^n$
+\marginnote{$e^n = \sum_{n=1}^{\infty}\frac{n^n}{n!}$} 
+\[ \lim_{n \to \infty}|\frac{n^n}{n!}|^{\frac{1}{n}} = e \]
+
+Radius of convergence is $\frac{1}{e}$
+\end{enumerate}
+
+\subsection{Exercise 2.5.8}
+Prove that the scalar product is a positive definite symmetric bilinear form on $\mathbb{E}^n$.
+
+\begin{proof}
+The scalar product of vectors $\mathbf{v} = (v_1, v_2, v_3,...,v_n)$ and $\mathbf{w} = (w_1, w_2, w_3,...,w_n)$ is $\langle\mathbf{v}, \mathbf{w}\rangle = v_1w_1 + v_2w_2 + v_3w_3 +...+ v_nw_n$. 
+
+Let $V = \mathbb{E}^n$ be a vector space over $F = \mathbb{R}$.  A bilinear form $\langle.,.\rangle$ on $V$ is a map 
+\[\langle.,.\rangle : V \times V \rightarrow F \]
+The satisfies linearity in both variables.  That is, for all $\mathbf{v},\mathbf{v}_1\mathbf{v}_2,\mathbf{w},\mathbf{w}_1,\mathbf{w}_2 \in V$ and all $\alpha \in F$
+
+\begin{align*}
+\langle\mathbf{v}_1+\mathbf{v}_2, \mathbf{w} \rangle &= (v_{1_{1}}+v_{2_{1}})w_1 + (v_{1_{2}}+v_{2_{2}})w_2 + (v_{1_{3}}+v_{2_{3}})w_3 +...+(v_{1_{n}}+v_{2_{n}})w_n  \\
+&= v_{1_{1}}w_1 + v_{2_{1}}w1 + v_{1_{2}}w_2 + v_{2_{2}}w2 + v_{1_{3}}w_3 + v_{2_{3}}w3 +...+v_{1_{n}}w_n + v_{2_{n}}w_n \\
+&= (v_{1_{1}}w_1 + v_{1_{2}}w_2 + v_{1_{3}}w_3 +...+v_{1_{n}}w_n) + (v_{2_{1}}w_1 + v_{2_{2}}w_2 + v_{2_{3}}w_3 +...+v_{2_{n}}w_n)\\
+&= \langle\mathbf{v_1},\mathbf{w} \rangle + \langle\mathbf{v_2},\mathbf{w} \rangle
+\end{align*}
+
+\begin{align*}
+\langle \alpha \mathbf{v},\mathbf{w} \rangle &= \alpha v_1 w_1 + \alpha v_2 w_2 + \alpha v_3 w_3 +...+ \alpha v_n w_n \\
+&= \alpha(v_1w_1) + \alpha(v_2w_2) + \alpha(v_3w_3) +...+\alpha(v_nw_n) \\
+&=\alpha (v_1w_1 + v_2w_2 + v_3w_3 +...+v_nw_n) \\
+&= \alpha \langle \mathbf{v}, \mathbf{w} \rangle 
+\end{align*}
+
+\begin{align*}
+\langle \mathbf{v}, \mathbf{w}_1+\mathbf{w}_2 \rangle &= v_1(w_{1_{1}}+w_{2_{1}}) + v_2(w_{1_{2}}+w_{2_{2}}) + v_3(w_{1_{3}}+w_{2_{3}}) +...+v_n(w_{1_{n}}+w_{2_{n}})  \\
+&= v_1w_{1_{1}} + v_1w_{2_{1}} + v_2w_{1_{2}}+ v_2w_{2_{2}} + v_3w_{1_{3}}+ v_3w_{2_{3}} +...+v_nw_{1_{n}}+ v_nw_{2_{n}}\\
+&= (v_1w_{1_{1}} + v_2w_{1_{2}} + v_3w_{1_{3}} +...+v_nw_{1_{n}}) +
+(v_1w_{2_{1}} + v_2w_{2_{2}} + v_3w_{2_{3}} +...+v_nw_{2_{n}}) \\
+&= \langle \mathbf{v}, \mathbf{w}_1 \rangle + \langle \mathbf{v}, \mathbf{w}_2 \rangle
+\end{align*}
+
+\begin{align*}
+\langle \mathbf{v}, \alpha \mathbf{w} \rangle &= v_1 \alpha w_1 + v_2 \alpha w_2 + v_3 \alpha w_3 +...+ v_n \alpha w_n \\
+&= \alpha(v_1w_1) + \alpha(v_2w_2) + \alpha(v_3w_3) +...+\alpha(v_nw_n) \\
+&=\alpha (v_1w_1 + v_2w_2 + v_3w_3 +...+v_nw_n) \\
+&= \alpha \langle \mathbf{v}, \mathbf{w} \rangle 
+\end{align*}
+
+Regarding being positive definite , consider $\langle\mathbf{v}, \mathbf{v}\rangle$
+\begin{align*}
+\langle\mathbf{v}, \mathbf{v}\rangle &= v_1v_1 + v_2v_2 + v_3v_3 +...+v_nv_n \\
+&= v_1^2 + v_2^2 + v_3^2 +...+v_n^2\\
+&\geq 0
+\end{align*}
+
+Notice also, that $\langle\mathbf{v}, \mathbf{v}\rangle = 0$ if and only if $\mathbf{v} = 0$
+
+\end{proof}
+
+\subsection{Exercise 2.5.11}
+Prove the following properties of the norm if $\mathbf{v},\mathbf{w} \in \mathbb{E}^n$
+
+\begin{enumerate}
+
+\item $||\mathbf{v}|| \geq 0$
+
+\begin{proof}
+If $\mathbf{v} \in \mathbb{E}^n$ the norm is defined by
+\begin{align*}
+||\mathbf{v}|| &= \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}\\
+&= \sqrt{(v_1v_1 + v_2v_2 + v_3v_3 +...+v_nv_n)} \\
+&= \sqrt{(v_1^2 + v_2^2 + v_3^2 +...+v_n^2)} \\
+&= (v_1^2 + v_2^2 + v_3^2 +...+v_n^2)^{\frac{1}{2}} \\
+&\geq 0
+\end{align*}
+\end{proof}
+
+\item $||\mathbf{v}|| = 0$ if and only if $\mathbf{v} = 0$
+
+From the definition of positive definite, $\langle \mathbf{v}, \mathbf{v} \rangle = 0$ if and only if $\mathbf{v} = 0$ 
+\begin{proof} "$\Rightarrow$"
+Let $\|\mathbf{v}\| = 0$.  Then 
+\[ \|\mathbf{v}\| = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle} = 0 \]
+\begin{align*}
+\sqrt{\langle \mathbf{v}, \mathbf{v} \rangle} &= 0\\
+\sqrt{(v_1v_1 + v_2v_2 + v_3v_3 +...+v_nv_n)} &= 0\\
+(v_1^2 + v_2^2 + v_3^2 +...+v_n^2)^{\frac{1}{2}} &= 0 \\
+(v_1^2 + v_2^2 + v_3^2 +...+v_n^2)&= 0
+\end{align*}
+So $\mathbf{v} = 0$
+\end{proof}
+
+\begin{proof} "$\Leftarrow$"
+
+Let $\mathbf{v} = 0$
+
+So $\langle \mathbf{v}, \mathbf{v} \rangle = 0$. 
+
+\begin{align*}
+\|\mathbf{v}\| &= \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle} \\ 
+&= \sqrt{0} \\
+&= 0
+\end{align*}
+\end{proof}
+
+\item $\|\alpha \mathbf{v}\| = |\alpha| \|\mathbf{v}\|$, $\alpha \in \mathbb{r}$ 
+
+\begin{proof}
+\begin{align*}
+\|\alpha \mathbf{v} \| &= \sqrt{\langle\alpha\mathbf{v},\alpha\mathbf{v}\rangle} \\
+&= \sqrt{(\alpha^2v_1^2 +\alpha^2v_2^2 + \alpha^2v_3^2 +...+\alpha^2v_n^2)} \\
+&= \sqrt{\alpha^2(v_1^2 + v_2^2 +v_3^2 +...+v_n^2)} \\
+&= |\alpha| \sqrt{(v_1^2 + v_2^2 +v_3^2 +...+v_n^2)} \\
+&= |\alpha| \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle} \\
+&= |\alpha| \|\mathbf{v}\|
+\end{align*}
+\end{proof}
+
+\item $\|\mathbf{v} + \mathbf{w} \| \leq \|\mathbf{v}\| + \|\mathbf{w}\|$
+
+\begin{proof}
+
+First recall the Pythagorean theorem, $a^2 + b^2 = c^2$ and Cauchy-Schwarz Inequality, let $\mathbf{v}, \mathbf{w} \in \mathbb{E}^n$, then $|\langle \mathbf{v}, \mathbf{w} \rangle| \leq \|\mathbf{v}\|\|\mathbf{w}\|$
+\begin{align*}
+\|\mathbf{v} + \mathbf{w} \|^2 &= \langle \mathbf{v}+\mathbf{w},\mathbf{v}+\mathbf{w}\rangle \\
+&= (v_1+w_1)^2 + (v_2+w_2)^2 +...+(v_n+w_n)^2\\
+&= (v_1^2 + v_2^2 +...+v_n^2) + (w_1^2+w_2^2+...+w_n^2) + (v_1w_1+...+v_nw_n) +(w_1v_1+...+w_nv_n) \\ 
+&= \langle \mathbf{v},\mathbf{v}\rangle + \langle \mathbf{v}, \mathbf{w} \rangle + \langle \mathbf{w}, \mathbf{v} \rangle + \langle \mathbf{w},\mathbf{w}\rangle \\
+&\leq \|\mathbf{v}\|^2 + 2|\langle \mathbf{v}, \mathbf{w} \rangle| + \|\mathbf{w}\|^2 \\
+&\leq \|\mathbf{v}\|^2 + 2\|\mathbf{v}\|\|\mathbf{w}\| + \|\mathbf{w}\|^2 \\
+&= (\|\mathbf{v}\| + \|\mathbf{w}\|)^2
+\end{align*}
+
+\end{proof}
+
+\item $\|\mathbf{v} + \mathbf{w} \|^2 + \|\mathbf{v} -\mathbf{w}\|^2 = 2(\|\mathbf{v}\|^2 + \|\mathbf{w}\|^2)$
+\begin{proof}
+\begin{align*}
+\|\mathbf{v} + \mathbf{w} \|^2 &+ \|\mathbf{v} -\mathbf{w}\|^2 = 
+  \langle \mathbf{v} + \mathbf{w},\mathbf{v} + \mathbf{w}\rangle +
+  \langle \mathbf{v} - \mathbf{w},\mathbf{v} - \mathbf{w}\rangle \\
+&= (v_1 +w_1)^2 + ... + (v_n+w_n)^2 + (v_1-w_1)^2 + ... + (v_n-w_n)^2\\
+&= (v_1^2 + 2v_1w_1 + w_1^2 +...+v_n^2 + 2v_nw_n + w_n^2) + (v_1^2 - 2v_1w_1 + w_1^2 +...+v_n^2 - 2v_nw_n + w_n^2) \\
+&= (2v_1^2 +...+2v_n^2) + (2w_1^2 +...+ 2w_n^2)\\
+&= 2(v_1^2 +...+v_n^2) + 2(w_1^2 +...+w_n^2) \\
+&= 2(\langle\mathbf{v},\mathbf{v}\rangle + \langle\mathbf{w},\mathbf{w}\rangle)\\
+&= 2(\|\mathbf{v}\|^2 = \|\mathbf{w}\|^2)
+\end{align*}
+\end{proof}
+\end{enumerate}
+\end{document}
+\grid
