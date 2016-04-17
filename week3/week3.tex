@@ -27,7 +27,11 @@
 \newcommand{\docpkg}[1]{\texttt{#1}}% package name
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\vct}{\mathbf}
 
+
+\newcommand{\dprod}[2]{\langle #1, #2 \rangle}
 
 \newtheoremstyle{mytheoremstyle} % name
 	{\topsep}		% Space above
@@ -286,5 +290,416 @@ First recall the Pythagorean theorem, $a^2 + b^2 = c^2$ and Cauchy-Schwarz Inequ
 \end{align*}
 \end{proof}
 \end{enumerate}
+
+\subsection{2.5.20}
+\begin{enumerate}
+\item Show that $\|\vct{v} \times \vct{w} \| = \|\vct{v}\|\|\vct{w}\|\sin \theta$, where $\theta$ is the angle between $\vct{v}$ and $\vct{w}$.
+
+\begin{proof}
+
+First right out the cross product of $\vct{v} \times \vct{w}$
+
+\begin{align}
+\vct{v} \times \vct{w} = (v_2w_3 - v_3w_2, v_3w_1 - v_1w_3, v_1w_2 - v_2w_1)
+\end{align}
+
+\begin{align*}
+\|\vct{v} \times \vct{w} \|^2 &= (v_2w_3 - v_3w_2)^2+(v_3w_1 - v_1w_3)^2+(v_1w_2 - v_2w_1)^2\\
+&=v_2^2w_3^2 - 2v_2v_3w_2w_3 + v_3^2w_2^2 \\
+&+ v_3^2w_1^2 - 2v_1v_3w_1w_3 + v_1^2w_3^2 \\
+&+ v_1^2w_2^2 - 2v_1v_2w_1w_2 + v_2^2w_1^2 \\
+\end{align*}
+
+So
+\begin{multline}
+\|\vct{v} \times \vct{w} \|^2 = v_1^2(w_2^2 + w_3^2) + v_2^2(w_1^2+w_3^2) + v_3^2(w_1^2+w_2^2)\\ 
+-2(v_2v_3w_2w_3 + v_1v_3w_1w_3 + v_1v_2w_1w_2)\\
+\end{multline}
+
+Recall that $\cos \theta = \frac{\dprod{\vct{v}}{\vct{w}}}{\|\vct{v}\|\vct{w}\|}$ implies $\dprod{\vct{v}}{\vct{w}} = \cos\theta \|\vct{v}\|\|\vct{w}\|$.  Therefore
+
+\begin{align}
+\cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2 = (\dprod{\vct{v}}{\vct{w}})^2
+\end{align}
+
+\begin{align}
+(\dprod{\vct{v}}{\vct{w}})^2 = (v_1w_1 + v_2w_2 + v_3w_3)^2
+\end{align}
+
+\begin{align*}
+(v_1w_1 + v_2w_2 + v_3w_3)^2 &= (v_1w_1 + v_2w_2 + v_3w_3)(v_1w_1 + v_2w_2 + v_3w_3)\\
+&= v_1^2w_1^2 + v_1v_2w_1w_2 + v_1v_3w_1w_3 \\
+&+ v_1^2w_1^2 + v_1v_2w_1w_2 + v_2v_3w_2w_3 \\
+&+ v_3^2w_3^2 + v_1v_3w_1w_3 + v_2v_3w_2w_3 \\
+\end{align*}
+
+So applying $(3)$ with our result from $(4)$,
+\begin{multline}
+\cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2 = v_1^2w_1^2 + v_1^2w_1^2 + v_3^2w_3^2 +\\
+	2(v_1v_2w_1w_2 + v_1v_3w_1w_3 + v_2v_3w_2w_3)
+\end{multline}
+
+Combining $(4)$ with $(2)$, $\|\vct{v} \times \vct{w} \|^2 +\cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2$ we get
+\begin{align*}
+v_1^2w_1^2 &+ v_1^2w_1^2 + v_3^2w_3^2 + 2(v_1v_2w_1w_2 + v_1v_3w_1w_3 + v_2v_3w_2w_3)\\
+&+ v_1^2(w_2^2 + w_3^2) + v_2^2(w_1^2+w_3^2) + v_3^2(w_1^2+w_2^2)\\
+&-2(v_2v_3w_2w_3 + v_1v_3w_1w_3 + v_1v_2w_1w_2)\\
+&= v_1^2w_1^2 + v_1^2w_1^2 + v_3^2w_3^2 \\
+&+ v_1^2(w_2^2 + w_3^2) + v_2^2(w_1^2+w_3^2) + v_3^2(w_1^2+w_2^2)\\
+&= v_1^2(w_1^2+w_2^2+w_3^2) + v_2^2(w_1^2+w_2^2+w_3^2) + v_3^2(w_1^2+w_2^2+w_3^2)\\
+&= (w_1^2+w_2^2+w_3^2)(v_1^2+v_2^2+v_3^2)
+\end{align*}
+
+So from this we can conclude
+\begin{align}
+\|\vct{v} \times \vct{w} \|^2 +\cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2 = \|\vct{w}\|^2\|\vct{v}\|^2
+\end{align}
+
+The result of $(6)$ implies that $\|\vct{v} \times \vct{w} \|^2 = \|\vct{v}\|^2\|\vct{w}\|^2 - \cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2$.
+
+So our last steps
+\begin{align*}
+\|\vct{v} \times \vct{w} \|^2 &= \|\vct{v}\|^2\|\vct{w}\|^2 - \cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2\\
+&= \|\vct{v}\|^2\|\vct{w}\|^2 (1-\cos^2\theta)\\
+&= \|\vct{v}\|^2\|\vct{w}\|^2(\sin^2\theta)
+\end{align*}
+
+We can take the square root to reach our conclusion. 
+
+\begin{align*}
+\|\vct{v} \times \vct{w} \| = \|\vct{v}\|\|\vct{w}\|\sin\theta
+\end{align*}
+
+\end{proof}
+\end{enumerate}
+
+\subsection{Exercise 2.5.26}
+Let $\mathbf{v}_1,\mathbf{v}_2,...,\mathbf{v}_{n-1}$ be linearly independent vectors in $\mathbb{E}^n$. Let $\mathbf{p}_0$ be a point of $\mathbb{R}^n$.  Let $\mathbf{H}$ be the hyperplane plane through $\mathbf{p}_0$ spanned by $\mathbf{v}_1,\mathbf{v}_2,...,\mathbf{v}_{n-1}$. If $\mathbf{p}$ is any point in $\mathbb{R}^n$, show that the distance from $\mathbf{p}$ to $\mathbf{H}$, that is, $\inf\{\|\mathbf{p}-\mathbf{q}\| \mid \mathbf{q} \in \mathbf{H} \}$, is given by the length of the vector $\proj_\vct{v}(\vct{p} - \vct{p_0})$ where $\vct{v}$ is the vector obtained in Theorem 2.5.21. Specialize this to obtain formulas for the distance from a point to a line in $\mathbb{R}^2$ and form a point to a plane in $\mathbb{R}^3$.
+
+
+We are given that $\vct{v}$ is orthogonal to $\vct{v}_1,\vct{v}_2,...,\vct{v}_{n-1}$ and that $\mathbf{H}$ is the hyperplane through $\vct{p}_0$ spanned by $\vct{v}_1,\vct{v}_2,...,\vct{v}_{n-1}$.
+
+Since $\vct{p}$ and $\vct{p}_0$ are points, we can think of $\proj_\vct{v}(\vct{p} - \vct{p_0})$ as a projection of the vector $(\vct{p} - \vct{p}_0)$ onto $\vct{v}$ where $(\vct{p} - \vct{p}_0)$ is the hypotenuse of a right angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$. Which makes the $\proj_\vct{v}(\vct{p} - \vct{p_0})$ the line adjacent to the angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$  which is parallel with $\vct{v}$ which is orthogonal to $\mathbf{H}$.  By the Pythagorean theorem, this must be the shorted distance from $\vct{p}$ to $\mathbf{H}$, because if you took any other distance to the plane, it wouldn't form right angle with the plane and result in a greater distance.
+
+
+
+Specializing this for $\mathbb{R}^2$ and $\mathbb{R}^3$ . We consider the $\proj_\vct{v}(\vct{p} - \vct{p_0})$.  Let the vector $\vct{f} = (\vct{p} - \vct{p_0})$.  We only care about the length of the line so we should take it's norm, which is given
+
+\[ \|\proj_\vct{v}(\vct{f})\| = \frac{|\dprod{\vct{f}}{\vct{v}}|}{\|\vct{w}\|} \]
+
+For $\mathbb{R}^2$, define vectors $\vct{v_1}$ and $\vct{v}$.  Let $\vct{v}$  be non zero orthogonal to $\vct{v_1}$.  This means the pair $\{\vct{v_1}, \vct{v}\}$ is a basis for $\mathbb{R}^2$.  Let $\mathbf{H}$ be the plane through $\vct{p_0}$ be a point spanned by $\vct{v_1}$, and contain points $(p_{0_1}, p_{0_2})$.  Let $\vct{p} = (p_1, p_2)$ to be any point in $\mathbb{R}^2$.  by Let $d$ be the distance we are trying to find.
+
+\begin{align*}
+d &= \frac{|\dprod{\vct{f}}{\vct{v}}|}{\|\vct{v}\|} \\
+&= \frac{|(f_1v_1 + f_2v_2)|}{\|\vct{v}\|} \\
+&= \frac{|(p_1 - p_{0_1})v_1 + (p_2-p_{0_2})v_2|}{\|\vct{v}\|}\\
+&= \frac{|(p_1 - p_{0_1})v_1 + (p_2-p_{0_2})v_2|}{\sqrt{v_1^2 + v_2^2}}
+\end{align*}
+
+For $\mathbb{R}^3$, we have a similar result. define vectors $\vct{v_1},\vct{v_2}$  to be linearly independent.  Let $\vct{v}$ be the determinant of $\vct{v_1},\vct{v_2}$.  Resulting in $\{\vct{v_1},\vct{v_2},\vct{v}\}$ as a basis $\mathbb{R}^3$ Let $\mathbf{H}$ be the plane through the point $\vct{p_0}$  spanned by $\vct{v_1},\vct{v_2}$, and contain points $(p_{0_1}, p_{0_2},p_{0_3})$. Let $\vct{p} = (p_1, p_2, p_3)$ to be any point in $\mathbb{R}^3$.  by Let $d$ be the distance we are trying to find.
+
+\begin{align*}
+d &= \frac{|\dprod{\vct{f}}{\vct{v}}|}{\|\vct{v}\|} \\
+&= \frac{|(f_1v_1 + f_2v_2 + f_3v_3 )|}{\|\vct{v}\|} \\
+&= \frac{|(p_1 - p_{0_1})v_1 + (p_2-p_{0_2})v_2 + (p_3-p_{0_3})v_3|}{\|\vct{v}\|}\\
+&= \frac{|(p_1 - p_{0_1})v_1 + (p_2-p_{0_2})v_2+ (p_3-p_{0_3})v_3|}{\sqrt{v_1^2 + v_2^2 + v_3^2}}
+\end{align*}
+
+\subsection{Exercise 2.5.30}
+Consider the vectors $\vct{v}_1 = (1,1,-1,0)$, $\vct{v}_2=(1,0,0,-1)$ and $\vct{v}_3=(0,1,1,1)$ in $\mathbb{E}^4$.
+
+\begin{enumerate}
+\item Use the Gram-Schmidt orthogonalization process on these three vectors to produce a set of three mutually orthogonal vectors that span the same subspace.
+
+Let $\vct{v}_1 = \vct{\tilde{v}}_1$
+
+For $\vct{\tilde{v}}_2 = \vct{v}_2 - \proj_{\vct{\tilde{v}}_1}(\vct{v}_2)$
+\begin{align*}
+\proj_{\vct{\tilde{v}}_1}(\vct{v}_2) = \frac{\dprod{\vct{v}_2}{\vct{\tilde{v}}_1}}{\|\vct{\tilde{v}}_1\|}\frac{\vct{\tilde{v}}_1}{\|\vct{\tilde{v}}_1\|}
+\end{align*}
+
+\begin{align*}
+\dprod{\vct{v}_2}{\vct{\tilde{v}}_1} &= (1)(1) + (0)(1) + (0)({-1}) +(-1)(0)\\
+&=1 \\
+\|\vct{\tilde{v}}_1\| &= \sqrt{1^2+1^2+(-1)^2+0^2} \\
+&= \sqrt{3}
+\end{align*}
+
+\begin{align*}
+\proj_{\vct{\tilde{v}}_1}(\vct{v}_2) &= \frac{1}{\sqrt{3}}\frac{\vct{\tilde{v}}_1}{\sqrt{3}}\\
+&= \frac{1}{3}\vct{\tilde{v}_1}\\
+&= \frac{1}{3}
+\begin{bmatrix}
+1&1&-1&0
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\frac{1}{3} & \frac{1}{3} &-\frac{1}{3} & 0
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+\vct{\tilde{v}}_2 &= 
+\begin{bmatrix}
+1 \\
+0 \\
+0 \\ 
+1 
+\end{bmatrix}
+-
+\begin{bmatrix}
+\frac{1}{3} \\
+\frac{1}{3} \\ 
+{-\frac{1}{3}} \\
+0
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\frac{2}{3} & -\frac{1}{3} &\frac{1}{3} & 1
+\end{bmatrix}
+\end{align*}
+
+
+For $\vct{\tilde{v}}_3 = \vct{v}_3 - \proj_{\vct{\tilde{v}}_1}(\vct{v}_3)- \proj_{\vct{\tilde{v}}_2}(\vct{v}_3)$
+
+\begin{align*}
+\proj_{\vct{\tilde{v}}_1}(\vct{v}_3) = \frac{\dprod{\vct{v}_3}{\vct{\tilde{v}}_1}}{\|\vct{\tilde{v}}_1\|}\frac{\vct{\tilde{v}}_1}{\|\vct{\tilde{v}}_1\|}
+\end{align*}
+
+\begin{align*}
+\dprod{\vct{v}_3}{\vct{\tilde{v}}_1} &= (0)(1) + (1)(1) + (1)(-1) +(1)(0)\\
+&=1 \\
+\|\vct{\tilde{v}}_1\| &= \sqrt{3}
+\end{align*}
+
+\begin{align*}
+\proj_{\vct{\tilde{v}}_1}(\vct{v}_3) &= \frac{1}{\sqrt{3}}\frac{\vct{\tilde{v}}_1}{\sqrt{3}}\\
+&= \frac{1}{3}\vct{\tilde{v}_1}\\
+&= \frac{1}{3}
+\begin{bmatrix}
+1 & 1 & -1 & 0
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\frac{1}{3} & {\frac{1}{3}} &-\frac{1}{3} & 0
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+\proj_{\vct{\tilde{v}}_2}(\vct{v}_3) = \frac{\dprod{\vct{v}_3}{\vct{\tilde{v}}_2}}{\|\vct{\tilde{v}}_2\|}\frac{\vct{\tilde{v}}_2}{\|\vct{\tilde{v}}_2\|}
+\end{align*}
+
+\begin{align*}
+\dprod{\vct{v}_3}{\vct{\tilde{v}}_2} &= (0)(\frac{2}{3}) + (1)({-\frac{1}{3}}) + (1)(\frac{1}{3}) +(1)(1)\\
+&=1 \\
+\|\vct{\tilde{v}}_2\| &= \sqrt{\frac{2}{3}^2+{-\frac{1}{3}}^2+\frac{1}{3}^2+1^2} \\
+&= \sqrt{\frac{5}{3}}
+\end{align*}
+
+\begin{align*}
+\proj_{\vct{\tilde{v}}_2}(\vct{v}_3) &= \frac{1}{\sqrt{\frac{5}{3}}}\frac{\vct{\tilde{v}}_2}{\sqrt{\frac{5}{3}}}\\
+&= \frac{3}{5}\vct{\tilde{v}_2}\\
+&= \frac{3}{5}
+\begin{bmatrix}
+\frac{2}{3} & -\frac{1}{3} &\frac{1}{3} & 1
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\frac{6}{15} & {-\frac{3}{15}} &\frac{3}{15} & \frac{3}{5}
+\end{bmatrix}
+\end{align*}
+
+\begin{align*}
+\vct{\tilde{v}}_3 &= 
+\begin{bmatrix}
+0 \\
+1 \\
+1 \\ 
+1 
+\end{bmatrix}
+-\begin{bmatrix}
+\frac{1}{3} \\
+\frac{1}{3} \\ 
+-\frac{1}{3} \\
+0
+\end{bmatrix}
+-
+\begin{bmatrix}
+\frac{6}{15} \\
+{-\frac{3}{15}} \\ 
+\frac{3}{15} \\
+\frac{9}{15}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+{-\frac{11}{15}} & \frac{13}{15} &\frac{17}{15} & {-\frac{6}{15}}
+\end{bmatrix}
+\end{align*}
+
+\item Extend the set of three vectors produced in part $1$ to a mutually orthogonal basis for $\mathbb{4}$
+
+Consider the matrix comprised of $ \vct{\tilde{v}}_1,  \vct{\tilde{v}}_2  \vct{\tilde{v}}_3$ and vectors $\vct{e}_1,\vct{e}_2,\vct{e}_3,\vct{e}_4 \in \mathbb{E}^4$ where $1$ is in the the $jth$ term and $0$ otherwise.
+
+\begin{align}
+\begin{bmatrix}
+\vct{e}_1 & \vct{e}_2 & \vct{e}_3 & \vct{e}_4 \\
+1 & 1 & {-1} & 0 \\
+\frac{2}{3} & -\frac{1}{3} &\frac{1}{3} & 1 \\
+{-\frac{11}{15}} & \frac{13}{15} &\frac{17}{15} & {-\frac{6}{15}}
+\end{bmatrix}
+\end{align}
+
+The vector that will complete the basis can be created by taking the determinant of the matrix (7).
+\end{enumerate} 
+
+Step 1
+\begin{multline*}
+\vct{e}_1
+\begin{bmatrix}
+1 & {-1} & 0 \\
+-\frac{1}{3} &\frac{1}{3} & 1 \\
+\frac{13}{15} &\frac{17}{15} & {-\frac{6}{15}}
+\end{bmatrix}
+-
+\vct{e}_2
+\begin{bmatrix}
+1 & -1 & 0 \\
+\frac{2}{3} &\frac{1}{3} & 1 \\
+{-\frac{11}{15}} &\frac{17}{15} & {-\frac{6}{15}}
+\end{bmatrix}\\
++\vct{e}_3
+\begin{bmatrix}
+1 & 1 & 0 \\
+\frac{2}{3} & -\frac{1}{3} & 1 \\
+{-\frac{11}{15}} & \frac{13}{15} & {-\frac{6}{15}}
+\end{bmatrix}
+- \vct{e}_4
+\begin{bmatrix}
+1 & 1 & {-1} \\
+\frac{2}{3} & -\frac{1}{3} &\frac{1}{3}\\
+{-\frac{11}{15}} & \frac{13}{15} &\frac{17}{15}
+\end{bmatrix} \\
+\end{multline*}
+
+Then the next step...
+
+\begin{align*}
+&\vct{e}_1(1
+\begin{bmatrix}
+\frac{1}{3} & 1 \\
+\frac{17}{15} & {-\frac{6}{15}}
+\end{bmatrix}
+- {-1}
+\begin{bmatrix}
+-\frac{1}{3} & 1 \\
+\frac{13}{15} & {-\frac{6}{15}}
+\end{bmatrix}
+- \\
+&\vct{e}_2(1
+\begin{bmatrix}
+\frac{1}{3} & 1 \\
+\frac{17}{15} & {-\frac{6}{15}}
+\end{bmatrix} - {-1}
+\begin{bmatrix}
+\frac{2}{3} & 1 \\
+{-\frac{11}{15}} & {-\frac{6}{15}}
+\end{bmatrix}
++\\
+&\vct{e}_3(1
+\begin{bmatrix}
+-\frac{1}{3} & 1 \\
+\frac{13}{15} & {-\frac{6}{15}}
+\end{bmatrix} 
+- 1
+\begin{bmatrix}
+\frac{2}{3} & 1 \\
+{-\frac{11}{15}} & {-\frac{6}{15}}
+\end{bmatrix}
+-\\
+&\vct{e}_4(1
+\begin{bmatrix}
+-\frac{1}{3} &\frac{1}{3}\\
+\frac{13}{15} &\frac{17}{15}
+\end{bmatrix}
+-1
+\begin{bmatrix}
+\frac{2}{3} &\frac{1}{3}\\
+{-\frac{11}{15}} &\frac{17}{15}
+\end{bmatrix}
++{-1}
+\begin{bmatrix}
+\frac{2}{3} & -\frac{1}{3} \\
+{-\frac{11}{15}} & \frac{13}{15}
+\end{bmatrix})
+\end{align*}
+
+We can begin to simplify...
+
+\begin{align*}
+& \vct{e}_1( 1(-\frac{6}{45}-\frac{17}{15}) + 1(\frac{6}{45}-\frac{13}{15}))-\\
+& \vct{e}_2(1(-\frac{6}{45}-\frac{17}{15}) + 1(-\frac{12}{45}+\frac{11}{15}))+\\
+& \vct{e}_3(1(\frac{6}{45} - \frac{17}{15}) - 1(-\frac{12}{45}+\frac{11}{15}))-\\
+& \vct{e}_4(1(-\frac{17}{45}-\frac{13}{45}) -1(\frac{34}{45}+\frac{11}{45}) -1(\frac{26}{45} - \frac{11}{45})
+\end{align*}
+
+And further
+\begin{align*}
+\vct{e}_1(-2) - \vct{e}_2(-\frac{2}{5}) + \vct{e}_3(-\frac{6}{5}) - \vct{e}_4(-2)
+\end{align*}
+
+We now compute our new vector to be $(-2, \frac{2}{5}, -\frac{6}{5}, 2)$ and define it as $\vct{v}$.  Which gives us the basis $\{\vct{\tilde{v}_1},\vct{\tilde{v}_2},\vct{\tilde{v}_3}, \vct{v}\}$ over $\mathbb{E}^4$.
+
+In order to make this a mutually orthogonal basis for $\mathbb{E}^4$, apply the Gram-Schmidt orthogonalization process once again.
+
+Let $ \vct{\bar{v}} = \vct{v}$
+
+For $\vct{\bar{v}}_1 = \vct{\tilde{v}}_1 - \proj_{\vct{\bar{v}}}(\vct{\tilde{v}}_1)$
+\begin{align*}
+\proj_{\vct{\bar{v}}}(\vct{\tilde{v}}_1) = \frac{\dprod{\vct{v}_1}{\vct{\bar{v}}}}{\|\vct{\bar{v}}\|}\frac{\vct{\bar{v}}}{\|\vct{\bar{v}}\|}
+\end{align*}
+
+\begin{align*}
+\dprod{\vct{\tilde{v}}_1}{\vct{\bar{v}}} &= (1)(-2) + (1)(-\frac{2}{5}) + (-1)(-\frac{6}{5}) +(0)(2)\\
+&=-\frac{6}{5} \\
+\end{align*}
+\[
+\|\vct{\bar{v}}\| = \sqrt{-2^2 + \frac{2}{5}^2 + -\frac{6}{5}^2 + 2^2}
+= \sqrt{\frac{48}{5}}
+\]
+
+
+\begin{align*}
+\proj_{\vct{\bar{v}}}(\vct{\tilde{v}}_1) &= -\frac{\frac{6}{5}}{\sqrt{\frac{48}{5}}}\frac{\vct{\tilde{v}}_1}{\sqrt{\frac{48}{5}}}\\
+&= -\frac{1}{8}\vct{\bar{v}}\\
+&= -\frac{1}{8}
+\begin{bmatrix}
+-2 & \frac{2}{5} & -\frac{6}{5} & 2
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\frac{2}{8} & -\frac{2}{40} & \frac{6}{40} & -\frac{2}{8} \\
+\end{bmatrix}
+\end{align*}
+
+\[
+\vct{\bar{v}}_1 = 
+\begin{bmatrix}
+1 \\
+1 \\
+-1 \\ 
+0
+\end{bmatrix} -
+\begin{bmatrix}
+\frac{2}{8} \\
+-\frac{2}{40} \\ 
+\frac{6}{40} \\
+-\frac{2}{8}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{6}{8} & \frac{42}{40} &-\frac{46}{40} & \frac{2}{8}
+\end{bmatrix}
+\]
+
+
 \end{document}
 \grid
