@@ -165,9 +165,9 @@ Prove that the scalar product is a positive definite symmetric bilinear form on 
 \begin{proof}
 The scalar product of vectors $\mathbf{v} = (v_1, v_2, v_3,...,v_n)$ and $\mathbf{w} = (w_1, w_2, w_3,...,w_n)$ is $\langle\mathbf{v}, \mathbf{w}\rangle = v_1w_1 + v_2w_2 + v_3w_3 +...+ v_nw_n$. 
 
-Let $V = \mathbb{E}^n$ be a vector space over $F = \mathbb{R}$.  A bilinear form $\langle.,.\rangle$ on $V$ is a map 
-\[\langle.,.\rangle : V \times V \rightarrow F \]
-The satisfies linearity in both variables.  That is, for all $\mathbf{v},\mathbf{v}_1\mathbf{v}_2,\mathbf{w},\mathbf{w}_1,\mathbf{w}_2 \in V$ and all $\alpha \in F$
+Let $V = \mathbb{E}^n$ be a vector space over $F = \mathbb{R}$.  A bilinear form $\langle \cdot , \cdot \rangle$ on $V$ is a map 
+\[\langle \cdot, \cdot \rangle : V \times V \rightarrow F \]
+that satisfies linearity in both variables.  That is, for all $\mathbf{v},\mathbf{v}_1\mathbf{v}_2,\mathbf{w},\mathbf{w}_1,\mathbf{w}_2 \in V$ and all $\alpha \in F$
 
 \begin{align*}
 \langle\mathbf{v}_1+\mathbf{v}_2, \mathbf{w} \rangle &= (v_{1_{1}}+v_{2_{1}})w_1 + (v_{1_{2}}+v_{2_{2}})w_2 + (v_{1_{3}}+v_{2_{3}})w_3 +...+(v_{1_{n}}+v_{2_{n}})w_n  \\
@@ -272,7 +272,7 @@ So $\langle \mathbf{v}, \mathbf{v} \rangle = 0$.
 
 \begin{proof}
 
-First recall the Pythagorean theorem, $a^2 + b^2 = c^2$ and Cauchy-Schwarz Inequality, let $\mathbf{v}, \mathbf{w} \in \mathbb{E}^n$, then $|\langle \mathbf{v}, \mathbf{w} \rangle| \leq \|\mathbf{v}\|\|\mathbf{w}\|$
+First recall the Cauchy-Schwarz Inequality, let $\mathbf{v}, \mathbf{w} \in \mathbb{E}^n$, then $|\langle \mathbf{v}, \mathbf{w} \rangle| \leq \|\mathbf{v}\|\|\mathbf{w}\|$
 \begin{align*}
 \|\mathbf{v} + \mathbf{w} \|^2 &= \langle \mathbf{v}+\mathbf{w},\mathbf{v}+\mathbf{w}\rangle \\
 &= (v_1+w_1)^2 + (v_2+w_2)^2 +...+(v_n+w_n)^2\\
@@ -326,7 +326,7 @@ So
 -2(v_2v_3w_2w_3 + v_1v_3w_1w_3 + v_1v_2w_1w_2)\\
 \end{multline}
 
-Recall that $\cos \theta = \frac{\dprod{\vct{v}}{\vct{w}}}{\|\vct{v}\|\vct{w}\|}$ implies $\dprod{\vct{v}}{\vct{w}} = \cos\theta \|\vct{v}\|\|\vct{w}\|$.  Therefore
+Recall that $\cos \theta = \frac{\dprod{\vct{v}}{\vct{w}}}{\|\vct{v}\|\|\vct{w}\|}$ implies $\dprod{\vct{v}}{\vct{w}} = \cos\theta \|\vct{v}\|\|\vct{w}\|$.  Therefore
 
 \begin{align}
 \cos^2\theta \|\vct{v}\|^2\|\vct{w}\|^2 = (\dprod{\vct{v}}{\vct{w}})^2
@@ -389,13 +389,11 @@ Let $\mathbf{v}_1,\mathbf{v}_2,...,\mathbf{v}_{n-1}$ be linearly independent vec
 
 We are given that $\vct{v}$ is orthogonal to $\vct{v}_1,\vct{v}_2,...,\vct{v}_{n-1}$ and that $\mathbf{H}$ is the hyperplane through $\vct{p}_0$ spanned by $\vct{v}_1,\vct{v}_2,...,\vct{v}_{n-1}$.
 
-Since $\vct{p}$ and $\vct{p}_0$ are points, we can think of $\proj_\vct{v}(\vct{p} - \vct{p_0})$ as a projection of the vector $(\vct{p} - \vct{p}_0)$ onto $\vct{v}$ where $(\vct{p} - \vct{p}_0)$ is the hypotenuse of a right angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$. Which makes the $\proj_\vct{v}(\vct{p} - \vct{p_0})$ the line adjacent to the angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$  which is parallel with $\vct{v}$ which is orthogonal to $\mathbf{H}$.  Since $q \in \mathbf{H}$  This must be the shorted distance from $\vct{p}$ to $\mathbf{H}$, because if you took any other distance to the plane, it wouldn't form right angle with the plane and result in a greater distance.
-
-
+Since $\vct{p}$ and $\vct{p}_0$ are points, we can think of $\proj_\vct{v}(\vct{p} - \vct{p_0})$ as a projection of the vector $(\vct{p} - \vct{p}_0)$ onto $\vct{v}$ where $(\vct{p} - \vct{p}_0)$ is the hypotenuse of a right triangle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$. Which makes the $\proj_\vct{v}(\vct{p} - \vct{p_0})$ the line adjacent to the angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$  which is parallel with $\vct{v}$ which is orthogonal to $\mathbf{H}$.  Since $\vct{q} \in \mathbf{H}$  This must be the shorted distance  $\vct{p} -\vct{q}$ to $\mathbf{H}$, because if you took any other distance to the plane, it wouldn't form right angle with the plane and result in a greater distance.
 
 Specializing this for $\mathbb{R}^2$ and $\mathbb{R}^3$ . We consider the $\proj_\vct{v}(\vct{p} - \vct{p_0})$.  Let the vector $\vct{f} = (\vct{p} - \vct{p_0})$.  We only care about the length of the line so we should take it's norm, which is given
 
-\[ \|\proj_\vct{v}(\vct{f})\| = \frac{|\dprod{\vct{f}}{\vct{v}}|}{\|\vct{w}\|} \]
+\[ \|\proj_\vct{v}(\vct{f})\| = \frac{|\dprod{\vct{f}}{\vct{v}}|}{\|\vct{v}\|} \]
 
 For $\mathbb{R}^2$, define vectors $\vct{v_1}$ and $\vct{v}$.  Let $\vct{v}$  be non zero orthogonal to $\vct{v_1}$.  This means the pair $\{\vct{v_1}, \vct{v}\}$ is a basis for $\mathbb{R}^2$.  Let $\mathbf{H}$ be the plane through $\vct{p_0}$ be a point spanned by $\vct{v_1}$, and contain points $(p_{0_1}, p_{0_2})$.  Let $\vct{p} = (p_1, p_2)$ to be any point in $\mathbb{R}^2$.  by Let $d$ be the distance we are trying to find.
 
