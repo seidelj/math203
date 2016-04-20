@@ -259,9 +259,13 @@ We still need to show that the subsequence converges to a point $x^*$ in $S$. Si
 \end{proof}
 
 \begin{proof}"$\Leftarrow$"
-Suppose $S$ is sequentially compact. To show that $S$ is also compact, let's assume $S$ is not.
+Suppose $S$ is sequentially compact. To show that $S$ is also compact, we need to show that $S$ is closed and bounded.
 
-Since $S$ is not compact, there is an infinite subsequence that is not bounded in $S$.  Since this subsequence is not bounded, it does not converge to a point in $S$ which contradicts that $S$ is sequentially compact and therefore $S$ is compact.
+To see that $S$ is closed, let's assume that it's not.  Therefore, there exists an $x \notin S$ that is an accumulation point of $S$.  But then there is an infinite sequence in $S$ that converges to a point that isn't in $S$, which contradicts the definition of sequentially compact.
+
+IF $S$ is not bounded, there is an increasing sequence in $S$ such that $a_n > n$.  that is not bounded in $S$.  Since this subsequence is not bounded, it does not converge to a point in $S$ which contradicts that $S$ is sequentially compact and therefore $S$ is bounded.
+
+Therefore $S$ is compact.
 \end{proof}
 
 \subsection{Exercise 1.9.6}

@@ -114,9 +114,19 @@ Give examples to show that if $r = 1$ in the statement of the Root Test, anythin
 
 Borrowing from the ideas in the last exercise, consider the series $\sum_{n=1}^{\infty} \frac{1}{n^2}$ and $\sum_{n=1}^{\infty} \frac{1}{n}$.  Both have $r = 1$.
 
-\[\limsup_{n \to \infty}|\frac{1}{n}|^{\frac{1}{n}} = 1 \]
-\[\limsup_{n \to \infty}|\frac{1}{n^2}|^{\frac{1}{n}} =1 \] 
+\begin{align*}
+\limsup_{n \to \infty}|\frac{1}{n}|^{\frac{1}{n}} &= \limsup_{n \to \infty}e^{\frac{1}{n} \ln \frac{1}{n}} \\
+&= e^{(\limsup_{n \to \infty} -\ln n)(\limsup_{n \to \infty}\frac{1}{n}})\\
+&= e^{(\limsup_{n \to \infty} -\ln n)(0)}\\
+&= 1
+\end{align*}
 
+\begin{align*}
+\limsup_{n \to \infty}|\frac{1}{n^2}|^{\frac{1}{n}} &= \limsup_{n \to \infty}e^{\frac{1}{n} \ln \frac{1}{n^2}} \\
+&= e^{(\limsup_{n \to \infty} -2\ln n)(\limsup_{n \to \infty}\frac{1}{n}})\\
+&= e^{(\limsup_{n \to \infty} -2\ln n)(0)}\\
+&= 1
+\end{align*}
 Anything may happen when $r = 1$
 
 \subsection{Exercise 1.9.26}
@@ -379,7 +389,7 @@ Let $\mathbf{v}_1,\mathbf{v}_2,...,\mathbf{v}_{n-1}$ be linearly independent vec
 
 We are given that $\vct{v}$ is orthogonal to $\vct{v}_1,\vct{v}_2,...,\vct{v}_{n-1}$ and that $\mathbf{H}$ is the hyperplane through $\vct{p}_0$ spanned by $\vct{v}_1,\vct{v}_2,...,\vct{v}_{n-1}$.
 
-Since $\vct{p}$ and $\vct{p}_0$ are points, we can think of $\proj_\vct{v}(\vct{p} - \vct{p_0})$ as a projection of the vector $(\vct{p} - \vct{p}_0)$ onto $\vct{v}$ where $(\vct{p} - \vct{p}_0)$ is the hypotenuse of a right angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$. Which makes the $\proj_\vct{v}(\vct{p} - \vct{p_0})$ the line adjacent to the angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$  which is parallel with $\vct{v}$ which is orthogonal to $\mathbf{H}$.  By the Pythagorean theorem, this must be the shorted distance from $\vct{p}$ to $\mathbf{H}$, because if you took any other distance to the plane, it wouldn't form right angle with the plane and result in a greater distance.
+Since $\vct{p}$ and $\vct{p}_0$ are points, we can think of $\proj_\vct{v}(\vct{p} - \vct{p_0})$ as a projection of the vector $(\vct{p} - \vct{p}_0)$ onto $\vct{v}$ where $(\vct{p} - \vct{p}_0)$ is the hypotenuse of a right angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$. Which makes the $\proj_\vct{v}(\vct{p} - \vct{p_0})$ the line adjacent to the angle formed by $\proj_\vct{v}(\vct{p} - \vct{p_0})$  which is parallel with $\vct{v}$ which is orthogonal to $\mathbf{H}$.  Since $q \in \mathbf{H}$  This must be the shorted distance from $\vct{p}$ to $\mathbf{H}$, because if you took any other distance to the plane, it wouldn't form right angle with the plane and result in a greater distance.
 
 
 
