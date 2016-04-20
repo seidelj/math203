@@ -275,8 +275,9 @@ It first helps to rewrite the definition of limit supremum and limit infimum.
     \liminf_{k \to \infty}(a_k) &= \lim_{n \to \infty}(c_n) \text{, where } c_n = inf\{a_k| k \geq n\}
 \end{align*}
 
-These definitions combined with the information that the limit supremum of $(a_k)$ being equal the the limit infenum of $(a_k)$ imply that our sequence $(a_n)$ converges to the same points $\forall n \geq k$. This allows us to write
-\[\lim_{k \to \infty}(b_k) = \lim_{k \to \infty}(c_k). \] 
+
+
+These definitions combined with the information that the limit supremum of $(a_k)$ being equal the the limit infenum of $(a_k)$ imply that our sequence $(a_n)$ converges to the same limit.  The reason for this is that our infenum and supremem eventually are within epsilon of each other.  Which implies that the whole sequence $a_n$ converges to this same limit as the inf and sup.
 
 Notice that $c_n$ increases as $n \to \infty$ and $b_n$ decreases as $n \to \infty$.
 Likewise, Since $c_n \leq a_n \leq b_n$ we can apply the Sandwich theorem and say $\lim_{n \to \infty}a_n = a$ 
