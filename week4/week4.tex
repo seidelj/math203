@@ -155,8 +155,73 @@ Prove that $d_\infty$ defines a metric on $\mathbb{R}^n$
 Need to show positive definiteness, symmetry, and triangle inequality.
 \begin{enumerate}
 \item Positive definiteness. $d_\infty(x,y) = max_{1\leq j\leq n}|x_i-y_i| \geq 0$ and $0$ if and only if $x = y$.
+
+\item $d_\infty(x,y) = max_{1\leq j\leq n}|x_i-y_i| =  max_{1\leq j\leq n}|y_i-x_i| =  d_\infty(y,x)$
+
+\item Triangle inequality.  Consider $x, y \in X$.
+\begin{align*}
+\|x+y\|_\infty &= max_{1\leq j\leq n}|x_i+y_i|ß \\
+&\leq max_{1\leq j\leq n}|x_i| + max_{1\leq j\leq n}|y_i| = \|x\|_\infty + \|y\|_\infty
+\end{align*}
 \end{enumerate}
 
 \end{proof}
+
+\subsection{Exercise 3.3.5}
+If $1 \leq p < q$, show that the unit ball in $\ell_n^p(\mathbb{R})$ is contained in the unit ball in $\ell_n^q(\mathbb{R})$.
+\begin{proof}
+\marginnote{if $0 < a \leq 1$ then $(\sum_i|x_i|)^a \leq \sum_i|x_i|^a$ }Suppose $1 \leq p < q$
+\begin{align*}
+\|x\|_q = (\sum_i|x_i|^q)^{\frac{1}{q}} &= (\sum_i|x_i|^q)^{\frac{p}{qp}} \\
+&< (\sum_i|x_i|^{q\frac{p}{q}})^{\frac{1}{p}} = (\sum_i|x_i|^p)^{\frac{1}{p}} = \|x\|_p
+\end{align*}
+
+What is the intuition behind $\|x\|_q < \|x\|_p$??   If you draw a venn diagram of the two balls around zero, and take a point between the two balls, the $\ell_q < 1$ but $\ell_p \geq 1$. 
+
+\end{proof}
+
+\subsection{Exercise 3.3.6}
+Choose $p$ with $1 \leq p \leq \infty$, and let $\epsilon >0$.  Show that $B_\epsilon(0) = \{\epsilon \cdot x | x \in B_1(0)\}$. 
+
+Let $(X,d)$ be a metric space.  Define $B_1(0)=\{x \in X | d(x, 0) < 1 \}$ and $B_\epsilon(0)=\{x \in X | d(x, 0) < \epsilon \}$.  If we take any point from $B_1(0)$ we have the inequality $d(x,0) < 1$.  Therefore, we can multiply both sides of the inequality by $\epsilon$ with the result $\epsilon \cdot d(x, 0) < \epsilon$ for all $x \in B_1(0)$.  Which defines $B_\epsilon(0)$.
+
+\subsection{Exercise 3.3.7}
+Consider a point $x \in \mathbb{R}^2$ that lies outside the unit ball in $\ell_2^1(\mathbb{R})$ and inside the unit ball in $\ell_2^\infty$.  Is there a $p$ between $1$ and $\infty$ such that $\|x\|_p=1$?  Do the same problem for $\mathbb{R}^n$.
+
+For $\mathbb{R}^2$.
+\begin{align*}
+\|x\|_p = (|x_1|^p + |x_2|^p)^{\frac{1}{p}} &= 1 \\
+|x_1|^p + |x_2|^p &= 1
+\end{align*}
+
+No value of $p$ can satisfy this expression.  A similar result follows for $\mathbb{R}^n$.
+
+The reasoning for this result is that a point that lies outside of of the unit ball $\ell_2^1(\mathbb{R})$ and inside the until ball in $\ell_2^\infty$ seems like a good candidate to find a metric $d$ that results $\|x\|_p=1$.  However, if we first consider $\mathbb{R}^2$  if $1<p< \infty$ then all points have distance less than $1$ from $0$ on the unit ball. 
+
+\subsection{Exercise 3.3.10}
+Prove that the following are open sets.
+
+\begin{enumerate}
+\item The "first quadrant", that is, $\{(x,y) \in \mathbb{R}^2 | x > 0 \text{ and } y > 0 \}$, in the usual metric.
+
+\begin{proof}
+Choose $x, y \in \mathbb{R}^2$ such that $x > 0$ and $y > 0$ and otherwise let them be arbitrary.    Since we know $\mathbb{R}$ is open, For $x$ choose $\epsilon_x > 0$ such that $(x-\epsilon_x, x+\epsilon_x) \subset \mathbb{R}$ and choose $\epsilon_y >0$ such that $(y-\epsilon_y, y+\epsilon_y) \subset \mathbb{R}$   Choose $\epsilon = min(\epsilon_x, \epsilon_y)$, then we have $B_\epsilon(x,y) \subset \mathbb{R}^2$.  Since $x,y$ only need to be positive, we can draw an open ball around any point $(x,y)$ in $\mathbb{R}_+^2$ making the first quadrant open.
+\end{proof}
+
+\item any subset of a discrete metric.
+
+\begin{proof}
+Let $(X, d)$ be a discrete metric.  Recall that in a discrete metric $d(x,x) = 0$ and $d(x,y)=1$, $x \neq y$.   You can take $0<r<1$ such that the only point the ball contains is the point that it is centered on.  If $r>1$ then it contains all the points.  In either case $B_r(x) \subset X$.
+\end{proof}
+\end{enumerate}
+
+\subsection{Exercise 3.3.12}
+Let $X = [-1,1]$ with the metric inherited above ($mathbb{R}$).  Describe the open balls of $B_r(1)$ for various values of $r$.
+
+\begin{enumerate}
+
+\item Consider $0< r \leq 2$.  $B_r(1) = (-r, 1]$
+\item Consider $r > 2$. $B_r(1) = [-1,1]$ 
+\end{enumerate}
 \end{document}
 \grid
