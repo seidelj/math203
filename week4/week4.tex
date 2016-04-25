@@ -173,10 +173,10 @@ If $1 \leq p < q$, show that the unit ball in $\ell_n^p(\mathbb{R})$ is containe
 \marginnote{if $0 < a \leq 1$ then $(\sum_i|x_i|)^a \leq \sum_i|x_i|^a$ }Suppose $1 \leq p < q$
 \begin{align*}
 \|x\|_q = (\sum_i|x_i|^q)^{\frac{1}{q}} &= (\sum_i|x_i|^q)^{\frac{p}{qp}} \\
-&< (\sum_i|x_i|^{q\frac{p}{q}})^{\frac{1}{p}} = (\sum_i|x_i|^p)^{\frac{1}{p}} = \|x\|_p
+&\leq (\sum_i|x_i|^{q\frac{p}{q}})^{\frac{1}{p}} = (\sum_i|x_i|^p)^{\frac{1}{p}} = \|x\|_p
 \end{align*}
 
-What is the intuition behind $\|x\|_q < \|x\|_p$??   If you draw a venn diagram of the two balls around zero, and take a point between the two balls, the $\ell_q < 1$ but $\ell_p \geq 1$. 
+Finally, supposed $\|x\|_p < 1$.  This implies $\|x\|_q \leq \|x\|_p < 1$ which means any point of $\|x\|_p$ is contained in $\|x\|_q$, which implies $\ell_n^p \subset \ell^q_n$. 
 
 \end{proof}
 
@@ -186,17 +186,15 @@ Choose $p$ with $1 \leq p \leq \infty$, and let $\epsilon >0$.  Show that $B_\ep
 Let $(X,d)$ be a metric space.  Define $B_1(0)=\{x \in X | d(x, 0) < 1 \}$ and $B_\epsilon(0)=\{x \in X | d(x, 0) < \epsilon \}$.  If we take any point from $B_1(0)$ we have the inequality $d(x,0) < 1$.  Therefore, we can multiply both sides of the inequality by $\epsilon$ with the result $\epsilon \cdot d(x, 0) < \epsilon$ for all $x \in B_1(0)$.  Which defines $B_\epsilon(0)$.
 
 \subsection{Exercise 3.3.7}
-Consider a point $x \in \mathbb{R}^2$ that lies outside the unit ball in $\ell_2^1(\mathbb{R})$ and inside the unit ball in $\ell_2^\infty$.  Is there a $p$ between $1$ and $\infty$ such that $\|x\|_p=1$?  Do the same problem for $\mathbb{R}^n$.
-
+Consider a point $x \in \mathbb{R}^2$ that lies outside the unit ball in $\ell_2^1(\mathbb{R})$ and inside the unit ball in $\ell_2^\infty$.  Is there a $p$ between $1$ and $\infty$ such that $\|x\|_p=1$?  Do the same problem for $\mathbb{R}^n$.\\
 For $\mathbb{R}^2$.
-\begin{align*}
-\|x\|_p = (|x_1|^p + |x_2|^p)^{\frac{1}{p}} &= 1 \\
-|x_1|^p + |x_2|^p &= 1
-\end{align*}
-
-No value of $p$ can satisfy this expression.  A similar result follows for $\mathbb{R}^n$.
-
-The reasoning for this result is that a point that lies outside of of the unit ball $\ell_2^1(\mathbb{R})$ and inside the until ball in $\ell_2^\infty$ seems like a good candidate to find a metric $d$ that results $\|x\|_p=1$.  However, if we first consider $\mathbb{R}^2$  if $1<p< \infty$ then all points have distance less than $1$ from $0$ on the unit ball. 
+\begin{proof}
+Choose $x = (x_1, x_2)$ $x \in \mathbb{R}^2$ such that $|x_1| \leq 1$ and $|x_2| \leq 1$ and $|x_1| + |x_2| > 1$ for $p=1$. Consider $f(p) = |x_1|^p + |x_2|^p$.  As $p$ approaches infinity $f(p)$ gets approaches $0$. Since $f(p)$ is a continuous function, there is some $p$ between one and $\infty$ where $f(p) = 1$ making $\|x\|_p = 1$.
+\end{proof}
+For $\mathbb{R}^n$.
+\begin{proof}
+Chose $x = (x_1, x_2,...,x_n)$, $x \in \mathbb{R}^n$ such that $|x_i| \leq 1$ and $|x_1| + |x_2| +...+|x_n| > 1$ for $p=1$.  Again consider $f(p) = |x_1|^p + |x_2|^p +...+|x_n|^p$.  As $p$ approaches infinity $f(p)$ approaches $0$.  Again, since $f(p)$ is a continuous function, there is some $p$ between $1$ and $\infty$ such that $f(p) = 1$ making $\|x\|_p = 1$.
+\end{proof}
 
 \subsection{Exercise 3.3.10}
 Prove that the following are open sets.
