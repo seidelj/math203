@@ -1,0 +1,160 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis\\First Midterm }
+\author{}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wasysym}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\vct}{\mathbf}
+
+
+\newcommand{\dprod}[2]{\langle #1, #2 \rangle}
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\subsection{Question 1} Determine if the following series converge is \textit{absolutely convergent} or not.
+\[ \sum_{n=1}^{\infty} \frac{(-1)^n n^3}{2^n} \text{ , } \sum_{n=1}^{\infty} \frac{3+2^{-n}}{n^{\frac{1}{2}}} \text{ , }  \sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n^2 + n + 1}}\]
+
+\textit{Answer}\\
+To show absolute converge of a series $\sum_{k=0}^{\infty}a_k$, it is enough to show convergence of $\sum_{k=0}^{\infty}|a_k|$.
+
+For $\sum_{n=1}^{\infty} \frac{(-1)^n n^3}{2^n}$, use root test.
+\[ \lim_{n \to \infty}|\frac{(-1)^n n^3}{2^n}|^\frac{1}{n} = \lim_{n \to \infty} \frac{n^\frac{3}{n}}{2} = \frac{1}{2} < 1 \]
+This series is convergent.
+
+For $\sum_{n=1}^{\infty} \frac{3+2^{-n}}{n^{\frac{1}{2}}}$ consider $\frac{3+2^{-n}}{n^{\frac{1}{2}}} > \frac{3}{n^{\frac{1}{2}}}$  It is known that $\sum_{n=1}^{\infty} \frac{1}{n^p}$ diverges for $p \leq 1$ so the series in question diverges.
+
+For $\sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n^2 + n + 1}}$
+\[|\frac{(-1)^n}{\sqrt{n^2+n+1}}| = \frac{1}{\sqrt{n^2+n+1}} > \frac{1}{\sqrt{n^2+2n+1}} = \frac{1}{n+1}\]
+Therefore, this series is not absolutely convergent.
+
+\subsection{Question 2} Find the radius of convergence of the following series.
+\[\sum_{n=1}^{\infty} \frac{(-1)^n2^nz^n}{n(n+1)} \]
+\[|\frac{(-1)^n2^nz^n}{n(n+1)}|^\frac{1}{n} = \frac{2}{(n(n+1))^\frac{1}{n}}\]
+\[lim_{n \to \infty} =\frac{2}{(n(n+1))^\frac{1}{n}} =2\]
+The radius of convergence is $\frac{1}{2}$
+
+\subsection{Question 3} It is known that arbitrary union of open sets is open and arbitrary intersection of closed sets is closed.  Construct an example satisfying: Countably many closed sets whose union is open but not closed.
+
+\[\bigcup_{n=1}^{\infty}[-1+\frac{1}{n}, 1-\frac{1}{n}] = (-1,1)\]
+
+\subsection{Question 4}
+\begin{enumerate}
+\item Prove that closed subsets of a compact set are compact
+
+\begin{proof}
+Suppose $S$ is compact and $A (\subset S)$ is closed.  Denote $X$ by the full set.  Consider any open cover $\mathcal{U}$ of $A$.  We add to the open cover another open set $X \setminus A$, then we get an open cover of $S$.
+Since $S$ is compact, there must be a finite subcover.  Removing $X \setminus A$ from the inite sets, the resulting finitely many open sets form an open cover of $A$.  Therefore any open cover of $A$ has a finite subcover, hence $A$ is compact.
+\end{proof}
+
+\item Show that the interval $(0,1)$ on the real line is not open as a subset of $\mathbb{C}$.
+
+\begin{proof}
+To be an open set in $\mathbb{C}$, as set $S$ has to satisfy the following: $\forall x \in S$ there exists $\epsilon$ such that $B_\epsilon(x) \subset S$ where
+\[B_\epsilon(x) = \{y \in \mathbb{C} : |y-x| < \epsilon\} \]
+Consider any point $x \in (0,1) \subset \mathbb{R}$. For any $\epsilon$ the point $x + \frac{i\epsilon}{2} \in B_\epsilon(x)$.  However, $x + \frac{i\epsilon}{2} \notin (0,1)$  Therefore, the ball $B_\epsilon(x)$ is not a subset of $(0,1)$, hence $(0,1)$ is not open in $\mathbb{C}$.
+\end{proof}
+
+\end{enumerate}
+\subsection{Question 5} We introduce the bilinear form $\dprod{\cdot}{\cdot}$ on $\mathbb{R}^2$ by 
+\[ \dprod{v}{w} = av_1w_1 + b(v_1w_2 + v_2w_1) + cv_2w_2 \]
+where $v=(v_1, v_2)$, $w=(w_1,w_2)$.  Find necessary and sufficient conditions on $a,b,c$ such that this bilinear form is an inner product.
+
+\textit{Answer}\\
+To be an inner product, the bilinear form has to be symmetric and positive definite.  The symmetricity is easy to verify.  It remains to guarantee  positive definiteness, ie. $\dprod{v}{v}=av_1^2 + 2bv_1v_2 + cv_2^2 \geq 0$ and $0$ if and only if $v=0$.  Now suppose $v \neq 0$ then either $v_1 \neq 0$ or $v_2 \neq 0$. We need $\dprod{v}{v} > 0$.
+Suppose $v_1 \neq 0$. Then denote $x = \frac{v_2}{v_1}$.  This implies
+\[ \dprod{v}{v} = v_1^2(a + 2bx + cx^2) > 0\]
+For all $x$.  We have to require $c>0$ and $(2b)^2-4ac<0$ to guarantee the parabola never touches the x-axis. Similarly, when $v_2 \neq 0$. we get $a>0$ and $(2b)^2-4ac<0$.\\
+To summarize we need $a>0$, $c>0$ and $b^2<ac$.
+
+
+\subsection{Question 6}
+Consider number $\alpha \in [0,1]$. For fixed $c>0$ and $\sigma>0$, we say a number $\alpha \in DC(c,\sigma)$, if the following inequality is satisfied for all rational numbers $\frac{p}{q} \in [0,1]$,
+\[\left| \alpha-\frac{p}{q}\right| \geq \frac{c}{q^{2+\sigma}}\]
+Such numbers are called Diophantine numbers.  Prove the following
+
+\begin{enumerate}
+\item Show that for $c$ small enough, the set $DC(c,\sigma)$ is not empty.
+Hint: Consider the set $DC(c,\sigma)$ as the resulting set by removing the interval $(\frac{p}{q} - \frac{c}{q^{2+\sigma}}, \frac{p}{q} + \frac{c}{q^{2+\sigma}})$ of length $2\frac{c}{q^{2+\sigma}}$ center at each rational number $\frac{p}{q}$.  For each $q$, there are at most $q$ rational numbers with denominator $q$, i.e. $\frac{1}{q}, \frac{2}{q},...,\frac{q}{q}$.  So for each $q$, the total length of removed intervals is at most
+\[ q \times \frac{2c}{q^{2+\sigma}} = \frac{2c}{q^{1+\sigma}} \] 
+\begin{proof}
+Keeping the hint in mind, we sum over $q \in \mathbb{N}$.  The total length of removed intervals is less than or equal to $\sum_{q=1}^{\infty}\frac{2c}{q^{1+\sigma}}$ since $1 + \sigma >1$ the series converges.  The sum can be made arbitrarily small by choosing $c$ small.  The removed set has has total length as small as we wish.  Therefore, the remaining set $DC(c,\sigma)$ has total length as close to $1$ as we wish.  Therefore it cannot be empty.
+\end{proof}
+
+\item Prove that for each $c,\sigma$, the set $DC(c,\sigma)$ is closed and nowhere dense. (Hint, this set is very similar to the Cantor set.  Notice the set does not contain rational numbers).
+
+\begin{proof}
+
+Since we always remove open sets of the form $(\frac{p}{q} - \frac{c}{q^{2+\sigma}}, \frac{p}{q} + \frac{c}{q^{2+\sigma}})$ the union of open sets is open.  So the resulting $DC(c,\sigma)$ is closed. Suppose $DC(c,\sigma)$ is not nowhere dense.  Since $DC(c, \sigma)$ is closed it must contain interval.  Since rational points are dense, there are always rational points in any interval.  This is a contradiction since $DC(c, \sigma)$ does not contain any rational points.
+\end{proof}
+
+\end{enumerate}
+
+\end{document}
+\grid
