@@ -154,14 +154,14 @@ Prove that $d_\infty$ defines a metric on $\mathbb{R}^n$
 \begin{proof}
 Need to show positive definiteness, symmetry, and triangle inequality.
 \begin{enumerate}
-\item Positive definiteness. $d_\infty(x,y) = max_{1\leq j\leq n}|x_i-y_i| \geq 0$ and $0$ if and only if $x = y$.
+\item Positive definiteness. $d_\infty(x,y) = max_{1\leq j\leq n}|x_j-y_j| \geq 0$ and $0$ if and only if $x = y$.
 
-\item $d_\infty(x,y) = max_{1\leq j\leq n}|x_i-y_i| =  max_{1\leq j\leq n}|y_i-x_i| =  d_\infty(y,x)$
+\item $d_\infty(x,y) = max_{1\leq j\leq n}|x_j-y_j| =  max_{1\leq j\leq n}|y_j-x_j| =  d_\infty(y,x)$
 
-\item Triangle inequality.  Consider $x, y \in X$.
+\item Triangle inequality.   Let $X \subset \mathbb{R}^n$ and consider $x, y \in X$.
 \begin{align*}
-\|x+y\|_\infty &= max_{1\leq j\leq n}|x_i+y_i|ß \\
-&\leq max_{1\leq j\leq n}|x_i| + max_{1\leq j\leq n}|y_i| = \|x\|_\infty + \|y\|_\infty
+\|x+y\|_\infty &= max_{1\leq j\leq n}|x_i+y_j| \\
+&\leq max_{1\leq j\leq n}|x_j| + max_{1\leq j\leq n}|y_j| = \|x\|_\infty + \|y\|_\infty
 \end{align*}
 \end{enumerate}
 
@@ -214,7 +214,7 @@ Let $(X, d)$ be a discrete metric.  Recall that in a discrete metric $d(x,x) = 0
 \end{enumerate}
 
 \subsection{Exercise 3.3.12}
-Let $X = [-1,1]$ with the metric inherited above ($mathbb{R}$).  Describe the open balls of $B_r(1)$ for various values of $r$.
+Let $X = [-1,1]$ with the metric inherited above ($\mathbb{R}$).  Describe the open balls of $B_r(1)$ for various values of $r$.
 
 \begin{enumerate}
 
