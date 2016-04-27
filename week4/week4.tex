@@ -189,11 +189,11 @@ Let $(X,d)$ be a metric space.  Define $B_1(0)=\{x \in X | d(x, 0) < 1 \}$ and $
 Consider a point $x \in \mathbb{R}^2$ that lies outside the unit ball in $\ell_2^1(\mathbb{R})$ and inside the unit ball in $\ell_2^\infty$.  Is there a $p$ between $1$ and $\infty$ such that $\|x\|_p=1$?  Do the same problem for $\mathbb{R}^n$.\\
 For $\mathbb{R}^2$.
 \begin{proof}
-Choose $x = (x_1, x_2)$ $x \in \mathbb{R}^2$ such that $|x_1| \leq 1$ and $|x_2| \leq 1$ and $|x_1| + |x_2| > 1$ for $p=1$. Consider $f(p) = |x_1|^p + |x_2|^p$.  As $p$ approaches infinity $f(p)$ gets approaches $0$. Since $f(p)$ is a continuous function, there is some $p$ between one and $\infty$ where $f(p) = 1$ making $\|x\|_p = 1$.
+Choose $x = (x_1, x_2)$ $x \in \mathbb{R}^2$ such that $|x_1| \leq 1$ and $|x_2| \leq 1$ and $|x_1| + |x_2| > 1$ for $p=1$. Consider $f(p) = |x_1|^p + |x_2|^p$.  As $p$ approaches infinity $f(p)$  approaches $0$. Since $f(p)$ is a continuous function, there is some $p$ between one and $\infty$ where $f(p) = 1$ making $\|x\|_p = 1$.
 \end{proof}
 For $\mathbb{R}^n$.
 \begin{proof}
-Chose $x = (x_1, x_2,...,x_n)$, $x \in \mathbb{R}^n$ such that $|x_i| \leq 1$ and $|x_1| + |x_2| +...+|x_n| > 1$ for $p=1$.  Again consider $f(p) = |x_1|^p + |x_2|^p +...+|x_n|^p$.  As $p$ approaches infinity $f(p)$ approaches $0$.  Again, since $f(p)$ is a continuous function, there is some $p$ between $1$ and $\infty$ such that $f(p) = 1$ making $\|x\|_p = 1$.
+Chose $x = (x_1, x_2,...,x_n)$, $x \in \mathbb{R}^n$ such that $|x_i| \leq 1$ and $|x_1| + |x_2| +...+|x_n| > 1$ for $p=1$.  Again consider $f(p) = |x_1|^p + |x_2|^p +...+|x_n|^p$.  As $p$ approaches infinity, $f(p)$ approaches $0$.  Again, since $f(p)$ is a continuous function, there is some $p$ between $1$ and $\infty$ such that $f(p) = 1$ making $\|x\|_p = 1$.
 \end{proof}
 
 \subsection{Exercise 3.3.10}
@@ -203,7 +203,7 @@ Prove that the following are open sets.
 \item The "first quadrant", that is, $\{(x,y) \in \mathbb{R}^2 | x > 0 \text{ and } y > 0 \}$, in the usual metric.
 
 \begin{proof}
-Choose $x, y \in \mathbb{R}^2$ such that $x > 0$ and $y > 0$ and otherwise let them be arbitrary.    Since we know $\mathbb{R}$ is open, For $x$ choose $\epsilon_x > 0$ such that $(x-\epsilon_x, x+\epsilon_x) \subset \mathbb{R}$ and choose $\epsilon_y >0$ such that $(y-\epsilon_y, y+\epsilon_y) \subset \mathbb{R}$   Choose $\epsilon = min(\epsilon_x, \epsilon_y)$, then we have $B_\epsilon(x,y) \subset \mathbb{R}^2$.  Since $x,y$ only need to be positive, we can draw an open ball around any point $(x,y)$ in $\mathbb{R}_+^2$ making the first quadrant open.
+Choose $x, y \in \mathbb{R}^2$ such that $x > 0$ and $y > 0$ and otherwise let them be arbitrary.    Since we know $\mathbb{R}$ is open, For $x$ choose $\epsilon_x > 0$ such that $(x-\epsilon_x, x+\epsilon_x) \subset \mathbb{R}_+$ and choose $\epsilon_y >0$ such that $(y-\epsilon_y, y+\epsilon_y) \subset \mathbb{R}_+$   Choose $\epsilon = min(\epsilon_x, \epsilon_y)$, then we have $B_\epsilon(x,y) \subset \mathbb{R}_+^2$.  Since $x,y$ only need to be positive, we can draw an open ball around any point $(x,y)$ in $\mathbb{R}_+^2$ making the first quadrant open.
 \end{proof}
 
 \item any subset of a discrete metric.
