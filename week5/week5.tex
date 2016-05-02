@@ -1,0 +1,164 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis\\Fifth Week }
+\author{Joe Seidel}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\vct}{\mathbf}
+
+
+\newcommand{\dprod}[2]{\langle #1, #2 \rangle}
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\subsection{Exercise 3.3.13}
+Let $(X,d)$ be a metric space and let $Y$ be an open set in $X$.  Show that every open set in $(Y,d')$, where $d'$ is the inherited metric, is also open in $X$.
+
+Since $Y$ is an open set, $\forall y_0 \in Y$ and fix $r > 0$ such that $B_r(y_0) \subset Y$. Note that $B_r(y_0) = \{ y \in Y | d'(y,y_0) < r\}$ where $y_0, y \in Y (\subset X)$ and $d'(y_0, y) = d(y_0, y)$.  Since $y_0$ was arbitrary, any open set in $Y$ is also open in $X$.
+
+\subsection{Exercise 3.3.20}
+Show that $\mathbb{Q}$ as a subset of $\mathbb{R}$ with the usual metric is neither open or closed in $\mathbb{R}$.  (Of course, if the metric space is simply $\mathbb{Q}$ with the usual metric, then $\mathbb{Q}$ is both open and closed in $\mathbb{Q}$.)
+
+Rational numbers are dense in $\mathbb{R}$, which means between any $p,t \in \mathbb{Q}$, $p \neq t$ there exists an irrational number, $i$.  Without loss of generality say $p < t$, then $p < i < t$.  Therefore, every open ball around $q \in \mathbb{Q}$ contains points not in $\mathbb{Q}$, i.e. the open ball, $\epsilon > 0$, $B_\epsilon(q) \not\subset \mathbb{Q}$.  Therefore $\mathbb{Q}$ is not open.
+
+Similarly, irrational numbers lie between to rational numbers and none of $\mathbb{Q}^c$ lie entirely in $\mathbb{Q}$.  So, $\mathbb{R}\setminus\mathbb{Q}$ is not open and $\mathbb{Q}$ is not closed.
+
+\subsection{Exercise 3.3.31}
+Suppose that $A$ is a subset of a metric space $X$.  Show that $\overline{A} = A \cup \{ \text{accummulation points of }A\}$
+
+\begin{proof}
+Let $A'=\{ \text{accummulation points of }A\}$. Consider $A \cup A'$, then any $a \in A \cup A'$ is either in $A$ or $A'$.  Consider $a \in A$, note that $A \subset A'$, so $a \in \overline{A}$.  If $a \in A'$, since $\overline{A}$ is closed it must contains all the accumulation points of $A$ so $a \in \overline{A}$.  Therefore $A \cup A' \subset \overline{A}$
+
+Now show $\overline{A} \subset A \cup A'$.  Consider any $a \in \overline{A}$.  Then $a \in A$ or $a \in \overline{A}\setminus A$. The first case is trivial. If $a \in \overline{A}\setminus A$, then $a \notin A$ but $a \in \overline{A}$ so $a$ must be an accumulation point of $A$.  Therefore, for any $a \in \overline{A}$, $a \in A$ or $a \in A'$ so conclude $\overline{a} \subset A \cup A'$.
+\end{proof}
+
+\subsection{Exercise 3.3.32}
+Suppose $A$ is a subset of a metric space $X$.  Prove or disprove $\overline{A} = A\cup \partial A$
+
+\begin{proof}
+Want to show $A\cup \partial A \subset \overline{A}$. Consider any $x \in A \cup \partial A$. Then either $x \in A$ or $x \in \partial A$.  If $x \in A$ then $x \in \overline{A}$ since $A \subset \overline{A}$.  If $x \in \partial A$ then for any $r>0$, $B_r(x) \cap A \neq \emptyset$ and $B_r(x) \cap A^c \neq \emptyset$.  This means $x$ is either an isolated point in $A$, so $x \in A$, or it is an accumulation point of $A$.  Again since $A \subset \overline{A}$ and $\overline{A}$ contains all accumulation points, $x \in \overline{A}$.  Since $a$ was arbitrary, $A\cup \partial A \subset \overline{A}$
+
+Next, want to show $\overline{A} \subset A\cup \partial A$.  Consider any $x \in \overline{A}$, then $x \in A$ or $x \notin A$. If $x \in A$ we are done.  If $x \notin A$, then $x \in X \setminus A$.  Suppose $x$ is an exterior point of $A$, then $x \in B_r(x)$, there exists $r >0$ such that $B_r(x) \cap A = \emptyset$. However this contradicts $x \in \overline{A}$ since $\overline{A}$ is the intersection of every closed set containing $A$.  Therefore if $x \notin A$ then $x \in \partial A$.  Then conclude, $\overline{A} \subset A\cup \partial A$.
+\end{proof}
+
+\subsection{Exercise 3.3.33}
+Suppose A is a subset of a metric space X.  Prove that $\partial A = \overline{A} \cap \overline{A^c}$.
+
+\begin{proof}
+Choose any $x \in \overline{A} \cap \overline{A^c}$, then $x \in \overline{A}$ and $x \in \overline{A^c}$. Suppose there exists $r>0$ such that $B_r(x) \cap A = \emptyset$, but then $x \notin \overline{A}$, which is a contradiction since $\overline{A}$ is the intersection of all sets containing $A$.  So $x$ is either in $\partial{A}$ or $A$.  Now we should suppose $x \in A$ and there exists $r > 0$ such that $B_r(x) \subset A$.  However, this contradicts that $x \in \overline{A^c}(= X \setminus \overline{A})$.  Therefore $x \in \partial A$.  This implies, since $x$ was arbitrary, $\overline{A} \cap \overline{A^c} \subset \partial A$.
+
+Now consider any $x \in \partial A$. This implies $\forall r>0$, $B_r(x) \cap A \neq \emptyset$ and $B_r(x) \cap A^c \neq \emptyset$.  Therefore $x \in \overline{A}$.  Since $A^c \subset \overline{A^c}$, $x$ is also in $\overline{A^c}$.  Again, since $x$ was arbitrary $\partial A \subset \overline{A} \cap \overline{A^c}$.
+
+\end{proof}
+
+
+\subsection{Exercise 3.3.49}
+\begin{enumerate}
+\item Describe the closed convex hull of the unit ball in $\ell_n^p(\mathbb{R})$ for $1 \leq p \leq \infty$.
+
+Let $B_1(0)$ be the unit ball in $\ell_n^p(\mathbb{R})$ and $\mathcal{I} := \{p,q \in \overline{B_1(0)} \}$.  The closed convex hull of $B_1(0)$ is $\bigcap_{i \in \mathcal{I}} \{(1-t)p_i + t(q_i) | 0 \leq t \leq 1 \}$ 
+
+\item Suppose $0 < p < 1$ For $x \in \mathbb{R}^n$, define,
+\[ \|x\|_p = \left( \sum_{k=1}^n |x_k|^p \right)^\frac{1}{p} \]
+
+Define $S_p = \{x \in \mathbb{R}^n | \|x\|_p \leq 1 \}$.  Determine whether $S_p$ is convex.  If not, find the closed convex hull of $S_p$.
+\end{enumerate}
+
+\subsection{Not in Book}
+Work on the following problems.
+
+\begin{enumerate}
+\item $(A^o)^c = \overline{A^c}$
+\begin{proof}
+Consider any $x \in (A^o)^c$, want so show $(A^o)^c \subset \overline{A^c}$.  Then $x \notin A^o$.  This means $\nexists \epsilon > 0$ such that $B_\epsilon(x) \subset A$.  Therefore $\exists\epsilon > 0$ such that $B_\epsilon(x) \cap A^c \neq 0$, so $x \in \overline{A^c}$.  This implies $(A^o)^c \subset \overline{A^c}$.
+
+Consider any $x \in \overline{A^c}$.  This means $\forall\epsilon >0$, $B_\epsilon(x) \cap A^c \neq \emptyset$.  Which means any open ball around $x$ will intersect $A^c$ so you cannot find an open ball where $B_\epsilon(x) \subset A$.  This implies $x \notin A^o$.  Therefore, $\overline{A^c} \subset (A^o)^c$
+
+\end{proof}
+
+\item An isolated point of A is an accumulation point of $A^c$.
+
+\begin{proof}
+Let $x \in A$ be an isolated point of $A$.  This means $\exists\epsilon>0$ such that $B_\epsilon (x) \cap A = \{x\}$.  Since isolated points are boundary points,  it also means, for any $\epsilon >0$ $B_\epsilon(x)\setminus \{x\} \cap A^c \neq \emptyset$.  Therefore, any isolated point of $A$ is an accumulation point of $A^c$.
+
+\end{proof}
+
+\item Construct an example of a set $A$ such that $\overline{A} = \emptyset$.
+
+The Cantor set.  The interior of the Cantor set is empty, i.e. $\mathcal{C}^o = \emptyset$, since it contains no non-empty open intervals.  The closure of $\emptyset$ is also empty, i.e. $\overline{\mathcal{C}^o} = \emptyset$.
+
+\item A set A such that $\overline{A}^o = \emptyset$.
+
+Again, the Cantor set fulfils this requirement.  The closure of the Cantor set is the Cantor set.  The interior of the Cantor set is empty.
+
+\end{enumerate}
+\end{document}
+\grid
