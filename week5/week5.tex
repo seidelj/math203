@@ -130,6 +130,10 @@ Let $B_1(0)$ be the unit ball in $\ell_n^p(\mathbb{R})$ and $\mathcal{I} := \{p,
 \[ \|x\|_p = \left( \sum_{k=1}^n |x_k|^p \right)^\frac{1}{p} \]
 
 Define $S_p = \{x \in \mathbb{R}^n | \|x\|_p \leq 1 \}$.  Determine whether $S_p$ is convex.  If not, find the closed convex hull of $S_p$.
+
+First, consider $\mathbb{R}^2$.  In order for a point $x$ to be in $S_p$, $(|x_1 + x_2|^p)^\frac{1}{p} \leq 1$.  Without loss of generality, consider $x \in \mathbb{R}_+^r$, the first quadrant.  If $x_1$ is relatively large, $x_2$ must be small, since $0<p<1$.  Which means there is a concave function in $\mathbb{R}^2$ for the points in $S_p$ and it's easy to see that there exists points $p,q \in S_p$ such that the line segment is not contained in $S_p$. So $S_p$ is not convex.
+
+To find the closed convex hull, employ Caratheodory's theorem.
 \end{enumerate}
 
 \subsection{Not in Book}
@@ -153,7 +157,7 @@ Let $x \in A$ be an isolated point of $A$.  This means $\exists\epsilon>0$ such 
 
 \item Construct an example of a set $A$ such that $\overline{A} = \emptyset$.
 
-The Cantor set.  The interior of the Cantor set is empty, i.e. $\mathcal{C}^o = \emptyset$, since it contains no non-empty open intervals.  The closure of $\emptyset$ is also empty, i.e. $\overline{\mathcal{C}^o} = \emptyset$.
+The Cantor set in space $\mathbb{R}$.  The interior of the Cantor set is empty, i.e. $\mathcal{C}^o = \emptyset$, since it contains no non-empty open intervals.  The closure of $\emptyset$ is also empty, i.e. $\overline{\mathcal{C}^o} = \emptyset$.
 
 \item A set A such that $\overline{A}^o = \emptyset$.
 
