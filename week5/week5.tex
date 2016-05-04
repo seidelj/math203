@@ -124,16 +124,38 @@ Now consider any $x \in \partial A$. This implies $\forall r>0$, $B_r(x) \cap A 
 \begin{enumerate}
 \item Describe the closed convex hull of the unit ball in $\ell_n^p(\mathbb{R})$ for $1 \leq p \leq \infty$.
 
-Let $B_1(0)$ be the unit ball in $\ell_n^p(\mathbb{R})$ and $\mathcal{I} := \{p,q \in \overline{B_1(0)} \}$.  The closed convex hull of $B_1(0)$ is $\bigcap_{i \in \mathcal{I}} \{(1-t)p_i + t(q_i) | 0 \leq t \leq 1 \}$ 
+Let $B_1(0)$ be the unit ball in $\ell_n^p(\mathbb{R})$ and $\mathcal{I} := \{p,q \in \overline{B_1(0)} \}$.  The closed convex hull of $B_1(0)$ is $\bigcap_{i \in \mathcal{I}} \{(1-t)p_i + t(q_i) | 0 \leq t \leq 1 \text{ with } t \in \mathbb{R} \}$ 
 
 \item Suppose $0 < p < 1$ For $x \in \mathbb{R}^n$, define,
 \[ \|x\|_p = \left( \sum_{k=1}^n |x_k|^p \right)^\frac{1}{p} \]
 
 Define $S_p = \{x \in \mathbb{R}^n | \|x\|_p \leq 1 \}$.  Determine whether $S_p$ is convex.  If not, find the closed convex hull of $S_p$.
 
-First, consider $\mathbb{R}^2$.  In order for a point $x$ to be in $S_p$, $(|x_1 + x_2|^p)^\frac{1}{p} \leq 1$.  Without loss of generality, consider $x \in \mathbb{R}_+^r$, the first quadrant.  If $x_1$ is relatively large, $x_2$ must be small, since $0<p<1$.  Which means there is a concave function in $\mathbb{R}^2$ for the points in $S_p$ and it's easy to see that there exists points $p,q \in S_p$ such that the line segment is not contained in $S_p$. So $S_p$ is not convex.
+\begin{proof}
 
-To find the closed convex hull, employ Caratheodory's theorem.
+For $S_p$ to be convex, the second derivative needs to be greater than $0$.
+\begin{align*}
+S_p^{'} &= p|x_k|^{(p-1)}\\
+S_p^{''} &= p(p-1)^{''}|x_k|^{(p-2)}
+\end{align*}
+
+Since $0< p < 1$, $p-1 < 0$ so $S_p^{''} < 0$ which means it is not convex.  So now it is time to find the closed convex hull of $S_p$.
+
+Consider the points at the corners of $S_p$, i.e. $p,q \in S_p$ where $p=(1,0)$ and $q=(0,1)$ and take the norm of the line segment formed by these two points.
+
+\begin{align*}
+\|(1-t)p+tq\|_p &= \|1-t[0,1] + t[0,1]\|_p \text{ with } 0 \leq t \leq 1 \\
+&= \|[1-t,0] + [0,t]\|_p\\
+&= \|(1-t, t)\|_p \\
+&= (|(1-t)|^p + |t|^p)^\frac{1}{p} \\
+&\geq ((1-t) + t))^\frac{p}{p} \\
+&= 1
+\end{align*}
+
+For $0<p<1$, $(|(1-t)|^p + |t|^p)^\frac{1}{p} \geq 1$, so the line segment isn't contained in the $S_p$, confirming the above.  However, for $p=1$ $(|(1-t)|^p + |t|^p)^\frac{1}{p} = 1$ so the closed convex hull of $S_p$ is $S_1 = \{x \in \mathbb{R}^n \text{ | } \|x\|_1 \leq 1 \}$
+
+\end{proof}
+
 \end{enumerate}
 
 \subsection{Not in Book}
