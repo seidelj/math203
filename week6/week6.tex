@@ -1,0 +1,174 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis\\Sixth Week }
+\author{Joe Seidel}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\vct}{\mathbf}
+
+
+\newcommand{\dprod}[2]{\langle #1, #2 \rangle}
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\subsection{3.4.8}
+Prove that a subset $Y$ of a complete metric space $X$ is also complete metric space with the inherited metric if and only if $Y$ is closed as a subset of $X$.
+
+\begin{proof}"$\Rightarrow$"\\
+Suppose $Y$ is closed. Let $(y_n)$ be a a Cauchy sequence in $Y$.  Since $Y \subset X$, $(y_n)$ is a Cauchy sequence in $X$.  Since $X$ is complete, $(y_n)$ converges to $y$ for some $y \in X$.  Since $Y$ is closed, $y \in Y$, hence $Y$ is complete.\\
+"$\Leftarrow$" Let $Y$ be a complete metric space and suppose $Y$ is open.  Then a Cauchy sequence $(y_n) \in Y$ converges to $y_n \not\in Y$, but this contradicts that $Y$ is complete, so $Y$ is closed.
+
+\end{proof}
+
+\subsection{3.4.9}
+Show that, for $1 \leq p \leq \infty$, the space $\ell_n^p(\mathbb{R})$ and $\ell_n^p(\mathbb{C})$ are complete metric spaces.
+
+\begin{proof}
+Define $\|x\|_p = (\sum_{k=1}^n |x_k|^p)^\frac{1}{p}$ and let $V$ be a vector space in $\mathbb{R}^n or \mathbb{C}^n$.
+
+Let the set $\{e_i\}_{i=1}^n$ be a base for $V$.  Recall that that norms for $1 \leq p \leq \infty$ are equivalent on finite dimensional spaces, therefore we can choose $p=1$ and completeness is preserved on these equivalent norms.
+
+We can choose $L,M>0 \in \mathbb{R}$ or $\mathbb{C}$ Such that $L\|w\| \leq \|w\| \leq M\|w\|$ for all $w \in V$.  This implies, $\forall \epsilon >0$ there exists $N \in \mathbb{N}$ such that if $n,m > N$
+\begin{align*}
+L|v_{n_{i}} - v_{k_{i}}| &\leq L \sum_{i=1}^n|v_{n_{i}} - v_{k_{i}}|\\
+&= L\|v_n - v_m\| \leq \|v_n - v_m\|< \epsilon
+\end{align*}
+for all $1 \leq i \leq n$.  Hence, $(v_{k_{i}})$ is a Cauchy sequence in $\mathbb{R}$ or $\mathbb{C}$ for each $i$.  Since $\mathbb{R}$ and $\mathbb{C}$ are complete, there exists $u_i \in \mathbb{R}$ or $\mathbb{C}$ such that $u_i = \lim_{k \to \infty}v_{k_{i}}$ for each $i$.
+Let $u=(u_1,...,u_n) = \sum_{i=1}^n u_ie_i$ which means that $u \in V$.  Finally, to show completeness, need to show $\lim_{k \to \infty}\|v_k - u\| = 0$.
+
+\begin{align*}
+\lim_{k \to \infty}\|v_k - u\| &\leq M \lim_{k \to \infty}\|v_k - u\|\\
+&= M \lim_{k \to \infty} \sum_{i=1}^n|v_{k_{i}} - u_i| \\
+&= M \sum_{i=1}^n \lim_{k \to \infty} |v_{k_{i}} - u_i| \\
+&= 0
+\end{align*}
+
+\end{proof}
+
+\subsection{3.4.18}
+For the following sequences $(f_n)_{n \in \mathbb{N}}$ of functions, where $f_n:[0,2\pi] \rightarrow \mathbb{R}$ for all $n \in \mathbb{N}$, find all values of $x \in [0, 2\pi]$ such that the sequence $(f_n(x))_{n \in \mathbb{N}}$ converges and find the pointwise limit function $f: [0,2\pi] \rightarrow \mathbb{R}$ if it exists.
+
+\begin{enumerate}
+
+\item $f_n(x) = \sin(\frac{x}{n})$\\
+Since $1 \leq n$ this function is always defined.  For all values $x \in [0,2\pi]$ the sequence $(f_n(x))_{n \in \mathbb{N}}$ converges to $0$ so $f:[0,2\pi] \rightarrow \mathbb{R}$ is given by $f(x) = 0$.
+
+\item $f_n(x) = sin(nx)$.\\
+Since the $sin$ function oscillates between $-1$ and $1$.  Consider $f_n(x) = 1$ when $n < \frac{\pi}{2x}$ and again when $2\pi(x) < n < \frac{5\pi}{2x}$ and so forth. Consider when $f_n(x) = 0$,  when $\frac{\pi}{2x}<n<\frac{\pi}{x}$ and again  when $\frac{3\pi}{2x} < n < \frac{2\pi}{x}$ and so forth.  Next, when $(f_n(x) = -1$ whenever $\frac{\pi}{x}<n<\frac{3\pi}{2x}$ and again $3\pi < n < \frac{7\pi}{2}$ and so forth.
+
+Hence, there are no values in the domain $[0, 2\pi]$ such that $(f_n(x))_{n \in \mathbb{N}}$ converges.  Hence, the pointwise limit function does not exist.
+
+\item $f_n(x) = \sin^n(x)$.
+\[f_n(x) = 
+\begin{cases}
+      0, & \text{if}\ x \neq \frac{3\pi}{2} \text{ and } x\neq \frac{\pi}{2} \\
+      1, & \text{if}\ x = \frac{\pi}{2}\\
+      -1 \text{ or } 1, & \text{if}\ x = \frac{3\pi}{2}\\
+\end{cases}
+\]
+Since the sequence does not converge when $x = \frac{3\pi}{2}$ we cannot define $f: [0,2\pi] \rightarrow \mathbb{R}$ as the point wise limit function of $f_n(x)$.
+
+\end{enumerate}
+
+\subsection{3.4.22}
+Let $f_n(x) = x^n$ for $n \in \mathbb{N}$.
+
+\begin{enumerate}
+
+\item Show that the sequence $(f_n)_{n \in \mathbb{N}}$ converges pointwise to the function $f(x) = 0$ on the interval $(-1,0)$.
+
+When $0 < x < 1$, this implies $x = \frac{1}{a}$ where $a > 1$ which implies $\lim_{n \to \infty} x^n = \lim_{n \to \infty} \frac{1}{a^n} = 0$.  When $-1 < x < 0$, it implies $x=(-1)\frac{1}{a}$ where $a > 1$ which means $(-1)\lim_{n \to \infty}\frac{1}{a^n} = 0$.  When $x=0$, $\lim_{n \to \infty} x^n = 0$. 
+
+Therefore all values in the domain $(-1,1)$, $\lim_{n \to \infty}f_n(x) = f(x)$.
+
+\item Show that if we restrict to the domain $[-\frac{1}{2}, \frac{1}{2}]$, the sequence $f(n)_{n \in \mathbb{N}}$ converges uniformly to the function $f(x) = 0$.
+
+\begin{proof}
+A sequence converges uniformly to a function if given $\epsilon >0$, $\exists N_\epsilon \in \mathbb{B}$ such that $\sup_{x \in X}|f_n(x) - f(x)| < \epsilon$ for $n \geq N_\epsilon$.
+
+Since $f(x) = 0$, $|f_n(x) - f(x)| = |x^n| < \epsilon$ if $x < \epsilon^\frac{1}{n}$.  Since $\epsilon^\frac{1}{n} < 1$ for all $n$ the sequence converges uniformly for the domain $[-\frac{1}{2}, \frac{1}{2}]$.
+\end{proof}
+
+\item Show that the sequence $(f_n)_{n \in \mathbb{N}}$ does not converge uniformly on the domain $(-1,1)$.
+
+\begin{proof}
+Consider again, the expression from above, $|f_n(x) - f(x)| = |x^n| < \epsilon$.  The inequality $x < \epsilon^\frac{1}{n}$ fails when $x$ gets within $\epsilon$ of $1$.  To see this, we can choose $x \in (-1,1)$ such that $1-\epsilon = x$. Notice that $1-\epsilon < \epsilon^\frac{1}{n}$ is clearly false.  Therefore, $(f_n)_{n \in \mathbb{N}}$ does not converge uniformly.
+\end{proof}
+
+\end{enumerate}
+\subsection{3.5.2}
+
+\subsection{3.5.3}
+
+\subsection{3.5.4}
+
+\end{document}
+\grid
