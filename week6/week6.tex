@@ -79,7 +79,7 @@
 \newpage
 \pagenumbering{arabic}
 
-\subsection{3.4.8}
+\subsection{Exercise 3.4.8}
 Prove that a subset $Y$ of a complete metric space $X$ is also complete metric space with the inherited metric if and only if $Y$ is closed as a subset of $X$.
 
 \begin{proof}"$\Rightarrow$"\\
@@ -88,7 +88,7 @@ Suppose $Y$ is closed. Let $(y_n)$ be a a Cauchy sequence in $Y$.  Since $Y \sub
 
 \end{proof}
 
-\subsection{3.4.9}
+\subsection{Exercise 3.4.9}
 Show that, for $1 \leq p \leq \infty$, the space $\ell_n^p(\mathbb{R})$ and $\ell_n^p(\mathbb{C})$ are complete metric spaces.
 
 \begin{proof}
@@ -113,7 +113,7 @@ Let $u=(u_1,...,u_n) = \sum_{i=1}^n u_ie_i$ which means that $u \in V$.  Finally
 
 \end{proof}
 
-\subsection{3.4.18}
+\subsection{Exercise 3.4.18}
 For the following sequences $(f_n)_{n \in \mathbb{N}}$ of functions, where $f_n:[0,2\pi] \rightarrow \mathbb{R}$ for all $n \in \mathbb{N}$, find all values of $x \in [0, 2\pi]$ such that the sequence $(f_n(x))_{n \in \mathbb{N}}$ converges and find the pointwise limit function $f: [0,2\pi] \rightarrow \mathbb{R}$ if it exists.
 
 \begin{enumerate}
@@ -138,7 +138,7 @@ Since the sequence does not converge when $x = \frac{3\pi}{2}$ we cannot define 
 
 \end{enumerate}
 
-\subsection{3.4.22}
+\subsection{Exercise 3.4.22}
 Let $f_n(x) = x^n$ for $n \in \mathbb{N}$.
 
 \begin{enumerate}
@@ -164,11 +164,57 @@ Consider again, the expression from above, $|f_n(x) - f(x)| = |x^n| < \epsilon$.
 \end{proof}
 
 \end{enumerate}
-\subsection{3.5.2}
 
-\subsection{3.5.3}
 
-\subsection{3.5.4}
+\subsection{Exercise 3.5.2}
+Suppose that $X$ and $X'$ are metric spaces as above and the $x_0 \in X$. Show that $f$ is continuous at $x_0$ iff for every sequence $(x_n)_{n \in \mathbb{N}}$ in $X$ which converges to $x_0$ in $X$ we have
+\[\lim_{n \to \infty}f(x_n) = f(x_0) \]
+in $X'$.
+
+\begin{proof}"$\Rightarrow$"\\
+Suppose $f: X \rightarrow X'$ is continuous at $x_0 \in X$.  Let $\epsilon > 0$ and supposed $\nexists \delta>0$ such that $d(x, x_0) < \delta$ implies $d'(f(x), f(x_0)) < \epsilon$ and prove by contradiction.\\
+Let $d = (\frac{1}{n})$ for any $n \in \mathbb{N}$ , then there is an $x_n \in B_\frac{1}{n}(x_0)$ for which $f(x_n) \not\in B_\epsilon(f(x_0))$.  Therefore there is a sequence $\{x_n\}$ that converges to $x_0$  but the sequence $\{f(x_n)\}$ does not converge to $f(x_0)$, contradicting the assumption that $f$ is continuous. \\
+"$\Leftarrow$"
+Assume that $\forall \epsilon > 0$, $\exists \delta >0$ such that $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.  Let $\{x_n\} \in X$ be a sequence that converges to $x_0$.  In order to show that $\{f(x_n)\}$ converges to $f(x_0)$, let $\epsilon >0$.  Therefore $\exists \delta >0$ for which $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.
+
+Since $\{x_n\}$ converges to $x_0$ we can choose $n_0 \in \mathbb{N}$ such that for $n > n_0$ $x_n \in B_\delta(x_0)$, but then $n > n_0$ implies $f(x_n) \in B_\epsilon(f(x_0))$ i.e. $\{f(x_n)\}$ converges to $f(x_0)$.  Therefore $f$ is continuous at $x_0$.
+\end{proof}
+
+\subsection{Exercise 3.5.3}
+Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a polynomial function, where $\mathbb{R}$ is the usual metric.  Show that $f$ is continuous.
+
+\begin{proof}
+First, note that for a linear function $f(x) = \alpha x + \beta$, the $\lim_{x \to x_0} f(x) = x_0$ is continuous.  Second, through repeated application of the produce rule for limits of functions, $\forall n \in \mathbb{B}$, $\lim_{x \to x_0} x^n = x_0^n$.
+
+Now observe $f(x) = A_nx^n + A_{n-1}x^{n-1}+...+A_0$.  Using algebraic limit laws and the first and seconds ideas above, notice
+\begin{align*}
+\lim_{x \to x_0} f(x) &= \lim_{x \to x_0}  A_nx^n + A_{n-1}x^{n-1}+...+A_0\\
+&=  \lim_{x \to x_0} A_nx^n + \lim_{x \to x_0} A_{n-1}x^{n-1}+...+\lim_{x \to x_0} A_0\\
+&= \lim_{x \to x_0} A_n (\lim_{x \to x_0}x^n) + \lim_{x \to x_0} A_{n-1} (\lim_{x \to x_0}x^{n-1})+...+\lim_{x \to x_0} A_0\\
+&= A_nx^n + A_{n-1}x^{n-1}+...+A_0\\
+&= f(x_0)\\
+\end{align*}
+
+Hence for a polynomial function $f: \mathbb{R} \rightarrow \mathbb{R}$, we have $\lim_{x \to x_0} f(x) = f(x_0)$ which implies continuity.
+\end{proof}
+
+
+\subsection{Exercise 3.5.4}
+Define $f: \mathbb{R} \rightarrow \mathbb{R}$ by 
+
+\[f(x) = 
+\begin{cases}
+      \frac{1}{q},  & \text{if} x = \frac{p}{q} \text{ (reduced to lowest terms,  } x \neq 0 \text{)} \\
+      0, & \text{if}\ x = 0 \text{ or } x \not\in \mathbb{Q}\\
+\end{cases}
+\]
+Show that $f$ is continuous at $0$ and any irrational point.  Show that $f$ is not continuous at any nonzero rational point.
+
+To see why $f$ is continuous at $0$ and any irrational point, let $X$ be $\{x \in \mathbb{R} | x =0 \text{ or } x \in R \setminus \mathbb{Q}\}$.  Choose any $x_0 \in X$, want to show that $\forall \epsilon >0$, $\exists \delta > 0$ such that $d(x, x_0) < \delta$ implies $d(f(x), f(x_0)) < \epsilon$.  Since we are in in $\mathbb{R}$, define distance to be $|x - y|$ for $x, y \in \mathbb{R}$.
+
+For any range of length $1$, in particular, consider $[x_0-\frac{1}{q}, x_0+\frac{1}{q})$, $f(x)$ takes the values of $\frac{1}{q}$, $q -1$ times.  We can remove these points up to $\frac{1}{\epsilon}$. and have removed only finitely many points.  What's left is points $f(x) < \frac{1}{\frac{1}{\epsilon}} \leq \epsilon$.  Since $x_0$ is irrational or $0$, it was not a point removed.  So we can form an open ball $B_\delta(x_0)$ that does not contain any rational points, with $\delta$ small enough.  This $\delta$ implies continuity.
+
+To show discontinuity at any nonzero rational point, consider $0 < \epsilon < \frac{1}{q}$.  and any $\delta > 0$.  Since $\mathbb{R}$ is dense in $\mathbb{Q}$ ,there are irrational numbers $y$ such that $|x-y| < \delta$, but then $|f(x) - f(y)| = \frac{1}{q} > \epsilon$.  So $f$ is discontinuous $\forall x \in \mathbb{Q}$, $x \neq 0$.
 
 \end{document}
 \grid
