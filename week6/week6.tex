@@ -132,10 +132,10 @@ For the following sequences $(f_n)_{n \in \mathbb{N}}$ of functions, where $f_n:
 \item $f_n(x) = \sin(\frac{x}{n})$\\
 Since $1 \leq n$ this function is always defined.  For all values $x \in [0,2\pi]$ the sequence $(f_n(x))_{n \in \mathbb{N}}$ converges to $0$ so $f:[0,2\pi] \rightarrow \mathbb{R}$ is given by $f(x) = 0$.
 
-\item $f_n(x) = sin(nx)$.\\
-Since the $sin$ function oscillates between $-1$ and $1$.  Consider $f_n(x) = 1$ when $n < \frac{\pi}{2x}$ and again when $2\pi(x) < n < \frac{5\pi}{2x}$ and so forth. Consider when $f_n(x) = 0$,  when $\frac{\pi}{2x}<n<\frac{\pi}{x}$ and again  when $\frac{3\pi}{2x} < n < \frac{2\pi}{x}$ and so forth.  Next, when $(f_n(x) = -1$ whenever $\frac{\pi}{x}<n<\frac{3\pi}{2x}$ and again $3\pi < n < \frac{7\pi}{2}$ and so forth.
+\item $f_n(x) = \sin(nx)$.\\
+Since the $\sin$ function oscillates between $-1$ and $1$.  Consider $f_n(x) = 1$ when $n < \frac{\pi}{2x}$ and again when $2\pi(x) < n < \frac{5\pi}{2x}$ and so forth. Consider when $f_n(x) = 0$,  when $\frac{\pi}{2x}<n<\frac{\pi}{x}$ and again  when $\frac{3\pi}{2x} < n < \frac{2\pi}{x}$ and so forth.  Next, when $(f_n(x) = -1$ whenever $\frac{\pi}{x}<n<\frac{3\pi}{2x}$ and again $3\pi < n < \frac{7\pi}{2}$ and so forth.
 
-Hence, there are no values in the domain $[0, 2\pi]$ such that $(f_n(x))_{n \in \mathbb{N}}$ converges.  Hence, the pointwise limit function does not exist.
+There are no values in the domain $[0, 2\pi]$ such that $(f_n(x))_{n \in \mathbb{N}}$ converges.  Hence, the pointwise limit function does not exist.
 
 \item $f_n(x) = \sin^n(x)$.
 \[f_n(x) = 
@@ -154,7 +154,7 @@ Let $f_n(x) = x^n$ for $n \in \mathbb{N}$.
 
 \begin{enumerate}
 
-\item Show that the sequence $(f_n)_{n \in \mathbb{N}}$ converges pointwise to the function $f(x) = 0$ on the interval $(-1,0)$.
+\item Show that the sequence $(f_n)_{n \in \mathbb{N}}$ converges pointwise to the function $f(x) = 0$ on the interval $(-1,1)$.
 
 When $0 < x < 1$, this implies $x = \frac{1}{a}$ where $a > 1$ which implies $\lim_{n \to \infty} x^n = \lim_{n \to \infty} \frac{1}{a^n} = 0$.  When $-1 < x < 0$, it implies $x=(-1)\frac{1}{a}$ where $a > 1$ which means $(-1)\lim_{n \to \infty}\frac{1}{a^n} = 0$.  When $x=0$, $\lim_{n \to \infty} x^n = 0$. 
 
@@ -163,7 +163,7 @@ Therefore all values in the domain $(-1,1)$, $\lim_{n \to \infty}f_n(x) = f(x)$.
 \item Show that if we restrict to the domain $[-\frac{1}{2}, \frac{1}{2}]$, the sequence $f(n)_{n \in \mathbb{N}}$ converges uniformly to the function $f(x) = 0$.
 
 \begin{proof}
-A sequence converges uniformly to a function if given $\epsilon >0$, $\exists N_\epsilon \in \mathbb{B}$ such that $\sup_{x \in X}|f_n(x) - f(x)| < \epsilon$ for $n \geq N_\epsilon$.
+A sequence converges uniformly to a function if given $\epsilon >0$, $\exists N_\epsilon \in \mathbb{N}$ such that $\sup_{x \in X}|f_n(x) - f(x)| < \epsilon$ for $n \geq N_\epsilon$.
 
 Since $f(x) = 0$, $|f_n(x) - f(x)| = |x^n| < \epsilon$ if $x < \epsilon^\frac{1}{n}$.  Since $\epsilon^\frac{1}{n} < 1$ for all $n$ the sequence converges uniformly for the domain $[-\frac{1}{2}, \frac{1}{2}]$.
 \end{proof}
@@ -188,16 +188,16 @@ Let $d = (\frac{1}{n})$ for any $n \in \mathbb{N}$ , then there is an $x_n \in B
 "$\Leftarrow$"
 Assume that $\forall \epsilon > 0$, $\exists \delta >0$ such that $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.  Let $\{x_n\} \in X$ be a sequence that converges to $x_0$.  In order to show that $\{f(x_n)\}$ converges to $f(x_0)$, let $\epsilon >0$.  Therefore $\exists \delta >0$ for which $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.
 
-Since $\{x_n\}$ converges to $x_0$ we can choose $n_0 \in \mathbb{N}$ such that for $n > n_0$ $x_n \in B_\delta(x_0)$, but then $n > n_0$ implies $f(x_n) \in B_\epsilon(f(x_0))$ i.e. $\{f(x_n)\}$ converges to $f(x_0)$.  Therefore $f$ is continuous at $x_0$.
+Since $\{x_n\}$ converges to $x_0$ we can choose $n_0 \in \mathbb{N}$ such that for $n > n_0$, $x_n \in B_\delta(x_0)$, but then $n > n_0$ implies $f(x_n) \in B_\epsilon(f(x_0))$ i.e. $\{f(x_n)\}$ converges to $f(x_0)$.  Therefore $f$ is continuous at $x_0$.
 \end{proof}
 
 \subsection{Exercise 3.5.3}
 Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a polynomial function, where $\mathbb{R}$ is the usual metric.  Show that $f$ is continuous.
 
 \begin{proof}
-First, note that for a linear function $f(x) = \alpha x + \beta$, the $\lim_{x \to x_0} f(x) = x_0$ is continuous.  Second, through repeated application of the produce rule for limits of functions, $\forall n \in \mathbb{B}$, $\lim_{x \to x_0} x^n = x_0^n$.
+First, note that for a linear function $f(x) = \alpha x + \beta$, we can choose $\alpha$ and $\beta$ such that the $\lim_{x \to x_0} f(x) = x_0$ is continuous.  Second, through repeated application of the produce rule for limits of functions, $\forall n \in \mathbb{N}$, $\lim_{x \to x_0} x^n = x_0^n$.
 
-Now observe $f(x) = A_nx^n + A_{n-1}x^{n-1}+...+A_0$.  Using algebraic limit laws and the first and seconds ideas above, notice
+Now observe $f(x) = A_nx^n + A_{n-1}x^{n-1}+...+A_0$.  Using algebraic limit laws and the two facts above, notice
 \begin{align*}
 \lim_{x \to x_0} f(x) &= \lim_{x \to x_0}  A_nx^n + A_{n-1}x^{n-1}+...+A_0\\
 &=  \lim_{x \to x_0} A_nx^n + \lim_{x \to x_0} A_{n-1}x^{n-1}+...+\lim_{x \to x_0} A_0\\
@@ -215,7 +215,7 @@ Define $f: \mathbb{R} \rightarrow \mathbb{R}$ by
 
 \[f(x) = 
 \begin{cases}
-      \frac{1}{q},  & \text{if} x = \frac{p}{q} \text{ (reduced to lowest terms,  } x \neq 0 \text{)} \\
+      \frac{1}{q},  & \text{if}\ x = \frac{p}{q} \text{ (reduced to lowest terms,  } x \neq 0 \text{)} \\
       0, & \text{if}\ x = 0 \text{ or } x \not\in \mathbb{Q}\\
 \end{cases}
 \]
@@ -223,7 +223,7 @@ Show that $f$ is continuous at $0$ and any irrational point.  Show that $f$ is n
 
 To see why $f$ is continuous at $0$ and any irrational point, let $X$ be $\{x \in \mathbb{R} | x =0 \text{ or } x \in R \setminus \mathbb{Q}\}$.  Choose any $x_0 \in X$, want to show that $\forall \epsilon >0$, $\exists \delta > 0$ such that $d(x, x_0) < \delta$ implies $d(f(x), f(x_0)) < \epsilon$.  Since we are in in $\mathbb{R}$, define distance to be $|x - y|$ for $x, y \in \mathbb{R}$.
 
-For any range of length $1$, in particular, consider $[x_0-\frac{1}{q}, x_0+\frac{1}{q})$, $f(x)$ takes the values of $\frac{1}{q}$, $q -1$ times.  We can remove these points up to $\frac{1}{\epsilon}$. and have removed only finitely many points.  What's left is points $f(x) < \frac{1}{\frac{1}{\epsilon}} \leq \epsilon$.  Since $x_0$ is irrational or $0$, it was not a point removed.  So we can form an open ball $B_\delta(x_0)$ that does not contain any rational points, with $\delta$ small enough.  This $\delta$ implies continuity.
+For any range of length $1$, in particular, consider $[x_0-\frac{1}{q}, x_0+\frac{1}{q})$, $f(x)$ takes the values of $\frac{1}{q}$, $q -1$ times.  We can remove these points up to $\frac{1}{\epsilon}$. and have removed only finitely many points.  What's left is points $f(x) < \frac{1}{\frac{1}{\epsilon}} \leq \epsilon$.  Since $x_0$ is irrational or $0$, it was not a point removed.  So we can form an open ball $B_\delta(x_0)$ that does not contain any rational points, with $\delta >0$ small enough.  This $\delta$ implies continuity.
 
 To show discontinuity at any nonzero rational point, consider $0 < \epsilon < \frac{1}{q}$.  and any $\delta > 0$.  Since $\mathbb{R}$ is dense in $\mathbb{Q}$ ,there are irrational numbers $y$ such that $|x-y| < \delta$, but then $|f(x) - f(y)| = \frac{1}{q} > \epsilon$.  So $f$ is discontinuous $\forall x \in \mathbb{Q}$, $x \neq 0$.
 
