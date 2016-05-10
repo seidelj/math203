@@ -89,15 +89,15 @@ Show that $\mathbb{Q}$ as a subset of $\mathbb{R}$ with the usual metric is neit
 
 Rational numbers are dense in $\mathbb{R}$, which means between any $p,t \in \mathbb{Q}$, $p \neq t$ there exists an irrational number, $i$.  Without loss of generality say $p < t$, then $p < i < t$.  Therefore, every open ball around $q \in \mathbb{Q}$ contains points not in $\mathbb{Q}$, i.e. the open ball, $\epsilon > 0$, $B_\epsilon(q) \not\subset \mathbb{Q}$.  Therefore $\mathbb{Q}$ is not open.
 
-Similarly, irrational numbers lie between to rational numbers and none of $\mathbb{Q}^c$ lie entirely in $\mathbb{Q}$.  So, $\mathbb{R}\setminus\mathbb{Q}$ is not open and $\mathbb{Q}$ is not closed.
+Similarly, irrational numbers lie between any two rational numbers and none of $\mathbb{Q}^c$ lie entirely in $\mathbb{Q}$.  So, $\mathbb{R}\setminus\mathbb{Q}$ is not open and $\mathbb{Q}$ is not closed.
 
 \subsection{Exercise 3.3.31}
 Suppose that $A$ is a subset of a metric space $X$.  Show that $\overline{A} = A \cup \{ \text{accummulation points of }A\}$
 
 \begin{proof}
-Let $A'=\{ \text{accummulation points of }A\}$. Consider $A \cup A'$, then any $a \in A \cup A'$ is either in $A$ or $A'$.  Consider $a \in A$, note that $A \subset A'$, so $a \in \overline{A}$.  If $a \in A'$, since $\overline{A}$ is closed it must contains all the accumulation points of $A$ so $a \in \overline{A}$.  Therefore $A \cup A' \subset \overline{A}$
+Let $A'=\{ \text{accummulation points of }A\}$. Consider $A \cup A'$, then any $a \in A \cup A'$ is either in $A$ or $A'$.  Consider $a \in A$, note that $A \subset \overline{A}$, so $a \in \overline{A}$.  If $a \in A'$, since $\overline{A}$ is closed it must contains all the accumulation points of $A$ so $a \in \overline{A}$.  Therefore $A \cup A' \subset \overline{A}$
 
-Now show $\overline{A} \subset A \cup A'$.  Consider any $a \in \overline{A}$.  Then $a \in A$ or $a \in \overline{A}\setminus A$. The first case is trivial. If $a \in \overline{A}\setminus A$, then $a \notin A$ but $a \in \overline{A}$ so $a$ must be an accumulation point of $A$.  Therefore, for any $a \in \overline{A}$, $a \in A$ or $a \in A'$ so conclude $\overline{a} \subset A \cup A'$.
+Now show $\overline{A} \subset A \cup A'$.  Consider any $a \in \overline{A}$.  Then $a \in A$ or $a \in \overline{A}\setminus A$. The first case is trivial. If $a \in \overline{A}\setminus A$, then $a \notin A$ but $a \in \overline{A}$ so $a$ must be an accumulation point of $A$.  Therefore, for any $a \in \overline{A}$, $a \in A$ or $a \in A'$ so conclude $\overline{A} \subset A \cup A'$.
 \end{proof}
 
 \subsection{Exercise 3.3.32}
@@ -148,7 +148,7 @@ Consider the points at the corners of $S_p$, i.e. $p,q \in S_p$ where $p=(1,0)$ 
 &= \|[1-t,0] + [0,t]\|_p\\
 &= \|(1-t, t)\|_p \\
 &= (|(1-t)|^p + |t|^p)^\frac{1}{p} \\
-&\geq ((1-t) + t))^\frac{p}{p} \\
+&\geq ((1-t) + t)^\frac{p}{p} \\
 &= 1
 \end{align*}
 
