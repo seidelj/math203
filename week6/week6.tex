@@ -84,7 +84,7 @@ Prove that a subset $Y$ of a complete metric space $X$ is also complete metric s
 
 \begin{proof}"$\Rightarrow$"\\
 Suppose $Y$ is closed. Let $(y_n)$ be a a Cauchy sequence in $Y$.  Since $Y \subset X$, $(y_n)$ is a Cauchy sequence in $X$.  Since $X$ is complete, $(y_n)$ converges to $y$ for some $y \in X$.  Since $Y$ is closed, $y \in Y$, hence $Y$ is complete.\\
-"$\Leftarrow$" Let $Y$ be a complete metric space and suppose $Y$ is open.  Then a Cauchy sequence $(y_n) \in Y$ converges to $y_n \not\in Y$, but this contradicts that $Y$ is complete, so $Y$ is closed.
+"$\Leftarrow$" Let $Y$ be a complete metric space and suppose $Y$ is open.  Then a Cauchy sequence $(y_n) \in Y$ converges to $y \not\in Y$, but this contradicts that $Y$ is complete, so $Y$ is closed.
 
 \end{proof}
 
@@ -98,7 +98,7 @@ Therefore, each coordinate sequence $(x_{i_k})_{k=1}^\infty$ is Cauchy in $\math
 
 Let $x = (x_1, x_2,...,x_n)$, then
 \[ \|x_k - x\|_p \leq C max\{|x_{i_k} - x_i|:i=1,2,...,n\} \]
-where $C=n^\frac{1}{p}$ if $1 \leq p < \infty$ or $C=1$ if $p = \infty$.  Given $\epsilon >0$ chose $N_i \in \mathbb{N}$ such that $|x_{i_k} - x_i| < \frac{\epsilon}{C}$ for all $k > N_i$.  Let $N=max{N_1, N_2,...N_n}$, then $k>N$ implies that $\|x_k-x\| < \epsilon$ which proves that $\lim_{k \to \infty}x_k = x$ in $ell_p^n(\mathbb{R})$ making this space complete.
+where $C=n^\frac{1}{p}$ if $1 \leq p < \infty$ or $C=1$ if $p = \infty$.  Given $\epsilon >0$ chose $N_i \in \mathbb{N}$ such that $|x_{i_k} - x_i| < \frac{\epsilon}{C}$ for all $k > N_i$.  Let $N=max{N_1, N_2,...N_n}$, then $k>N$ implies that $\|x_k-x\| < \epsilon$ which proves that $\lim_{k \to \infty}x_k = x$ in $\ell_p^n(\mathbb{R})$ making this space complete.
 
 The same proof works for $\mathbb{C}$.
 \end{proof}
@@ -178,7 +178,7 @@ Consider again, the expression from above, $|f_n(x) - f(x)| = |x^n| < \epsilon$.
 
 
 \subsection{Exercise 3.5.2}
-Suppose that $X$ and $X'$ are metric spaces as above and the $x_0 \in X$. Show that $f$ is continuous at $x_0$ iff for every sequence $(x_n)_{n \in \mathbb{N}}$ in $X$ which converges to $x_0$ in $X$ we have
+Suppose that $X$ and $X'$ are metric spaces as above and that $x_0 \in X$. Show that $f$ is continuous at $x_0$ iff for every sequence $(x_n)_{n \in \mathbb{N}}$ in $X$ which converges to $x_0$ in $X$ we have
 \[\lim_{n \to \infty}f(x_n) = f(x_0) \]
 in $X'$.
 
@@ -186,9 +186,9 @@ in $X'$.
 Suppose $f: X \rightarrow X'$ is continuous at $x_0 \in X$.  Let $\epsilon > 0$ and supposed $\nexists \delta>0$ such that $d(x, x_0) < \delta$ implies $d'(f(x), f(x_0)) < \epsilon$ and prove by contradiction.\\
 Let $d = (\frac{1}{n})$ for any $n \in \mathbb{N}$ , then there is an $x_n \in B_\frac{1}{n}(x_0)$ for which $f(x_n) \not\in B_\epsilon(f(x_0))$.  Therefore there is a sequence $\{x_n\}$ that converges to $x_0$  but the sequence $\{f(x_n)\}$ does not converge to $f(x_0)$, contradicting the assumption that $f$ is continuous. \\
 "$\Leftarrow$"
-Assume that $\forall \epsilon > 0$, $\exists \delta >0$ such that $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.  Let $\{x_n\} \in X$ be a sequence that converges to $x_0$.  In order to show that $\{f(x_n)\}$ converges to $f(x_0)$, let $\epsilon >0$.  Therefore $\exists \delta >0$ for which $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.
+Assume that $\forall \epsilon > 0$, $\exists \delta >0$ such that $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.  Let $\{x_n\} \in X$ be a sequence that converges to $x_0$.  In order to show that $\{f(x_n)\} \in X'$ converges to $f(x_0)$, let $\epsilon >0$.  Therefore $\exists \delta >0$ for which $x \in B_\delta(x_0)$ implies $f(x) \in B_\epsilon(f(x_0))$.
 
-Since $\{x_n\}$ converges to $x_0$ we can choose $n_0 \in \mathbb{N}$ such that for $n > n_0$, $x_n \in B_\delta(x_0)$, but then $n > n_0$ implies $f(x_n) \in B_\epsilon(f(x_0))$ i.e. $\{f(x_n)\}$ converges to $f(x_0)$.  Therefore $f$ is continuous at $x_0$.
+Since $\{x_n\}$ converges to $x_0$ we can choose $n_0 \in \mathbb{N}$ such that for $n > n_0$, $x_n \in B_\delta(x_0)$, but then $n > n_0$ implies $f(x_n) \in B_\epsilon(f(x_0))$ i.e. $\{f(x_n)\}$ converges to $f(x_0)$ in $X'$.  Therefore $f$ is continuous at $x_0$.
 \end{proof}
 
 \subsection{Exercise 3.5.3}
@@ -202,7 +202,7 @@ Now observe $f(x) = A_nx^n + A_{n-1}x^{n-1}+...+A_0$.  Using algebraic limit law
 \lim_{x \to x_0} f(x) &= \lim_{x \to x_0}  A_nx^n + A_{n-1}x^{n-1}+...+A_0\\
 &=  \lim_{x \to x_0} A_nx^n + \lim_{x \to x_0} A_{n-1}x^{n-1}+...+\lim_{x \to x_0} A_0\\
 &= \lim_{x \to x_0} A_n (\lim_{x \to x_0}x^n) + \lim_{x \to x_0} A_{n-1} (\lim_{x \to x_0}x^{n-1})+...+\lim_{x \to x_0} A_0\\
-&= A_nx^n + A_{n-1}x^{n-1}+...+A_0\\
+&= A_nx_0^n + A_{n-1}x_0^{n-1}+...+A_0\\
 &= f(x_0)\\
 \end{align*}
 
