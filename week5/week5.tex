@@ -82,7 +82,11 @@
 \subsection{Exercise 3.3.13}
 Let $(X,d)$ be a metric space and let $Y$ be an open set in $X$.  Show that every open set in $(Y,d')$, where $d'$ is the inherited metric, is also open in $X$.
 
-Since $Y$ is an open set, $\forall y_0 \in Y$ and fix $r > 0$ such that $B_r(y_0) \subset Y$. Note that $B_r(y_0) = \{ y \in Y | d'(y,y_0) < r\}$ where $y_0, y \in Y (\subset X)$ and $d'(y_0, y) = d(y_0, y)$.  Since $y_0$ was arbitrary, any open set in $Y$ is also open in $X$.
+Let $Y$ be an open subset of $X$.  Want to show that if $A \subset Y$ is open in $Y$ it is also open in $X$.
+
+Since $A$ is open in $Y$, $\exists r>0$ such that $B_r(a) \subset A$. So, $B_r^Y(a) = \{y \in Y | d(y,a) < r\} \subset A$ and it needs to be shown that $B_r^X(a) = \{x \in X|d(x,a) <r\} \subset A$.
+
+Notice, $B_r^Y(a) = B_r^X(a) \cap Y$.  Note that $Y$ is open and the intersection of open sets is open.  So $B_r^Y(a)$ is open in $X$. Therefore, $\exists r_2$ such that $B_{r_2}^X(a) \subset B_r^Y(a) \subset A$.
 
 \subsection{Exercise 3.3.20}
 Show that $\mathbb{Q}$ as a subset of $\mathbb{R}$ with the usual metric is neither open or closed in $\mathbb{R}$.  (Of course, if the metric space is simply $\mathbb{Q}$ with the usual metric, then $\mathbb{Q}$ is both open and closed in $\mathbb{Q}$.)
