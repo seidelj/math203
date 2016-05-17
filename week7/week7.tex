@@ -1,0 +1,113 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis\\Sixth Week }
+\author{Joe Seidel}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\vct}{\mathbf}
+
+
+\newcommand{\dprod}[2]{\langle #1, #2 \rangle}
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\subsection{Exercise 3.5.9}
+Suppose that $(X,d)$ and $(X',d')$ are metric spaces and that $f: X \to X'$ is continuous.  For each of the following statements, determine whether or not is true.  If the assertion is true, prove it.  If it is not true, give a counter example.
+
+\begin{enumerate}
+
+\item If $A$ is an open subset of $X$, then $f(A)$ is an open subset of $X'$;\\
+Not neccessarily true.  Consider the constant function $f: \mathbb{R} \to \mathbb{R}$, $f(x) = c$.  Let $A$ be an open subset of $\mathbb{R}$, then $f(A)$ is a closed subset of $\mathbb{R}$.
+
+\item If $A$ is a closed subset of $X$, then $f(A)$ is a closed subset of $X'$;\\
+Not neccessarily true.  Consider the function $f: \mathbb{R} \to \mathbb{R}$, $f(x) = \frac{x}{x+1}$.  If $A = [0, \infty)$ then $f(A) = [0,1)$ which is not closed.
+
+\item If $B$ is a closed subset of $X'$, then $f^{-1}(B)$ is a closed subset of $X$;\\
+True.  First note that $f^{-1}(S^c) = (f^{-1}(S))^c$.  Since $B \subset X'$ is closed, $B^c \subset X'$ is open.  From Theorem 3.5.5. a function $f: X \to X'$ is continuous iff for any open set $V \in X'$, the set $f^{-1}(V)$ is open in $X$.  Thefore, if $B^c$ is open then $f^{-1}(B^c)$ is open so $f^{-1}(B^c) = (f^{-1}(B))^c$ then $((f^{-1}(B))^c)^c = (f^{-1}(B))$ is closed.
+
+\item If $A$ is a bounded subset of $X$, then $f(A)$ is a bounded subset of $X'$;
+
+
+\end{enumerate}
+
+\subsection{Exercise 3.5.13}
+
+\subsection{Exercise 3.5.15}
+
+\subsection{Exercise 3.5.23(sans isometry part)}
+
+\subsection{Exercise 3.5.30}
+
+\subsection{Exercise 3.5.33}
+
+
+\end{document}
+\grid
