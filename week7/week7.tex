@@ -132,18 +132,77 @@ In  this exercise, we consider isometries from from $\mathbb{R}$ to itself in th
 \begin{enumerate}
 \item Is $f(x) = x^3$ a bijection? A homeomorphism? An Isometry?
 
-Since, $f^{-1}(f(x)) f^{-1}(x^3) = (x^3)^\frac{1}{3} = x$ and $f(f^{-1}(x))  = f(x^\frac{1}{3}) =(x^\frac{1}{3})^3 = x$, $f(x)$ is one to one.  Since $\forall x \in \mathbb{R}$ $f(x) \in \mathbb{R}$ so the function is onto, hence it is a bijection.   Since the product of continuous functions is continuous, and $x * x* x= x^3$, $f(x)$ is continuous.  Also not that $f^{-1}$ is defined on all points in $\mathbb{R}$ so the function is a homeomorphism. 
+Since, $f^{-1}(f(x)) f^{-1}(x^3) = (x^3)^\frac{1}{3} = x$ and $f(f^{-1}(x))  = f(x^\frac{1}{3}) =(x^\frac{1}{3})^3 = x$, $f(x)$ is one to one.  Since $\forall y \in \mathbb{R}'$ There exists $x \in \mathbb{R}$ such that $f(x) = y$ and  so the function is onto, hence it is a bijection.   Since the product of continuous functions is continuous, and $x * x* x= x^3$, $f(x)$ is continuous.  Also not that $f^{-1}$
+\begin{align*}
+|\sqrt[3]{x}-\sqrt[3]{a}| &= |\sqrt[3]{x}-\sqrt[3]{a}| \times \frac {| x^{\frac 2 3} + \sqrt[3]{a}\sqrt[3]{x} + a^{\frac 2 3} |}{|x^{\frac 2 3} + \sqrt[3]{a}\sqrt[3]{x} + a^{\frac 2 3} |}\\
+&= \frac {|x - a|}{|x^{\frac 2 3} + \sqrt[3]{a}\sqrt[3]{x} + a^{\frac 2 3} |} \le \frac {| x - a |}{| {ax} |^{\frac 1 3}}
+\end{align*}
+Assume $|x-a| < |a|$ then $|x| < 2|a|$ which implies $|ax| < 2|a|^2$ so  $\frac {1}{2|a|^2} < \frac {1} {|ax|}$.
 
-This function is not an isometry since $d(x,y) \neq d'(f(x), f(y))$, $\forall x,y \in \mathbb{R}$
+Therefore $|x|^{\frac{1}{3}} - a^{\frac{1}{3}}| < \frac{|x-a|}{|{a}|^{\frac{2}{3}}}$ whenever $|x - a| < |a|$ and $a \neq 0$.  Pick $\delta = min\{|a|, \epsilon|a|^\frac{2}{3}\}$, or in the case that $a = 0$ pick $\delta = \epsilon^3$.  These values for delta imply continuity.
 
-\item If $f(x) = x + \sin x$ a bijection? A homeomorphism? An isometry?
+Hence, this function is a homeomorphism. 
+
+This function is not an isometry since $d(x,y) \neq d'(f(x), f(y))$, $\forall x,y \in \mathbb{R}$.  This can be verified by picking $x = 2$ and $y=3$.
+
+\item If $f(x) = x + \sin x$ a bijection? A homeomorphism? An isometry?\\
+First check to see if $f(x)$ is one to one an onto.  Consider $sin(x) + x = sin(y) + y$, this can be reduced to $x=y$ so for any $x,y \in \mathbb{R}$ $f(x) = f(y)$ implies $x = y$. So it is one to one.  The function is also continuous since $sin$ is a continuous function and $x$ is a continuous function.  Like wise, the inverse function $f^{-1}(x) = cos(x) - x$ is continuous.  Hence, it is a bijection and homeomorphism.
+
+To see that this function is not isometric.  We can consider points $y=2$ and $x= 4$ $d(x,y) = 2$, but $d'(f(x) + f(y)) = |(sin(2) + 2) - (sin(4) + 4)| \neq 2$.
 
 \end{enumerate}
 
 \subsection{Exercise 3.5.30}
+Define a sequence of functions $f_n:(0,1) \to \mathbb{R}$ by
+\[f_n(x) = 
+\begin{cases}
+      \frac{1}{q^n}, & \text{if}\ x = \frac{p}{q} \text{ (reduced to lowest terms) }\\
+      0, & \text{otherwise}\\
+\end{cases}
+\]
+for $n \in \mathbb{N}$.  Find the pointwise limit $f$ of the sequence $(f_n)_{n \in \mathbb{N}}$ and show that $(f_n)_{n \in \mathbb{N}}$ converges to $f$ uniformly.
 
+\begin{proof}
+For any $x \in (0,1)$, either $x = \frac{p}{q}$(reduced to lowest terms), in otherwords $x \in \mathbb{Q}$, or $x$ is irrational.   
+
+When $x \in \mathbb{Q}$, $f_n(x) = \frac{1}{q^n}$.  Since $\lim_{n \to \infty}\frac{1}{a^n}=0$ when $a \geq 0$, the sequence $f_n(x)$ converges to $0$.   Likewise, when $x \not\in \mathbb{Q}$, $f_n(x)$ converges to $0$.  Therefore, the pointwise limit of $f$ can be defined $f(x) = 0$.
+
+A sequence converges uniformly if given $\epsilon >0$ $\exists N_\epsilon \in \mathbb{N}$ such that $sup_{x \in X}|f_n(x) - f(x)| < \epsilon$ whenever $n > N_\epsilon$.  
+
+Since $f(x) = 0$ for any $x \in (0,1)$ given any $\epsilon$ we can choose $N_\epsilon$ large enough such that either $|f_n(x)| < \epsilon$ when $x$ is rational and when $x$ is irrational $0 < \epsilon$.  Also note that although $(0, 1)$ contains infitiley many points, eventually, the value for $f_n(x) = \frac{1}{q^n}$ or $f_n(x) = 0$ becomes constant.  In other words, putting aside the exponent $n$, there are only finitely many values either, $\frac{1}{q}$ or ${0}$ in the range of the function.
+
+\end{proof}
 \subsection{Exercise 3.5.33}
+Let $X = (0, \infty)$ and determine whether the following functions are uniformly continuous on $X$.
 
+\begin{enumerate}
+
+\item $f(x) = \frac{1}{x}$
+
+Suppose $f$ is uniformly continous on $(0, \infty)$.  Then given any $\epsilon > 0$, $\exists \delta$ such that if $x>0$ and $y>0$ then $|x - y| < \delta$ implies $|f(x) - f(y)| < \epsilon$.
+
+Set $x_n = \frac{1}{n}$ and $y_n=\frac{1}{2n}$.  Then $|x_n - y_n| = \frac{1}{2n} <  \delta$ for $n$ large enough.  Then, $|f(x_n) - f(y_n)| = \frac{|x_n-y_n|}{x_ny_n} = n > \epsilon$ for large $n$.
+
+Therefore, the fucntion is not uniformly continuous.
+
+\item $f(x) = \sqrt{x}$
+
+Let $\delta = \epsilon^2$.  If $|x - y| < \delta = \epsilon^2$ we have $|\sqrt{x} - \sqrt{y}|^2 \leq |\sqrt{x} - \sqrt{y}||\sqrt{x} + \sqrt{y}| = |x-y| < \epsilon^2$  Hence $|\sqrt{x} - \sqrt{y}| < \epsilon$.  Thus $f$ is continuous on the interval $(0, \infty)$.
+
+\item $f(x) = \ln(x)$
+Suppose $f$ is uniformly continous on $(0, \infty)$.  Then given any $\epsilon > 0$, $\exists \delta$ such that if $x>0$ and $y>0$ then $|x - y| < \delta$ implies $|f(x) - f(y)| < \epsilon$.
+
+Set $x_n = \frac{1}{n}$ and $y_n = \frac{1}{2n}$.   $|x_n - y_n| = \frac{1}{2n} <  \delta$ for $n$ large enough.  Then, $|f(x_n) - f(y_n)| = \ln(\frac{2}{n^2}) > \epsilon$ for large $n$.
+
+Therefore, the fucntion is not uniformly continuous.
+
+\item $f(x) = x \ln(x)$
+Suppose $f$ is uniformly continous on $(0, \infty)$.  Then given any $\epsilon > 0$, $\exists \delta$ such that if $x>0$ and $y>0$ then $|x - y| < \delta$ implies $|f(x) - f(y)| < \epsilon$.
+
+Set $x_n = n$ and $y_n = n+1$.   $|x_n - y_n| = 1$ for any $n$, but $|f(x_n) - f(y_n)| = n \ln(\frac{1}{n} + 1) + \ln(n+1) > \epsilon$ for large $n$.
+
+So $f$ is not uniformly continous over $(0, \infty)$.
+\end{enumerate}
 
 \end{document}
 \grid
