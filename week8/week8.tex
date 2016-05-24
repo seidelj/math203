@@ -162,9 +162,33 @@ $f(x) = x^2$
 
 Since $f$ is continous, then it could have a fixed point $f(0) = 0$ or $f(1) = 1$.  If it does not then $f(0) > 0$ and $f(1)-1 < 0$.  Consider the function $g(x) = f(x) - x$.  Since $f(x)$ is continious, $g(x)$ is continious.  Note that $g(x)$ is positive at $x = 0$ and negative at $x  =1$.  By the intermediate value thereom, there is some point $x_0$ such that $g(x_0) = 0$.  Which is to say $f(x_0) - x_0 = 0$ hence $x_0$ is a fixed point.
 \end{enumerate}
+
 \subsection{Exercise Supplement 1}
+Consider a family of functions $f_n(x): [0,1] \to \mathbb{R}$ that is uniformly bounded and uniformly Lipschitz, where uniformly Lipschitz means that there exists a constant $L>0$ such that for all $n$ and all pair $x,y$, we have
+\[|f_n(x) - f_n(y)| \leq L|x-y|. \]
+Prove that this family is sequentially compact.  
+
+\begin{proof}
+
+We are already given that $f_n$ is uniformly bounded.  We only need to show that $f_n$ is equicontinuous and then apply Arzela-Ascoli. Let $\epsilon >0$ and choose $\delta = \frac{\epsilon}{L}$.  Then, $|x-y| <\frac{\epsilon}{L}$ but then since the family of functions is uniformly Lipschitz,
+\[|f_n(x) - f_n(y)| \leq L|x-y| < L \frac{\epsilon}{L} = \epsilon \]
+For any $n$.  Therefore, $f$ is a equicontinuous and uniformly bounded meaning that it is sequentially compact.
+\end{proof}
 
 \subsection{Exercise Supplement 2}
+Consider a family of functions $f_n(x): [0,1] \to \mathbb{R}$ that is uniformly bounded and uniformly $\alpha$-H{\"o}lder, where uniformly $\alpha$-H{\"o}lder means that there exists a Constant $C>0$ and $0<\alpha<1$ such that for all $n$ and pair $x,y$ we have
+\[|f_n(x) - f_n(y)| \leq C|x-y|^\alpha. \]
+Prove that this family is sequentially compact.
+
+\begin{proof}
+We are given that $f_n(x): [0,1] \to \mathbb{R}$ is uniformly bounded, it remains to be shown that this family of functions is equicontinuous.  Since $f_n$ is uniformly $\alpha$-H{\"o}lder there $\exists C>0$ and $0<\alpha<1$ such that 
+\[|f_n(x) - f_n(y)| \leq C|x-y|^\alpha \]
+For $\forall n$ and $\forall x,y \in [0,1]$.  Since $0<\alpha<1$, $|x-y|^\alpha \leq |x-y|$.  Choose $\delta = \frac{\epsilon}{C}$ which implies
+\[|f_n(x) - f_n(y)| \leq C|x-y|^\alpha \leq C|x-y| < C \frac{\epsilon}{C} = \epsilon .\]
+Hence, $f_n$ is equicontinuous.  Applying Arzela-Ascoli, this family of functions is sequentially compact.
+\end{proof}
+
+
 
 \end{document}
 \grid
