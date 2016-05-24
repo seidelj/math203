@@ -1,0 +1,170 @@
+\documentclass{tufte-book}
+
+\usepackage{amsmath, amsthm}
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{Real Analysis\\Eighth Week }
+\author{Joe Seidel}
+\date{\today}
+
+\usepackage{booktabs}
+\usepackage{units}
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wasysym}
+
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\DeclareMathOperator{\proj}{proj}
+\newcommand{\vct}{\mathbf}
+
+
+\newcommand{\dprod}[2]{\langle #1, #2 \rangle}
+
+\newtheoremstyle{mytheoremstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mytheoremstyle}
+\newtheorem*{thm}{Thm.}
+
+\newtheoremstyle{mylemstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\itshape}		% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mylemstyle}
+\newtheorem*{lem}{Lem.}
+
+
+\newtheoremstyle{mydefstyle} % name
+	{\topsep}		% Space above
+	{\topsep}		% Space below
+	{\normalfont}	% Body font
+	{}			% Indent amount
+	{\bfseries}	% Theorem head font
+	{\textnormal{:}}	% Punctuation after theorem head
+	{.5em}		% Space after theorem head
+	{}			%Theorem headspec 
+\theoremstyle{mydefstyle}
+\newtheorem*{mydef}{Def.}
+\newtheorem*{ex}{E.g.}
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+\newpage
+\pagenumbering{arabic}
+
+\subsection{Exercise 3.6.12-DROPPED}
+Suppose that $A$ and $B$ are nonempty subsets of a metric space $X$.  The \textit{distance} between $A$ and $B$ is defined by
+\[d(A,B) = \inf\{d(a,b) \,|\, a \in A, b \in B\} \]
+We say that $d(A,B)$ is \textit{assumed} if there exists $a_0 \in A$ and $b_0 \in B$ such that $d(A,B) = d(a_0, b_0)$. Determine whether or not the distance between $A$ and $B$ is necessarily assumed in $(i)-(iii)$.
+
+\begin{enumerate}
+
+\item $A$ is closed and $B$ is closed.\\
+Suppose $A = \{x, \frac{-1}{x} \,|,\ x<0\}$ and $B = \{x, \frac{1}{x} \,|,\ x>0\}$ in $\mathbb{R}^2$.  Then $d(A,B)=0$ but, $\forall a \in A$ and $\forall b \in B$ distance is $\sqrt{(-x - x)^2 + (\frac{1}{x} - \frac{1}{x})^2}>0$, i.e. $d(a,b) > 0$.  Thefore, distance is not neccessarily assumed when $A$ and $B$ are closed.
+
+\item $A$ is compact and $B$ is closed.
+Considering the same example of above, but with $A$ now being compact.  This means that any sequence in $A$ converges in $A$, so it achieves it's minimum and maximum values.  However,$B$ is still closed and there is a sequence in $(b_n) \in B$ such that $\lim_{n \to \infty}b_n = 0$, however $0 \not\in B$ which is required in order to make $d(A,B) = d(a_0, b_0) = 0$ for some $a_0 \in A$ and $b_0 \in B$.  So distance in this case is not neccessrily assumed.
+
+\item $A$ is compact and $B$ is compact.\\
+
+There exists a sequence $(a_n) \in A$ and $(b_n) \in B$ such that
+\[ \lim_{n \to \infty} d(a_n, b_n) = d(A,B) \]
+
+Being compact in a metric is equivelance to being sequentially compact, so $A$ and $B$ are sequentially compact.  This means
+\[ \lim_{k \to \infty} d(a_{n_k}) = a \text{ with } a \in A \]
+Additionally, note
+\[ \lim_{k \to \infty} d(a_{n_k}, b_{n_k}) = d(A,B) \]
+Since $B$ is sequentially compact,
+\[ \lim_{j \to \infty} b_{n_{k_j}} = b \text{ with } b \in B \]
+Note once more,
+\[ \lim_{j \to \infty} d(a_{n_{k_j}}, b_{n_{k_j}}) = d(A,B) \]
+As long as $d$ is a continuous function, the above implies $d(a,b) = d(A,B)$ with $a \in A$ and $b \in B$.  Hence, distance can be assumed under these conditions.
+
+\item What happens to the above cases if we assume $X$ is complete?\\
+We proved in exercise 3.4.8 (hw 6) that a closed subset of a complete space is also complete. Therefore, all cauchy sequences in $X$ converge in $X$.  Hence, in the above cases distance can be assumed.
+
+\end{enumerate}
+
+
+\subsection{Exercise 3.6.25}
+\begin{enumerate}
+\item In the usual metric, $\mathbb{Q}$ is dense in $\mathbb{R}$.\\
+Consider that $\overline{\mathbb{Q}} = \mathbb{R} \setminus (\mathbb{R}\setminus \mathbb{Q})^o$.  Since every open ball around a rational number contains atleast and irrational; and any open ball around an irrational number must contain a rational number $(\mathbb{Q}^c)^o = \emptyset$.  Hence $\overline{\mathbb{Q}} = \mathbb{R}$
+
+\item The "dyadic numbers," that is, the set $D = \{ \frac{a}{2^n} \in \mathbb{Q} \,|\, a,n \in \mathbb{Z}\}$, are dense in $\mathbb{R}$ in the usual mertic.\\
+Consider $a < b \in \mathbb{R}$.  By Archimedian property, $\exists n \in \mathbb{N}$ such that $0 < \frac{1}{n} < b-a$ which implies $0 < \frac{1}{2^n} < \frac{1}{n} < b-a$.
+
+Therefore, $1<(2^n *b)-(2^n*a)$, since $(2^n *b) >1$ and $(2^n *a)>1$ there exists an integer $m$ such that $2^n *a<m<2^n*b \Rightarrow a< \frac{m}{2^n} < b$ where $2^n \neq 0$,  Hence between any two rational numbers there exists $d \in D$ and between any two dyadic numbers, there exists a real number.  So similiar to $\mathbb{Q} \subset \mathbb{R}$, $\overline{D} = \mathbb{R}\setminus(D^c)^o=\mathbb{R}$
+
+\end{enumerate}
+\subsection{Exercise 3.6.26}
+\begin{enumerate}
+
+\item Show that in any metric space $X$, $X$ is dense in $X$.\\
+$\overline{X} = X \setminus (X^c)^o = X\setminus(X \setminus X)^o = X\setminus (\emptyset)^o = X$.
+
+\item Show that in any discrete metric space $X$, the only dense subset of $X$ is $X$ itself.\\
+Any proper subset $S \subset X$ contains a single point $\{x\}$.  Hence $\overline{S} = S$.  Therefore, there does not exists $S \subset X$ such that $\overline{S} = X$ unless $S = X$, as seen in item one.
+
+\item Show that if the only dense subset of a metric $X$ is $X$ itself, then $X$ is discrete.\\
+Suppose $X$ is a metric space and the only dense subset of $X$ is $X$.  This means that no subset $X\setminus\{x\}$, $\forall x \in X$ is a dense subset of $X$.  Since $\overline{X\setminus\{x\}} \neq X$, $x$ is an isolated point in $X$.  Since $x$ was arbitrary, $\forall x \in X$ are isolated and $X$ is a discrete metric space.
+\end{enumerate}
+
+
+\subsection{Exercise 3.6.30}
+Suppose $X$ and $X'$ are metric spaces with $X$ seperable.  Let $f:X \to X'$ be continuous surjection.  Show that $X'$ is separable.
+\begin{proof}
+Pick any nonempty open set $U \subset X'$, want to show that $U \cap f(S) \neq \emptyset$, i.e. $f(S)$ is dense in $X'$.
+
+Since $f$ is continous, we have $f^{-1}(U)$ is open and not empty.  Next, since $X$ is seperable we can find a countable set $S \subset X$ that is dense in $X$. Therefore $f^{-1}(U) \cap S \neq \emptyset$.  Pick any $x \in f^{-1}(U) \cap S$, we get $f(x) \in f(S) \cap U$.  Therefore $f(S)$ is dense in $X'$.  Additionally, since $S$ is countable, and $f$ is surjective then for any $y \in X'$ there exists an $x \in X$ such that $f(x) = y$, so $f(S)$ is countable, since $S$ is countable.  To conclude we have a subset of $X'$ that is countable and dense in $X'$ which means $X'$ is seperable. 
+\end{proof}
+
+\subsection{Exercise 3.6.31}
+Find a metric $d$ on $\mathbb{R}$ such that $(\mathbb{R}, d)$ is not separable.
+
+The discrete metric.  Supose $X = (\mathbb{R}, d)$ where $d$ is the discrete metric.  Choose $A \subset \mathbb{R}$ such that $\overline{A}= \mathbb{R}$.  However, since $X$ is discrete,  $\overline{A}= \mathbb{R}$ implies $A = \mathbb{R}$, but $A$ is uncountable.  As seen is exersise 3.6.26 the only dense subset of $X$ is $X$ so there exists no countable subset of $X$ that is dense in $X$.  So $X$ is not separable.
+
+\subsection{Exercise 3.7.6}
+\begin{enumerate}
+\item Find a countious function $f: \mathbb{R} \to \mathbb{R}$ that does not have a fixed point.\\
+$f(x) = x+1$.
+
+\item Find a continous function $f:(0,1) \to (0,1)$ that does not have a fixed point.\\
+$f(x) = x^2$
+
+\item Let $f:[0,1] \to [0,1]$ be continous.  Show that $f$ has a fixed point.\\
+
+Since $f$ is continous, then it could have a fixed point $f(0) = 0$ or $f(1) = 1$.  If it does not then $f(0) > 0$ and $f(1)-1 < 0$.  Consider the function $g(x) = f(x) - x$.  Since $f(x)$ is continious, $g(x)$ is continious.  Note that $g(x)$ is positive at $x = 0$ and negative at $x  =1$.  By the intermediate value thereom, there is some point $x_0$ such that $g(x_0) = 0$.  Which is to say $f(x_0) - x_0 = 0$ hence $x_0$ is a fixed point.
+\end{enumerate}
+\subsection{Exercise Supplement 1}
+
+\subsection{Exercise Supplement 2}
+
+\end{document}
+\grid
