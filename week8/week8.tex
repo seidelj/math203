@@ -115,7 +115,10 @@ We proved in exercise 3.4.8 (hw 6) that a closed subset of a complete space is a
 \subsection{Exercise 3.6.25}
 \begin{enumerate}
 \item In the usual metric, $\mathbb{Q}$ is dense in $\mathbb{R}$.\\
-Consider that $\overline{\mathbb{Q}} = \mathbb{R} \setminus (\mathbb{R}\setminus \mathbb{Q})^o$.  Since every open ball around a rational number contains an irrational; and any open ball around an irrational number contains a rational number, $(\mathbb{Q}^c)^o = \emptyset$.  Hence $\overline{\mathbb{Q}} = \mathbb{R}$
+Consider $a,b \in \mathbb{R}$, without loss of generality let $a<b$.  We want to show that $\exists q \in \mathbb{Q}$ such that $a < q < b$.  By Archmedean ordering principle $\exists N \in \mathbb{N}$ such that $\frac{1}{N} < b-a$.
+
+Claim: $\exists k \in mathbb{Z}$ such that $a < \frac{k}{N} < b$.
+Suppose this is not true and prove by contridiction.  Then $\exists k \in \mathbb{Z}$ such that $\frac{k}{n} \leq a$ and $\frac{k+1}{n} \geq b$.  Then $b-a \leq \frac{k+1}{N} - \frac{k}{N} = \frac{1}{n}$ which contradicts Archmedean ordering principle.
 
 \item The "dyadic numbers," that is, the set $D = \{ \frac{a}{2^n} \in \mathbb{Q} \,|\, a,n \in \mathbb{Z}\}$, are dense in $\mathbb{R}$ in the usual mertic.\\
 Consider $a < b \in \mathbb{R}$.  By Archimedian property, $\exists n \in \mathbb{N}$ such that $0 < \frac{1}{n} < b-a$ which implies $0 < \frac{1}{2^n} < \frac{1}{n} < b-a$.

@@ -90,7 +90,7 @@ which implies $\|x\|_\infty \leq \|x\|_p$.
 Next
 \[ \|x\|_p = (|x_1|^p + |x_2|^p)^{\frac{1}{p}} \leq (|x_1|^p + |x_1|^p)^\frac{1}{p} = 2^\frac{1}{p}|x_1|^\frac{1}{p} = 2^\frac{1}{p}\|x\|_\infty \]
 So
-\[  2^\frac{1}{p}\|x\|_\infty \leq \|x\|_\infty \leq \|x\|_p \]
+\[ \|x\|_\infty \leq \|x\|_p \leq 2^\frac{1}{p}\|x\|_\infty \]
 
 \end{proof}
 
@@ -136,11 +136,18 @@ Closure $\mathbb{R}$. Interior $\emptyset$. Boundary $\mathbb{R}$.
 Closure Cantor set.  Interor $\emptyset$.  Boundary Cantor set.
 \end{enumerate}
 
+\subsection{Question 5}
+Consider two vectors $v_1=(1,1,0)$ and $v_2=(3,0,4)$ in $\mathbb{R}^3$ endowed with the standard inner product.  The two vectors span a plane
+\[ P = \{sv_1 + tv_2 \,|\, s,t \in \mathbb{R} \}. \]
+Use Gram-Schmidt to produce an orthonormal basis for the plane P.
+
+$\tilde{v}_1 = v_1$ and $\tilde{v}_2 = v_2 - \proj_{v_1}(v_1)$
+Then normalize $v_1$ and $\tilde{v}_2$.
 \subsection{Question 6}
 Consider a metric space $(X,d)$.  Suppose both two sets $S_1, S_2 \subset X$ are open and dense in $X$.  Prove that $S_1 \cap S_2$ is open and dense in $X$.
 
 \begin{proof}
-The intersection of finite open sets is open, so $S_1 \cap S_2$ is open.  To show $S_1 cap S_2$ is dense, we consider any nonempty open set $U \subset X$.  Since $S_1$ is dense, we have $S_1 \cap U \neq \emptyset$.  Pick $x \in S_1 \cap U$, since $S_1 \cap U$ is open, we have that $\exists \epsilon$ such that $B_\epsilon(x) \subset S_1 \cap U$.  Since $S_2$ is dense, we get $B_\epsilon \cap S_2 \neq \emptyset$.  This implies $B_\epsilon(x) \cap S_2 \subset S_1 \cap S_2 \cap U$.  Hence $S_1 \cap S_2$ is dense.
+The intersection of finite open sets is open, so $S_1 \cap S_2$ is open.  To show $S_1 \cap S_2$ is dense, we consider any nonempty open set $U \subset X$.  Since $S_1$ is dense, we have $S_1 \cap U \neq \emptyset$.  Pick $x \in S_1 \cap U$, since $S_1 \cap U$ is open, we have that $\exists \epsilon$ such that $B_\epsilon(x) \subset S_1 \cap U$.  Since $S_2$ is dense, we get $B_\epsilon(x) \cap S_2 \neq \emptyset$.  This implies $B_\epsilon(x) \cap S_2 \subset S_1 \cap S_2 \cap U$.  Hence $S_1 \cap S_2$ is dense.
 \end{proof}
 
 \subsection{Question 7}
