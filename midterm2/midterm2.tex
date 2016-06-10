@@ -95,7 +95,7 @@ So
 \end{proof}
 
 \subsection{Question 2}
-Suppose $f: X \to X'$ is a bijection (one-to-one and onto) and continuous where $X(\subset \mathbb{R}$ is compact and $X' \subset \mathbb{R}$.  Prove that $f$ is in fact a homeomorphism.
+Suppose $f: X \to X'$ is a bijection (one-to-one and onto) and continuous where $X(\subset \mathbb{R})$ is compact and $X' \subset \mathbb{R}$.  Prove that $f$ is in fact a homeomorphism.
 
 \begin{proof}
 It remains to show $f^{-1}$ is continuous.  We need to show for any open set $U \subset X$, $(f^{-1})^{-1}(U) = f(U)$ is open in $X'$.  Equivently for any closed set $V \subset X$, $(f^{-1})^{-1}(V) = f(V)$  is closed in $X'$.
@@ -160,7 +160,7 @@ It is enough to show any Cauchy sequence has a limit in $\mathbb{R}$.  Suppose $
 
 Then we have $|x_m - x_n| < \epsilon + |x_m-x_n|\epsilon$ for $\epsilon < \frac{1}{2}$, we have $|x_m-x_n| < \frac{\epsilon}{1-\epsilon} < 2\epsilon$.   This implies $\forall \epsilon < \frac{1}{2}$ $\exists N$ such that when $m, n > N$ we have $|x_m - x_n| < 2\epsilon$.  Hence $\{x_n\}$ is a Cauchy sequence in $\mathbb{R}$ in the usual metric. $\mathbb{R}$ is complete in this metric, so $\exists x \in \mathbb{R}$ such that $\lim_{n \to \infty}x_n = x$, in the usual metric.
 
-Furthermore, $d(x_n, x) = \frac{|x_n -x|}{1+|x_n+x|} < |x_n-x|$.  Therefore $\{x_n\}$ converges to $x$ also in the new metric.
+Furthermore, $d(x_n, x) = \frac{|x_n -x|}{1+|x_n-x|} < |x_n-x|$.  Therefore $\{x_n\}$ converges to $x$ also in the new metric.
 
 \end{proof}
 
