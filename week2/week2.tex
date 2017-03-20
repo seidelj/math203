@@ -37,7 +37,7 @@
 	{\bfseries}	% Theorem head font
 	{\textnormal{:}}	% Punctuation after theorem head
 	{.5em}		% Space after theorem head
-	{}			%Theorem headspec 
+	{}			%Theorem headspec
 \theoremstyle{mytheoremstyle}
 \newtheorem*{thm}{Thm.}
 
@@ -49,7 +49,7 @@
 	{\bfseries}	% Theorem head font
 	{\textnormal{:}}	% Punctuation after theorem head
 	{.5em}		% Space after theorem head
-	{}			%Theorem headspec 
+	{}			%Theorem headspec
 \theoremstyle{mylemstyle}
 \newtheorem*{lem}{Lem.}
 
@@ -62,7 +62,7 @@
 	{\bfseries}	% Theorem head font
 	{\textnormal{:}}	% Punctuation after theorem head
 	{.5em}		% Space after theorem head
-	{}			%Theorem headspec 
+	{}			%Theorem headspec
 \theoremstyle{mydefstyle}
 \newtheorem*{mydef}{Def.}
 \newtheorem*{ex}{E.g.}
@@ -110,7 +110,7 @@ Suppose $\{A_i \subset \mathbb{R} | i \in I\}$ is an arbitrary collection of ope
 If $x \in \cup A_i$ then $x \in A_i$ for some $i \in I$.  Since $A_i$ is open,  there $(x - \epsilon, x+ \epsilon) \subset A_i$ for $\epsilon > 0$.  Therefore,
 \[ (x-\epsilon, x+\epsilon) \subset \bigcup\limits_{i \in I}A_i \]
 
- since $A_i \subset \mathbb{R}$ we arrive at our conclusion: The arbitrary union of open sets, $\bigcup\limits_{i \in I}A_i$ is open in $\mathbb{R}$. 
+ since $A_i \subset \mathbb{R}$ we arrive at our conclusion: The arbitrary union of open sets, $\bigcup\limits_{i \in I}A_i$ is open in $\mathbb{R}$.
 \end{proof}
 
 \item Show that a finite intersection of open sets in $\mathbb{R}$ is open in $\mathbb{R}$
@@ -124,7 +124,7 @@ Let $\epsilon = min(\epsilon_1,..., \epsilon_n) > 0$.  This shows $(x - \epsilon
 \item Show, by example, that an infinite intersection of open sets is not necessarily open.
 The open interval $(- \frac{1}{n},\frac{1}{n})$ is open $\forall n \in \mathbb{N}$  However, it's intersection
 \[ \bigcap\limits_{n=1}^{\infty}(- \frac{1}{n},\frac{1}{n}) = {0} = [0..0] \]
-which is closed. 
+which is closed.
 
 \item Show that an arbitrary intersection of closed sets in $\mathbb{R}$ is a closed set in $\mathbb{R}$.
 \begin{proof}
@@ -137,7 +137,7 @@ Since $\{A_i\} \subset \mathbb{R}$ are closed, $(\mathbb{R} \setminus A_i) \subs
 
 \end{proof}
 
-\item Show that a finite union of closed sets in $\mathbb{R}$ is a closed set in $\mathbb{R}$ 
+\item Show that a finite union of closed sets in $\mathbb{R}$ is a closed set in $\mathbb{R}$
 \begin{proof}
 
 Let $\{A_i \subset \mathbb{R}, i=1, 2,...,n\}$ be a finite collection of some $n \in \mathbb{N}$ closed sets in $\mathbb{R}$.  Let $\bigcup\limits_{i=1}^{n}A_i$ be the union of the finite closed subsets.
@@ -170,7 +170,7 @@ That is to say $(x-\epsilon, x+\epsilon) \cap S = \emptyset$.  Which contradicts
 Suppose $S$ contains all it's limits points and let $S$ be open, prove by contradiction.  Therefore, $\exists x \in S^c$ such that $(x- \epsilon, x+\epsilon)$ contains atleast one element of $S$, fix this value to $\bar{x} \in S^c$.  Symbolically written as
 \[(\bar{x}- \epsilon, \bar{x}+\epsilon) \cap S \neq \emptyset \text{,  } \forall \epsilon > 0\]
 
-For all $n \in \mathbb{N}$ let $x_n \in (\bar{x}, \frac{1}{n}) \cap S$ 
+For all $n \in \mathbb{N}$ let $x_n \in (\bar{x}, \frac{1}{n}) \cap S$
 
 Notice, ${x_n}$ is a sequence in $S$ that converges to $\bar{x} \notin S$, meaning that $\bar{x}$ is an accumulation point of $S$ that is not contained in the open $S$, so $S$ must be closed.
 \end{proof}
@@ -206,12 +206,12 @@ The ternary expansion $d_m$, does not appear in the list $x^n$ since $d_m \neq d
 
 \item Every point in the Cantor set is an accumulation point of the Cantor set.
 
-Every point of the Cantor set can be captured in an arbitrary union of closed sets.  So for any $x \in \mathcal{C}$, you can write $x$ in ternary as a limit of other numbers that have $0$s or $2$s in there ternary expansion. 
+Every point of the Cantor set can be captured in an arbitrary union of closed sets.  So for any $x \in \mathcal{C}$, you can write $x$ in ternary as a limit of other numbers that have $0$s or $2$s in there ternary expansion.
 
 \begin{proof}
 Let $C_n = \bigcup S_m$ where $S_m$ is a finite number of closed sets. For any $x \in S_m$ let $\bar{x}$ be the right end point of $S_m$, unless $x = \bar{x}$ then let $\bar{x}$ be the left endpoint. By construction, each subinterval of $S_m$ has length $\frac{1}{3^n}$.  Which means $|x - x_m| < \frac{1}{3^n}$.
 
-This implies that the sequence of $x_m$ converges to $x$ and such is an accumulation point.  Since we chose $x$ to be arbitrary, this applies to all $x \in \mathcal{C}$.  
+This implies that the sequence of $x_m$ converges to $x$ and such is an accumulation point.  Since we chose $x$ to be arbitrary, this applies to all $x \in \mathcal{C}$.
 \end{proof}
 
 \item The compliment of the Cantor Set in $[0,1]$ is a dense subset of $[0,1]$
@@ -258,7 +258,7 @@ A subset of $\mathbb{R}$ is compact if and only if it is sequentially compact.
 \begin{proof}"$\Rightarrow$" (Given in class)
 Suppose S is compact. Consider any infinite subsequence $(X_n) \subset S$.  We want to show that $(X_n)$ has a convergent subsequence whose limit is in $S$.
 
-We cover any point of $S$ by $(x-1, x+1)$.  This gives us an open cover.  Since $S$ is compact, there is a finite cover.  Therefore the sequence $(X_n)$ is covered by finitely many intervals of length $2$, hence there is an interval with infinitely many points in $(x_n)$.  Next, apply the theorem that every bounded sequence has a convergent subsequence.  
+We cover any point of $S$ by $(x-1, x+1)$.  This gives us an open cover.  Since $S$ is compact, there is a finite cover.  Therefore the sequence $(X_n)$ is covered by finitely many intervals of length $2$, hence there is an interval with infinitely many points in $(x_n)$.  Next, apply the theorem that every bounded sequence has a convergent subsequence.
 
 We still need to show that the subsequence converges to a point $x^*$ in $S$. Since $x^*$ is an accumulation point and S is bounded and closed, $S$ is closed and therefore $x \in S$
 
@@ -283,7 +283,7 @@ Therefore $S$ is compact.
 Base case. $N=0$.
 \[z^0 = \frac{1-z^{0+1}}{1-z}\]
 \[1 = 1\]
-Induction step.  
+Induction step.
 \begin{align*}
 \sum_{n=0}^{N}z^n &= z^0+z^1+...+z^{N-1} + z^{N}\\
  &= \frac{1-z^{(N-1)+1}}{1-z} + z^{N}\\
@@ -309,7 +309,7 @@ Defining $(z_n)_{n \in \mathbb{N}}$ as above, with the caveat that $|z| > 1$, th
 
 \item If $p \in \mathbb{R}$ and $p < 1$, show that $\sum_{n=1}^{\infty}\frac{1}{n^p}$ diverges.
 
-\marginnote{A key idea hear is the contrapositive of the Theorem $\sum_{n=1}^{\infty}a_n$ converges then $\lim_{n \rightarrow \infty}a_n = 0$. The contrapositive can be worded to say, if the terms of the series $a_n$ do not go to zero, then the series must diverge.  Likewise the comparison test is useful, consider a divergent series of $(b_n)$ If $0 \leq (b_n) \leq (a_n)$ the series of $(a_n)$ is divergent.}  
+\marginnote{A key idea hear is the contrapositive of the Theorem $\sum_{n=1}^{\infty}a_n$ converges then $\lim_{n \rightarrow \infty}a_n = 0$. The contrapositive can be worded to say, if the terms of the series $a_n$ do not go to zero, then the series must diverge.  Likewise the comparison test is useful, consider a divergent series of $(b_n)$ If $0 \leq (b_n) \leq (a_n)$ the series of $(a_n)$ is divergent.}
 
 
 If  $p < 1$, we have a series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ where our denominator $n^p$ will be ever increasing.  This is very similar to the harmonic series $\sum_{n=1}^{\infty}\frac{1}{n}$ which we know is divergent.  If $h_n = \frac{1}{n}$ and $a_n = \frac{1}{n^p}$, when $p < 1$, it's easy to see that
@@ -337,6 +337,24 @@ We  say that the series $\sum_{n=1}^{\infty}\frac{1}{n^p}$ converges if the sequ
 \end{align*}
 
 \end{proof}
+
+An alternate proof using bounded and monotonic sequence.
+
+\begin{proof}
+
+Given the hint, observe
+
+\begin{align*}
+\sum_{n=2}^n \frac{1}{n^p} &\leq \frac{1}{p-1} \cdot \Big( 1-\frac{1}{N^{p-1}}\Big)\\
+1 + \sum_{n=2}^n \frac{1}{n^p} &\leq 1+\frac{1}{p-1} \cdot \Big( 1-\frac{1}{N^{p-1}}\Big)\\
+S_n &\leq 1+\frac{1}{p-1} \cdot \Big( 1-\frac{1}{N^{p-1}}\Big)\\
+&< 1 + \frac{1}{p-1}
+\end{align*}
+
+Since $S_N$ is bounded and monotonically increasing, $\sum_{n=1}^{\infty}$ converges.
+
+\end{proof}
+
 \end{enumerate}
 
 \end{document}
